@@ -190,7 +190,7 @@ def get_style_examples(topic, res, n=3):
     return examples
 
 
-def build_quiz_prompt(retrieved_chunks, style_examples, n_questions=N_QUIZ_QUESTIONS):
+def build_quiz_prompt(retrieved_chunks, style_examples, n_questions=N_QUIZ_QUESTIONS, avoid_questions=None):
     slide_parts = []
     for c in retrieved_chunks:
         slide_parts.append(f"[slide id: {c['id']}]\n{c['text']}")
@@ -203,6 +203,16 @@ def build_quiz_prompt(retrieved_chunks, style_examples, n_questions=N_QUIZ_QUEST
             lines.append(f"{letter}. {option_text}")
         example_parts.append("\n".join(lines))
     examples = "\n\n".join(example_parts)
+
+    # 3) Questions the student already got on this topic → ask for new ones
+    avoid_text = ""
+    if avoid_questions:
+        avoid_lines = []
+        for old_question in avoid_questions:
+            avoid_lines.append(f"- {old_question}")
+        avoid_text = ("The student already answered these questions. Write NEW questions that test "
+                      "different facts or ideas from the slides, not the same ones reworded:\n"
+                      + "\n".join(avoid_lines) + "\n")
 
     return f"""You write multiple-choice exam questions to help a student revise an AI / Machine Learning course.
 
@@ -221,6 +231,7 @@ Rules:
 5. "explanation": 1-2 sentences explaining the correct answer using the slides.
 6. "source": the slide id the answer comes from, e.g. "K-means_p21" (only the id: no brackets, no "slide id:").
 
+{avoid_text}
 Return ONLY a JSON object in this format:
 {QUIZ_JSON_FORMAT}"""
 
@@ -279,10 +290,10 @@ def check_question(q, allowed_ids):
     return problems
 
 
-def generate_quiz(query, retrieved_chunks, res, quiz_llm):
+def generate_quiz(query, retrieved_chunks, res, quiz_llm, avoid_questions=None):
     """Returns (valid_questions, reasons). reasons = why questions were dropped, shown in the app."""
     style_examples = get_style_examples(query, res)
-    prompt = build_quiz_prompt(retrieved_chunks, style_examples)
+    prompt = build_quiz_prompt(retrieved_chunks, style_examples, avoid_questions=avoid_questions)
     response = quiz_llm.invoke(prompt)
 
     try:
@@ -395,6 +406,42 @@ def show_answer_review(q, chosen):
     st.markdown("".join(rows), unsafe_allow_html=True)
 
 
+def make_new_quiz(res, quiz_llm):
+    """Generates a quiz from the saved slides (up to 2 tries). Returns the reasons if it failed."""
+    quiz = []
+    all_reasons = []
+    with st.spinner("Writing questions from these slides..."):
+        for attempt in [1, 2]:
+            try:
+                quiz, reasons = generate_quiz(st.session_state.question, st.session_state.chunks, res, quiz_llm,
+                                              avoid_questions=st.session_state.previous_questions)
+            except Exception as e:
+                quiz, reasons = [], [f"Quiz generation failed: {e}"]
+            for reason in reasons:
+                all_reasons.append(f"Try {attempt}: {reason}")
+                print(f"Try {attempt}: {reason}")      # also in the terminal
+            if quiz:
+                break
+
+    if not quiz:
+        return all_reasons
+
+    for q in quiz:
+        st.session_state.previous_questions.append(q["question"])
+    st.session_state.quiz = quiz
+    st.session_state.quiz_round += 1            # new widget keys → no old answers carried over
+    st.session_state.submitted = False
+    st.session_state.chosen = {}
+    return []
+
+
+def show_quiz_error(reasons):
+    st.warning("Could not generate a quiz this time. Please click again.")
+    with st.expander("Why? (details)"):
+        for reason in reasons:
+            st.caption(reason)
+
+
 def find_chunk(chunk_id):
     for c in st.session_state.chunks:
         if c["id"] == chunk_id:
@@ -418,6 +465,8 @@ if "question" not in st.session_state:
     st.session_state.submitted = False
     st.session_state.chosen = {}           # question index → chosen letters
     st.session_state.timing = {}
+if "previous_questions" not in st.session_state:
+    st.session_state.previous_questions = []   # quiz questions already asked on this topic
 
 if not os.getenv("OPENAI_API_KEY"):
     st.error("OPENAI_API_KEY was not found. Put it in a `.env` file next to app.py, then restart the app.")
@@ -489,6 +538,7 @@ if new_question:
         st.session_state.answer = answer
         st.session_state.chunks = chunks
         st.session_state.quiz = []
+        st.session_state.previous_questions = []     # new topic → start fresh
         st.session_state.submitted = False
         st.session_state.chosen = {}
         st.session_state.timing = {"search": t1 - t0, "answer": t2 - t1}
@@ -519,31 +569,11 @@ if st.session_state.question is not None:
 
         if not st.session_state.quiz:
             if st.button("📝 Quiz me on this", type="primary"):
-                quiz = []
-                all_reasons = []
-                with st.spinner("Writing questions from these slides..."):
-                    # up to 2 tries: temperature 0.7 → the second try gives different questions
-                    for attempt in [1, 2]:
-                        try:
-                            quiz, reasons = generate_quiz(st.session_state.question, st.session_state.chunks, res, quiz_llm)
-                        except Exception as e:
-                            quiz, reasons = [], [f"Quiz generation failed: {e}"]
-                        for reason in reasons:
-                            all_reasons.append(f"Try {attempt}: {reason}")
-                            print(f"Try {attempt}: {reason}")      # also in the terminal
-                        if quiz:
-                            break
-                if quiz:
-                    st.session_state.quiz = quiz
-                    st.session_state.quiz_round += 1
-                    st.session_state.submitted = False
-                    st.session_state.chosen = {}
-                    st.rerun()
+                reasons = make_new_quiz(res, quiz_llm)
+                if reasons:
+                    show_quiz_error(reasons)
                 else:
-                    st.warning("Could not generate a quiz this time. Please click again.")
-                    with st.expander("Why? (details)"):
-                        for reason in all_reasons:
-                            st.caption(reason)
+                    st.rerun()
 
         # ---------------- Quiz ----------------
         if st.session_state.quiz and not st.session_state.submitted:
@@ -615,9 +645,11 @@ if st.session_state.question is not None:
                                 st.caption(slide["text"].split("\n", 1)[-1])
 
             if st.button("🔄 New quiz on this topic"):
-                st.session_state.quiz = []
-                st.session_state.submitted = False
-                st.rerun()
+                reasons = make_new_quiz(res, quiz_llm)
+                if reasons:
+                    show_quiz_error(reasons)
+                else:
+                    st.rerun()
 
     timing = st.session_state.timing
     st.markdown(

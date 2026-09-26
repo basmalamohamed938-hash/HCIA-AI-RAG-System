@@ -146,6 +146,8 @@ All paths are **relative** (`BASE_DIR = Path.cwd()` in the notebook, `Path(__fil
 - ✅ Step B done: `app.py` rewritten for the new DB (same functions as the notebook, no query rewriting, no bge query prefix).
   UI: theme in `assets/style.css` (light blue glass, pill buttons), layout like an agent page (top bar, character in the center, task card, chat input at the bottom),
   character = `assets/study_buddy.webp` (3D cartoon, transparent background, supplied by the student) + a CSS "thinking" bubble. `.streamlit/config.toml` forces the light theme and turns off the file watcher.
+  Quiz in the app (differs from the notebook): up to 2 tries, reasons shown in a "Why?" expander, `clean_source()` for "[slide id: X]",
+  "New quiz on this topic" generates directly and sends the previous questions of this topic so the LLM writes different ones.
   Tested with Streamlit 1.64 + a fake OpenAI server: explain → sources → quiz → submit → score/review, empty submit, new question resets the quiz, dropped questions → warning.
 
 ---
