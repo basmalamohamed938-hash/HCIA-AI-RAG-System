@@ -3514,6 +3514,132 @@
     "text": "KEY TAKEAWAYS\nHow Gradient Boosting Works\n01\nStart simple\nThe first prediction is just the average of all target values.\n02\nPredict the error\nEach new tree learns to predict the previous model's residuals — not the price itself.\n03\nAdd cautiously\nA learning rate (e.g., 0.1) scales down each tree's contribution to avoid overreacting.\n04\nRepeat and converge\nResiduals shrink with every tree, and predictions gradually approach the true values.\n12"
   },
   {
+    "id": "Hierarchical Clustering_p2",
+    "lecture": "Hierarchical Clustering",
+    "page": 2,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "What is Hierarchical Clustering?\nIt is a clustering method that creates a hirearchical tree of\nobjects to be clustered hierarchically.\nThe tree represents the relationships between objects and\nshows how objects are clustered at different levels."
+  },
+  {
+    "id": "Hierarchical Clustering_p3",
+    "lecture": "Hierarchical Clustering",
+    "page": 3,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "What is Hierarchical Clustering?\nDendrogram"
+  },
+  {
+    "id": "Hierarchical Clustering_p4",
+    "lecture": "Hierarchical Clustering",
+    "page": 4,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "How does Hierarchical\nClustering work?"
+  },
+  {
+    "id": "Hierarchical Clustering_p5",
+    "lecture": "Hierarchical Clustering",
+    "page": 5,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "1- Assign a cluster to each individual point \n(number of clusters = number of points)"
+  },
+  {
+    "id": "Hierarchical Clustering_p6",
+    "lecture": "Hierarchical Clustering",
+    "page": 6,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "2- Calculate Pairwise distances\nCompute the distance between every pair of clusters using a\ndistance metric ."
+  },
+  {
+    "id": "Hierarchical Clustering_p7",
+    "lecture": "Hierarchical Clustering",
+    "page": 7,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "3- Link clusters\nIdentify the two clusters that are closest to each other based on the\ndistance metric, and merge these two clusters into a single cluster ."
+  },
+  {
+    "id": "Hierarchical Clustering_p8",
+    "lecture": "Hierarchical Clustering",
+    "page": 8,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "4- Repeat the process\nContinue merging the closest clusters and updating the distance\nmetric until all data points are merged into a single cluster, or until\nthe desired number of clusters is reached."
+  },
+  {
+    "id": "Hierarchical Clustering_p9",
+    "lecture": "Hierarchical Clustering",
+    "page": 9,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "How to link cluster with\nmore than one point?"
+  },
+  {
+    "id": "Hierarchical Clustering_p10",
+    "lecture": "Hierarchical Clustering",
+    "page": 10,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "1- Single-linkage\nuses the distance between the closest elements in the cluster"
+  },
+  {
+    "id": "Hierarchical Clustering_p11",
+    "lecture": "Hierarchical Clustering",
+    "page": 11,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "2- Complete-linkage\nuses the distance between the most remote elements of the cluster."
+  },
+  {
+    "id": "Hierarchical Clustering_p12",
+    "lecture": "Hierarchical Clustering",
+    "page": 12,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "2- Average-linkage\nuses the average of all pairwise distances.\nFrom each combination, the distance is calculated, and then we compute\nthe average of all distances"
+  },
+  {
+    "id": "Hierarchical Clustering_p14",
+    "lecture": "Hierarchical Clustering",
+    "page": 14,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "1- Every single point is a cluster\nThis is the dataset we are going to work on; we created a cluster for\neach point."
+  },
+  {
+    "id": "Hierarchical Clustering_p15",
+    "lecture": "Hierarchical Clustering",
+    "page": 15,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "2- Measure the distance between each cluster\nWe create a distance matrix that contains the distance between each\ncluster and the other clusters."
+  },
+  {
+    "id": "Hierarchical Clustering_p16",
+    "lecture": "Hierarchical Clustering",
+    "page": 16,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "3- Merge the closest clusters\nLisa and Joe are the closest clusters with a distance of 1.0"
+  },
+  {
+    "id": "Hierarchical Clustering_p18",
+    "lecture": "Hierarchical Clustering",
+    "page": 18,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "5- Choose the new closest clusters"
+  },
+  {
+    "id": "Hierarchical Clustering_p19",
+    "lecture": "Hierarchical Clustering",
+    "page": 19,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "6- Continue the same steps until we reach our goal"
+  },
+  {
+    "id": "Hierarchical Clustering_p23",
+    "lecture": "Hierarchical Clustering",
+    "page": 23,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "Aspect K-means Hierarchical\nComplexity faster Slower, requires more\niterations\nScalability better with large datasets Not preferable with large\ndatasets\nParameters Require (K) before\nclustering\nDoes not require\nparameters \nOutput It produces one clustering\nscheme\nIt produces a hierarchy of\nclusters, which can be cut ate\ndifferent levels to obtain\ndifferent numbers of clusters"
+  },
+  {
+    "id": "Hierarchical Clustering_p25",
+    "lecture": "Hierarchical Clustering",
+    "page": 25,
+    "source": "Hierarchical Clustering.pdf",
+    "text": "When to use..\nK-means:\nBest for large datasets\nWhen the number of clusters is known\nWhen clusters are roughly spherical\nHierarchical\nGood for smaller datasets\nWhen you want to explore the data to determine the number of\nclusters\nBetter when the dataset is imalanced"
+  },
+  {
     "id": "Imbalanced Data_p1",
     "lecture": "Imbalanced Data",
     "page": 1,
@@ -4072,6 +4198,202 @@
     "page": 62,
     "source": "intro to CV & CNN.pdf",
     "text": "THE BIG PICTURE\nWhat a CNN Can Do\nCNN\nClassification\nClasses\nDetection\nBoxes + Classes\nSegmentation\nPixel-level Predictions\n+ Transfer Learning lets every one of these reuse a representation learned once, on a large dataset."
+  },
+  {
+    "id": "K-means_p2",
+    "lecture": "K-means",
+    "page": 2,
+    "source": "K-means.pdf",
+    "text": "Introduction\nWhat is the difference between\nClustering and Classification?"
+  },
+  {
+    "id": "K-means_p3",
+    "lecture": "K-means",
+    "page": 3,
+    "source": "K-means.pdf",
+    "text": "~ Classification Clustering\nInput Data Labeled Unlabeled\nGoal Predict known labels Discover hidden patterns\nCategories Number of categories\nis known\nNumber of groups is\nunknown\nEvaluation Accuracy, precision,\nrecall NO ACCURACY"
+  },
+  {
+    "id": "K-means_p4",
+    "lecture": "K-means",
+    "page": 4,
+    "source": "K-means.pdf",
+    "text": "Instead of accuracy we use cluster\nquality metrics\n1.WCSS = \"Are similar pieces close?\"\n2.BCSS = \"Are different groups far apart?\""
+  },
+  {
+    "id": "K-means_p7",
+    "lecture": "K-means",
+    "page": 7,
+    "source": "K-means.pdf",
+    "text": "1- Define K (number of clusters) \n Randomly"
+  },
+  {
+    "id": "K-means_p8",
+    "lecture": "K-means",
+    "page": 8,
+    "source": "K-means.pdf",
+    "text": "2- Set Clusters Centers Randomly"
+  },
+  {
+    "id": "K-means_p9",
+    "lecture": "K-means",
+    "page": 9,
+    "source": "K-means.pdf",
+    "text": "3- Assign points to clusters based on distance\nbetween the point and each center\nThe most common used\ndistance measure is\n“Euclidean Distance”"
+  },
+  {
+    "id": "K-means_p10",
+    "lecture": "K-means",
+    "page": 10,
+    "source": "K-means.pdf",
+    "text": "4- Updating the centeriod of each cluster by\ncalculating the mean.\nμk : new centroid of the\ncluster\n∣Ck ∣ : number of points\nin the cluster \nxi: Data point assigned to\nthe cluster"
+  },
+  {
+    "id": "K-means_p11",
+    "lecture": "K-means",
+    "page": 11,
+    "source": "K-means.pdf",
+    "text": "5- Assigning points to the new cluster after\nupdating the centroids."
+  },
+  {
+    "id": "K-means_p12",
+    "lecture": "K-means",
+    "page": 12,
+    "source": "K-means.pdf",
+    "text": "The update process is repeated until\nconvergence"
+  },
+  {
+    "id": "K-means_p13",
+    "lecture": "K-means",
+    "page": 13,
+    "source": "K-means.pdf",
+    "text": "What is “Convergence”?\nIt is when the centroids no longer change significantly\nIt ensures the within-cluster-variance.\n Convergence is important, but it does not mean that we\nfound the best solution! K-means can get stuck in local\noptima. That’s why we run it multiple times with different\ninitial centroids."
+  },
+  {
+    "id": "K-means_p14",
+    "lecture": "K-means",
+    "page": 14,
+    "source": "K-means.pdf",
+    "text": "Define the right\nnumber of clusters (K)\nby Elbow Method"
+  },
+  {
+    "id": "K-means_p15",
+    "lecture": "K-means",
+    "page": 15,
+    "source": "K-means.pdf",
+    "text": "Elbow Method\nWe iterate through a range of the\npossible (k) values, and for each\n(k) we calculate the sum of\ndistance of each point from its\ncluster centroid (WCSS).\nThe elbow point is the point\nwhere the (WCSS) starts to\ndecrease at a lower rate and\nadding more clusters is not\nsignificantly improving the fit\nwithin the clusters."
+  },
+  {
+    "id": "K-means_p17",
+    "lecture": "K-means",
+    "page": 17,
+    "source": "K-means.pdf",
+    "text": "It measures how similar a point is to its cluster and represents it as a score that\nranges from -1 to 1 where:\n1 → point is well matched to its own cluster and poorly matched to\nneighboring clusters.\n0 → point is on or very close to the decision boundry between two neighboring\nclusters\n-1 → point is poorly matched to its own cluster and well matched to a\nneighboring cluster.\nSilhouette Score\na(i): the average distance between ⓘ\nand all other points in the same cluster.\nb(i): the average distance between ⓘ\nand all points in the nearest cluster."
+  },
+  {
+    "id": "K-means_p19",
+    "lecture": "K-means",
+    "page": 19,
+    "source": "K-means.pdf",
+    "text": "Dependency on the initial guess: Final clusters can be\naffected by the initial guess, and the algorithm may not find\nthe best solution leading to less accurate clusters.\nSensitivity to outliers: K-means treats all data points equally\nand can be sensitive to outliers as it depends on the mean.\nNeed to know the number of clusters: We have to tell the\nalgorithm how many clusters we expect in the data.\nK-means assumes clusters are round or spherical and\nequally-sized which is not always the case in the real-world."
+  },
+  {
+    "id": "K-means_p20",
+    "lecture": "K-means",
+    "page": 20,
+    "source": "K-means.pdf",
+    "text": "Tips and Considerations on\nK-means"
+  },
+  {
+    "id": "K-means_p21",
+    "lecture": "K-means",
+    "page": 21,
+    "source": "K-means.pdf",
+    "text": "Case Recommended Solution\nCategorical data\n1- Consider using K-modes instead of encoding\nand see which is better!\nDependency of\ninitial guess of\ncentroids\n1-Choose different random starting points in\norder to get the best possible result.\n2- Use K-means++ which selects the first\ncentroid randomly, then select the rest of the\ncentroids based on the distance from the first\none (the points that are so far have high\nprobability to be chosen)"
+  },
+  {
+    "id": "K-means_p22",
+    "lecture": "K-means",
+    "page": 22,
+    "source": "K-means.pdf",
+    "text": "Case Recommended Solution\nSensitivity to outliers\n1- Consider using K-Medians instead of K-\nmeans to reduce the effect of the outliers.\n2- Assign weights to data points, so that\nthe far data points have a lower weights.\nToo large dataset\nConsider using mini-batch K-means that\ntakes small random mini-batches of data\ninstead of using the full dataset."
+  },
+  {
+    "id": "K-means_p23",
+    "lecture": "K-means",
+    "page": 23,
+    "source": "K-means.pdf",
+    "text": "When to use K-means\nClustering?"
+  },
+  {
+    "id": "K-means_p24",
+    "lecture": "K-means",
+    "page": 24,
+    "source": "K-means.pdf",
+    "text": "You have a large dataset\nYou know (or can guess) the number of clusters (K).\nClusters are roughly spherical and equally sized.\nData is numeric and continuous.\nSuitable fo quick clustering tasks"
+  },
+  {
+    "id": "K-means_p25",
+    "lecture": "K-means",
+    "page": 25,
+    "source": "K-means.pdf",
+    "text": "Real-world Applications of\nK-means"
+  },
+  {
+    "id": "K-means_p26",
+    "lecture": "K-means",
+    "page": 26,
+    "source": "K-means.pdf",
+    "text": "Recommendation Systems K-Means is used to cluster similar\nproducts or services together and recommend them to users\nbased on their past behavior.\nText Clustering K-Means is used in natural language\nprocessing (NLP) to cluster similar documents or text data\ntogether, making it easier to analyze large volumes of text\ndata.\nAnomaly Detection We assign a threshold that if a distance\nfrom a point to the center exceeds it, it is detected as an\noutlier or anomaly."
+  },
+  {
+    "id": "K-means_p28",
+    "lecture": "K-means",
+    "page": 28,
+    "source": "K-means.pdf",
+    "text": "Why this is a poor clustering?"
+  },
+  {
+    "id": "K-means_p29",
+    "lecture": "K-means",
+    "page": 29,
+    "source": "K-means.pdf",
+    "text": "Answer: \nK is not right:\nK number is too large, so\nthe model is overfitting\n(giving us more\n clusters than we \nreally need)"
+  },
+  {
+    "id": "K-means_p31",
+    "lecture": "K-means",
+    "page": 31,
+    "source": "K-means.pdf",
+    "text": "Answer: \nK is not right:\nK is too few, so the\nmodel is underfitting\n(giving general clusters\nthat are not useful and\nless than what is\nsupposed to be)"
+  },
+  {
+    "id": "K-means_p32",
+    "lecture": "K-means",
+    "page": 32,
+    "source": "K-means.pdf",
+    "text": "Why this is a poor clustering? What is the\nsuitable algorithm for this problem?"
+  },
+  {
+    "id": "K-means_p33",
+    "lecture": "K-means",
+    "page": 33,
+    "source": "K-means.pdf",
+    "text": "Answer: \nClusters are not\nspherical, so the model\nfailed to cluster them\ncorrectly. We can use\nanother algorithm such\nas hierarchical or\nDBSCAN."
+  },
+  {
+    "id": "K-means_p34",
+    "lecture": "K-means",
+    "page": 34,
+    "source": "K-means.pdf",
+    "text": "What is the best clustering? and guess why it is better."
+  },
+  {
+    "id": "K-means_p35",
+    "lecture": "K-means",
+    "page": 35,
+    "source": "K-means.pdf",
+    "text": "Answer: \nLeft Side:\nRandom initial guess of k gives us poor clustering, the\ncentroids will reach convergence, but will never reach the\noptimal solution\nRight Side:\nThe clustering result is much better because we used \nK-means++ instead of random initial guesses."
   },
   {
     "id": "KNN_p2",
@@ -5192,6 +5514,279 @@
     "page": 37,
     "source": "Logistic_Regression .pdf",
     "text": "PUTTING I T ALL TOGETHER\nFrom Features to Prediction\nInput Features → Linear Equation (z = \nwX + b) → Sigmoid Function → Probability (0–1) → Threshold (usually 0.5) → Predicted Class\nEvaluate the result with:\nConfusion Matrix Accuracy Precision Recall F1-score ROC & AUC\nLogistic Regression — simple, fast, interpretable, and still a strong first baseline.\nNancy Ahmed"
+  },
+  {
+    "id": "NLP - Text preprocessing_p1",
+    "lecture": "NLP - Text preprocessing",
+    "page": 1,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "What is NLP?\n• Natural Language Processing (NLP) is a field within artificial intelligence (AI) and computational linguistics that\nfocuses on the interaction between computers and human language.\n• NLP enables machines to understand, interpret, generate, and respond to human language in a way that is both\nmeaningful and useful."
+  },
+  {
+    "id": "NLP - Text preprocessing_p2",
+    "lecture": "NLP - Text preprocessing",
+    "page": 2,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Components of NLP\n• Natural Language Understanding (NLU) is a subfield of NLP that focuses on the machine's ability to\ncomprehend and interpret human language. It involves extracting meaningful information and understanding\nthe context, intent, and semantics of the text.\n• Natural Language Generation (NLG) is a subfield of NLP that focuses on creating coherent and contextually\nappropriate text based on input data or prompts. It involves generating human-like language from\nstructured data or other forms of input."
+  },
+  {
+    "id": "NLP - Text preprocessing_p4",
+    "lecture": "NLP - Text preprocessing",
+    "page": 4,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Why Does Natural Language Processing (NLP) \nMatter?"
+  },
+  {
+    "id": "NLP - Text preprocessing_p6",
+    "lecture": "NLP - Text preprocessing",
+    "page": 6,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Applications of NLP\n• Toxicity classification is a branch of sentiment analysis where the aim is not just\nto classify hostile intent but also to classify particular categories such as threats,\ninsults, obscenities, and hatred towards certain identities.\n• Toxicity classification models can be used to moderate and improve online\nconversations by silencing offensive comments, detecting hate speech,\nor scanning documents for defamation."
+  },
+  {
+    "id": "NLP - Text preprocessing_p9",
+    "lecture": "NLP - Text preprocessing",
+    "page": 9,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Applications of NLP\nTopic Classification"
+  },
+  {
+    "id": "NLP - Text preprocessing_p10",
+    "lecture": "NLP - Text preprocessing",
+    "page": 10,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Applications of NLP\nGrammatical error correction Grammarly"
+  },
+  {
+    "id": "NLP - Text preprocessing_p14",
+    "lecture": "NLP - Text preprocessing",
+    "page": 14,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Applications of NLP\nInformation retrieval finds the documents that are most relevant to a query."
+  },
+  {
+    "id": "NLP - Text preprocessing_p16",
+    "lecture": "NLP - Text preprocessing",
+    "page": 16,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Applications of NLP\nQuestion answering"
+  },
+  {
+    "id": "NLP - Text preprocessing_p17",
+    "lecture": "NLP - Text preprocessing",
+    "page": 17,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "NLP Challenges\n• Ambiguity\n• Types:\n• Lexical Ambiguity: Words with multiple meanings (e.g., \"bank\" can refer to a financial institution or the side of a river).\n• Syntactic Ambiguity: Sentences that can be parsed in multiple ways (e.g., \"The man saw the woman with the telescope\"\ncan imply different relationships between the man, woman, and telescope).\n• Semantic Ambiguity: Sentences or phrases that can be interpreted in different ways based on context (e.g., \"She is looking\nfor a bank\" could mean she’s searching for a financial institution or the side of a river).\n• Challenges:\n• Developing algorithms that can disambiguate based on context is complex.\n• Requires a deep understanding of both linguistic structure and real-world knowledge."
+  },
+  {
+    "id": "NLP - Text preprocessing_p18",
+    "lecture": "NLP - Text preprocessing",
+    "page": 18,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "NLP Challenges\n• Context Understanding: refers to the ability to comprehend and interpret information within its\nrelevant circumstances, environment, and background\n• Types:\n• Long-Range Dependencies: Capturing relationships between words or phrases that are far\napart in a text (e.g., pronoun resolution).\n• Conversational Context: Maintaining context over multiple turns in a conversation or\ndialogue.\n• Challenges:\n• Ensuring models remember and correctly interpret context from earlier parts of a\nconversation or document.\n• Difficult to handle with traditional models but improving with newer architectures like\nTransformers."
+  },
+  {
+    "id": "NLP - Text preprocessing_p19",
+    "lecture": "NLP - Text preprocessing",
+    "page": 19,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "NLP Challenges\n• Handling Diverse and Noisy Data\n• Types:\n• Social Media and Web Data: Text from social media can be informal, full of slang, \nabbreviations, and errors.\n• Multilingual Data: Dealing with multiple languages, dialects, and language variations.\n• Challenges:\n• Cleaning and preprocessing diverse data sources to ensure quality.\n• Building models that generalize well across different languages and informal text."
+  },
+  {
+    "id": "NLP - Text preprocessing_p20",
+    "lecture": "NLP - Text preprocessing",
+    "page": 20,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "NLP Challenges\n• Understanding Implicit Meaning\n• Types:\n• Sarcasm and Irony: Identifying and correctly interpreting sarcastic or ironic statements.\n• Cultural and Social Context: Understanding references or implications specific to certain\ncultures or social groups.\n• Challenges:\n• Designing models that can grasp subtle linguistic features and cultural context.\n• Training on diverse datasets that cover a wide range of social and cultural nuances."
+  },
+  {
+    "id": "NLP - Text preprocessing_p21",
+    "lecture": "NLP - Text preprocessing",
+    "page": 21,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "NLP Challenges\n• Low-Resource Languages\n• Types:\n• Limited Data: Many languages have limited available training data, making it challenging to\nbuild effective models.\n• Under-Represented Dialects: Some dialects or regional variations lack sufficient\nrepresentation in data.\n• Challenges:\n• Developing techniques to work effectively with small datasets or using transfer learning from\nhigh-resource languages.\n• Building models that respect and represent linguistic diversity adequately."
+  },
+  {
+    "id": "NLP - Text preprocessing_p23",
+    "lecture": "NLP - Text preprocessing",
+    "page": 23,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "NLP Lifecycle\nhttps://medium.com/@Choukrallah_lachhab/nlp-pipeline-bdac4987b627"
+  },
+  {
+    "id": "NLP - Text preprocessing_p24",
+    "lecture": "NLP - Text preprocessing",
+    "page": 24,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Text Cleaning\n• Text cleaning is a crucial step in natural language processing (NLP)\npipelines, as it prepares raw text data for further analysis and\nmodeling.\n• The goal is to remove or correct parts of the text that could introduce\nnoise or errors into the analysis."
+  },
+  {
+    "id": "NLP - Text preprocessing_p26",
+    "lecture": "NLP - Text preprocessing",
+    "page": 26,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Advantages of Lowercasing\n• Reduces Dimensionality:\n• Explanation: By converting all text to lowercase, variations in capitalization (e.g., \"Apple\" vs. \"apple\") are normalized. This \nreduces the number of unique tokens or features, simplifying the model and reducing computational complexity.\n• Benefit: Helps in creating a more compact and manageable vocabulary, which can improve model efficiency and training \nspeed.\n• Improves Consistency:\n• Explanation: Lowercasing ensures that words are treated consistently regardless of how they are capitalized in the original \ntext.\n• Benefit: Enhances the accuracy of text matching and similarity measurements, as variations in capitalization no longer affect \nthe analysis.\n• Simplifies Text Processing:\n• Explanation: Many NLP tasks, like text classification or sentiment analysis, do not require distinguishing between \"Apple\" \nand \"apple.\"\n• Benefit: Simplifies the processing pipeline and reduces the need for handling case-specific variations, which can streamline \ntext processing.\n• Reduces Sparsity:\n• Explanation: Lowercasing helps in reducing the sparsity of feature matrices, where each unique capitalization variant would \notherwise be treated as a distinct feature.\n• Benefit: Helps in improving model performance and generalization by reducing the number of features in the feature space."
+  },
+  {
+    "id": "NLP - Text preprocessing_p27",
+    "lecture": "NLP - Text preprocessing",
+    "page": 27,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Disadvantages of Lowercasing\n• Loss of Important Information:\n• Explanation: Capitalization often conveys important information, such as proper nouns (e.g., \"New York\" vs. \"new york\") and \nsentence beginnings. Lowercasing can strip away this information.\n• Drawback: Can lead to loss of context or meaning, especially in cases where capitalization is used to convey specific entities \nor emphasis.\n• Inconsistent with Certain Use Cases:\n• Explanation: In some applications, such as Named Entity Recognition (NER) or document classification, capitalization may \ncarry crucial information that distinguishes entities or categories.\n• Drawback: Lowercasing might hinder the ability to recognize named entities or classify documents based on capitalized \nterms.\n• May Affect Model Performance:\n• Explanation: For tasks where capitalization contributes to the understanding of the text (e.g., distinguishing between \nacronyms and regular words), lowercasing can degrade model performance.\n• Drawback: May negatively impact the accuracy of models that rely on case-sensitive features or where capitalization plays a \nrole in distinguishing meanings.\n• Inconsistent with Some Languages:\n• Explanation: Not all languages use capitalization in the same way. Some languages (e.g., Chinese) do not use capital letters, \nso lowercasing is less relevant.\n• Drawback: The practice may not be applicable or beneficial in all languages, and decisions about text preprocessing should \nconsider language-specific conventions."
+  },
+  {
+    "id": "NLP - Text preprocessing_p28",
+    "lecture": "NLP - Text preprocessing",
+    "page": 28,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "When to Use Lowercasing\n• Use Lowercasing When:\n• The task involves analyzing general text where capitalization does not convey \nessential meaning.\n• The focus is on text classification, sentiment analysis, or other tasks where \nconsistent token representation is more important than case distinctions.\n• Avoid Lowercasing When:\n• The task involves named entity recognition, where case distinctions are \nimportant.\n• The text contains important case-specific information, such as acronyms, \ntitles, or entities where capitalization carries meaning."
+  },
+  {
+    "id": "NLP - Text preprocessing_p43",
+    "lecture": "NLP - Text preprocessing",
+    "page": 43,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Prepreprocessing\n• Preprocessing is a crucial step in preparing text data for natural\nlanguage processing (NLP) tasks. It helps to standardize and clean text\nto improve the performance of NLP models."
+  },
+  {
+    "id": "NLP - Text preprocessing_p44",
+    "lecture": "NLP - Text preprocessing",
+    "page": 44,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Tokenization\n• Definition: The process of splitting text into individual tokens, such as words or phrases.\n• Techniques:\n• Character-based: The simplest tokenization scheme is to feed each character individually to the model. \n• Word Tokenization: Breaking text into words.\n• Sentence Tokenization: Splitting text into sentences.\n• Subword Tokenization: Handling words that are not in the vocabulary by splitting into subword units \n(state-of-the-art transformer )"
+  },
+  {
+    "id": "NLP - Text preprocessing_p45",
+    "lecture": "NLP - Text preprocessing",
+    "page": 45,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Why do we tokenize?\n• Tokens are the building blocks of text in the natural language. \n• Therefore, most of the preprocessing and modeling happens at the token level.\n• For example, removing stopwords, stemming, lemmatization and many other \npreprocessing steps happen at token levels \n• Even neural network architectures process individual tokens to make sense of the \ndocument."
+  },
+  {
+    "id": "NLP - Text preprocessing_p46",
+    "lecture": "NLP - Text preprocessing",
+    "page": 46,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Challenges of Character tokenization\n• We can see that character-level tokenization ignores any structure in the text and\ntreats the whole string as a stream of characters.\n• Although this helps deal with misspellings and rare words, the main drawback is\nthat linguistic structures such as words need to be learned from the data.\n• This requires significant compute, memory, and data. For this reason, character\ntokenization is rarely used in practice."
+  },
+  {
+    "id": "NLP - Text preprocessing_p47",
+    "lecture": "NLP - Text preprocessing",
+    "page": 47,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Word Tokenization\n• Instead of splitting the text into characters, we can split it into words and map\neach word to an integer.\n• Using words from the outset enables the model to skip the step of learning\nwords from characters, and thereby reduces the complexity of the training\nprocess."
+  },
+  {
+    "id": "NLP - Text preprocessing_p48",
+    "lecture": "NLP - Text preprocessing",
+    "page": 48,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Challenges of word tokenization\n• 1. Handling Punctuation and Special Characters\n• Separation vs. Retention: Deciding whether punctuation marks (e.g., commas, periods) should be treated as\nseparate tokens or included with adjacent words can be complex. For example, \"Hello, world!\" could be\ntokenized as [\"Hello\", \",\", \"world\", \"!\"] or [\"Hello,\", \"world!\"].\n• Special Characters: Special characters (e.g., hashtags, @mentions) in social media or URLs can complicate\ntokenization. Deciding how to handle these characters requires careful consideration.\n• 2. Dealing with Multi-Word Expressions\n• Compound Words: Words like \"New York\" or \"machine learning\" are often treated as single entities, but\nstraightforward tokenization might split them into individual words.\n• Named Entities: Identifying and properly tokenizing named entities (e.g., \"San Francisco\", \"United Nations\") is\nchallenging as they often appear as multi-word expressions.\n• Languages without clear boundaries.\n• Some languages, like Chinese or Japanese, don't have clear spaces between words, making tokenization a \nmore complex task. Determining where one word ends and another begins can be a significant challenge in \nsuch languages.\n• Handling Out-of-Vocabulary Words\n• Unknown Words: Tokenization can struggle with words not seen during training, such as slang or newly\ncoined terms. Handling these out-of-vocabulary words effectively is challenging."
+  },
+  {
+    "id": "NLP - Text preprocessing_p49",
+    "lecture": "NLP - Text preprocessing",
+    "page": 49,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Subword Tokenization\n• The basic idea behind subword tokenization is to combine the best \naspects of character and word tokenization."
+  },
+  {
+    "id": "NLP - Text preprocessing_p50",
+    "lecture": "NLP - Text preprocessing",
+    "page": 50,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Subword Tokenization\n• On the one hand, we want to split rare words into smaller units to allow the \nmodel to deal with complex words and misspellings. \n• On the other hand, we want to keep frequent words as unique entities so that \nwe can keep the length of our inputs to a manageable size."
+  },
+  {
+    "id": "NLP - Text preprocessing_p51",
+    "lecture": "NLP - Text preprocessing",
+    "page": 51,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "NLTK\n• NLTK (Natural Language Toolkit) is an open-source Python library for \nNatural Language Processing. It has easy-to-use interfaces for over 50 \ncorpora and lexical resources such as WordNet, along with a set of \ntext processing libraries for classification, tokenization, stemming, and \ntagging."
+  },
+  {
+    "id": "NLP - Text preprocessing_p53",
+    "lecture": "NLP - Text preprocessing",
+    "page": 53,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "spaCy\n• SpaCy is an open-source Python library that parses and understands large\nvolumes of text. With available models catering to specific languages (English,\nFrench, German, etc.), it handles NLP tasks with the most efficient\nimplementation of common algorithms.\n• spaCy tokenizer provides the flexibility to specify special tokens that don’t need\nto be segmented, or need to be segmented using special rules for each language,\nfor example punctuation at the end of a sentence should be split off – whereas\n“U.K.” should remain one token."
+  },
+  {
+    "id": "NLP - Text preprocessing_p54",
+    "lecture": "NLP - Text preprocessing",
+    "page": 54,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "NLTK vs. spaCy\n•Use spaCy when: You need fast, accurate, and production-ready NLP tools with pre-\ntrained models for tasks like tokenization, POS tagging, and NER. It’s ideal for large-scale\napplications and real-time processing.\n•Use NLTK when: You are focused on educational purposes, research, or need a wide\nvariety of NLP tools and datasets for prototyping and experimentation. It’s valuable for\nlearning and exploring different NLP techniques."
+  },
+  {
+    "id": "NLP - Text preprocessing_p55",
+    "lecture": "NLP - Text preprocessing",
+    "page": 55,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Stemming\n• Definition: Reducing words to their base or root\nform by removing suffixes (e.g., “running” to\n“run”).\n• Algorithms: Porter Stemmer, Snowball Stemmer."
+  },
+  {
+    "id": "NLP - Text preprocessing_p56",
+    "lecture": "NLP - Text preprocessing",
+    "page": 56,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Lemmatization\n• Definition: Reducing words to their base\nform using a dictionary-based approach (e.g.,\n“better” to “good”).\n• Libraries: WordNet Lemmatizer."
+  },
+  {
+    "id": "NLP - Text preprocessing_p57",
+    "lecture": "NLP - Text preprocessing",
+    "page": 57,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Stemming Vs. Lemmatization\nStemming\n• In the process of stemming remove \nthe suffix of words to get a base \nword.\n• Stemming does not always provide \nmeaning or dictionary words as its \nresult.\n• The speed of the stemming process \nis fast.\nLemmatization\n• Lemmatization follows lexical \nknowledge to get the root word for \noriginal one.\n• The resulting words of \nlemmatization are always \nmeaningful and dictionary words.\n• As compared to stemming the \nprocess, the speed of \nlemmatization is slow."
+  },
+  {
+    "id": "NLP - Text preprocessing_p58",
+    "lecture": "NLP - Text preprocessing",
+    "page": 58,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Stopword Removal\n• Definition: Removing common words (e.g., “the”, “and”) that are \noften less informative.\n• Purpose: To reduce noise in text data and improve processing \nefficiency."
+  },
+  {
+    "id": "NLP - Text preprocessing_p59",
+    "lecture": "NLP - Text preprocessing",
+    "page": 59,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Part-of-Speech (POS) Tagging\n• Definition: Assigning grammatical tags to each word (e.g., noun, verb, \nadjective).\n• Techniques: Rule-based taggers, statistical models like Hidden Markov Models \n(HMMs)."
+  },
+  {
+    "id": "NLP - Text preprocessing_p60",
+    "lecture": "NLP - Text preprocessing",
+    "page": 60,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Named Entity Recognition (NER)\n• Definition: Identifying and classifying entities (e.g., names, dates, locations) \nwithin text.\n• Techniques: Rule-based approaches, machine learning classifiers."
+  },
+  {
+    "id": "NLP - Text preprocessing_p61",
+    "lecture": "NLP - Text preprocessing",
+    "page": 61,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Parsing\n• Definition: Analyzing the grammatical structure of sentences.\n• Parsing can be more complex than POS tagging because it involves \nunderstanding the grammatical structure and relationships between \nwords in a sentence."
+  },
+  {
+    "id": "NLP - Text preprocessing_p62",
+    "lecture": "NLP - Text preprocessing",
+    "page": 62,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Language Detection\n• Definition: Identifying the language of the text, is especially useful \nwhen dealing with multilingual content."
+  },
+  {
+    "id": "NLP - Text preprocessing_p63",
+    "lecture": "NLP - Text preprocessing",
+    "page": 63,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Coreference Resolution\n• Coreference resolution is the task of finding all expressions that refer to the same\nentity in a text. It is an important step for a lot of higher level NLP tasks that\ninvolve natural language understanding such as document summarization,\nquestion answering, and information extraction."
+  },
+  {
+    "id": "NLP - Text preprocessing_p64",
+    "lecture": "NLP - Text preprocessing",
+    "page": 64,
+    "source": "NLP - Text preprocessing.pdf",
+    "text": "Padding & Truncation\n• Padding and truncation are key preprocessing steps used to ensure that text sequences are of uniform\nlength, which is essential for many machine learning models and deep learning frameworks.\n• Padding is the process of adding special tokens to the end (or beginning) of sequences to ensure they are all\nof the same length. This is particularly useful when working with models that require input sequences of a\nfixed size.\n• Truncation involves cutting off parts of sequences that exceed a certain length. This is used to ensure that\nsequences do not exceed the maximum length allowed by the model or processing pipeline.\n• Many models (i.e. RNNs/LSTMs, BERT/Transformers) require input sequences to be of a fixed size. Padding\nensures that all sequences are the same length, while truncation ensures sequences are not too long"
   },
   {
     "id": "RAG_p1",
