@@ -138,7 +138,9 @@ All paths are **relative** (`BASE_DIR = Path.cwd()` in the notebook, `Path(__fil
   - Big decision tree file shows **22** `skipped_duplicate` (not 32): 10 of the 32 shared pages are < `MIN_CHARS` after cleaning, so they are counted as `skipped_empty` first.
   - K-means and Hierarchical Clustering each have 1 duplicate page → 887 instead of 889.
   - Retrieval: K-means question → K-means p.21 / p.11 / p.13. Generation cites `[K-means p.21]`; World Cup question → "I don't know based on the lectures." (grounding works even though retrieval always returns top 3).
-- ⚠️ `rag_db/` still holds the old `fine_tuning_docs` collection (26 agentic chunks) and 4 leftover HNSW folders from deleted collections. Harmless; clean by deleting `rag_db/` and re-running the notebook.
+- ✅ `rag_db/` rebuilt from scratch (commit `a65697c`): one collection (`lectures`), one HNSW folder.
+- ✅ Step A done in the notebook (Section 7: `get_style_examples` → `build_quiz_prompt` (JSON mode, temperature 0.7) → `check_question` → `generate_quiz` → `grade_answer`).
+  Real run on the K-means slides: 3/3 valid questions (2 single, 1 multiple), all grounded in K-means p.13 / p.21, checked by hand.
 - ❌ `app.py` is still the old single-PDF version (old collection name `fine_tuning_docs`, old `chunk_i` ids) → **will not work with the new DB**.
 
 ---
