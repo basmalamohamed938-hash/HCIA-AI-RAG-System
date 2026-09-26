@@ -1,17 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 470" width="400" height="470">
   <defs>
-    <radialGradient id="skin" cx="42%" cy="35%" r="70%">
-      <stop offset="0%" stop-color="#F9DCC2"/>
-      <stop offset="100%" stop-color="#E2AE88"/>
+    <!-- light comes from the top-left → every part has a bright spot top-left and a darker edge -->
+    <radialGradient id="skin" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#FFE7D4"/>
+      <stop offset="60%" stop-color="#F2C2A0"/>
+      <stop offset="100%" stop-color="#D9996F"/>
     </radialGradient>
-    <linearGradient id="hijab" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0%" stop-color="#F5CDD2"/>
-      <stop offset="100%" stop-color="#DB93A0"/>
+    <radialGradient id="hijab" cx="32%" cy="25%" r="85%">
+      <stop offset="0%" stop-color="#FBE0E4"/>
+      <stop offset="55%" stop-color="#E7A7B2"/>
+      <stop offset="100%" stop-color="#C47584"/>
+    </radialGradient>
+    <radialGradient id="hijabDark" cx="40%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#E9AEB8"/>
+      <stop offset="100%" stop-color="#B56675"/>
+    </radialGradient>
+    <radialGradient id="blazer" cx="30%" cy="20%" r="90%">
+      <stop offset="0%" stop-color="#5068B4"/>
+      <stop offset="55%" stop-color="#2E4082"/>
+      <stop offset="100%" stop-color="#1B2654"/>
+    </radialGradient>
+    <linearGradient id="sleeve" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#465EA8"/>
+      <stop offset="100%" stop-color="#22306A"/>
     </linearGradient>
-    <linearGradient id="blazer" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#34488A"/>
-      <stop offset="100%" stop-color="#23315F"/>
+    <linearGradient id="pants" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5A6275"/>
+      <stop offset="100%" stop-color="#343A48"/>
     </linearGradient>
+    <linearGradient id="pantsBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#474E5F"/>
+      <stop offset="100%" stop-color="#2A2F3A"/>
+    </linearGradient>
+    <radialGradient id="shoe" cx="35%" cy="25%" r="85%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#CBD3DE"/>
+    </radialGradient>
+    <radialGradient id="seat" cx="40%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#D5DCE6"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C5CEDA"/>
+      <stop offset="50%" stop-color="#8C98AA"/>
+      <stop offset="100%" stop-color="#B7C1CF"/>
+    </linearGradient>
+    <radialGradient id="iris" cx="50%" cy="70%" r="60%">
+      <stop offset="0%" stop-color="#6B4A2E"/>
+      <stop offset="100%" stop-color="#1C1512"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
     <style>
       .eye { transform-box: fill-box; transform-origin: center; animation: blink 5s infinite; }
       @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
@@ -28,81 +68,100 @@
   </defs>
 
   <!-- ground shadow -->
-  <ellipse cx="188" cy="456" rx="112" ry="9" fill="#0F172A" opacity="0.10"/>
+  <ellipse cx="200" cy="455" rx="120" ry="10" fill="#0F172A" opacity="0.12" filter="url(#soft)"/>
 
-  <!-- stool: metal legs + foot ring + seat -->
-  <path d="M142 352 L126 452 M228 352 L244 452 M166 356 L160 450 M204 356 L210 450" stroke="#9AA7B8" stroke-width="5" stroke-linecap="round"/>
-  <ellipse cx="185" cy="416" rx="52" ry="7" fill="none" stroke="#9AA7B8" stroke-width="4"/>
-  <path d="M110 348 L110 358 C110 366 144 372 185 372 C226 372 260 366 260 358 L260 348 Z" fill="#E2E8F0"/>
-  <ellipse cx="185" cy="348" rx="75" ry="13" fill="#FFFFFF" stroke="#D5DEE8" stroke-width="1.5"/>
+  <!-- ===== stool ===== -->
+  <path d="M128 360 L114 452" stroke="url(#metal)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M158 364 L154 450" stroke="url(#metal)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M196 364 L202 450" stroke="url(#metal)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M226 360 L240 452" stroke="url(#metal)" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="177" cy="416" rx="54" ry="8" fill="none" stroke="#9AA6B8" stroke-width="5"/>
+  <path d="M112 350 L112 362 C112 372 142 378 177 378 C212 378 242 372 242 362 L242 350 Z" fill="#CBD3DE"/>
+  <ellipse cx="177" cy="350" rx="65" ry="14" fill="url(#seat)"/>
 
-  <!-- legs (trousers) + shoes -->
-  <rect x="140" y="350" width="28" height="92" rx="12" fill="#3B4252"/>
-  <rect x="202" y="350" width="28" height="92" rx="12" fill="#3B4252"/>
-  <rect x="132" y="316" width="106" height="52" rx="22" fill="#434B5C"/>
-  <ellipse cx="150" cy="446" rx="21" ry="9" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
-  <ellipse cx="220" cy="446" rx="21" ry="9" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+  <!-- ===== back leg (further from us, darker) ===== -->
+  <path d="M170 332 L236 336 C250 337 252 356 238 358 L170 360 Z" fill="url(#pantsBack)"/>
+  <rect x="214" y="342" width="24" height="92" rx="11" fill="url(#pantsBack)"/>
+  <path d="M208 434 C208 426 226 424 240 428 L262 436 C272 440 270 452 258 452 L214 452 C206 452 204 442 208 434 Z" fill="#DCE2EA"/>
 
-  <!-- torso: blazer + white shirt -->
-  <path d="M138 332 C134 290 142 262 185 252 C228 262 236 290 232 332 Z" fill="url(#blazer)"/>
-  <path d="M170 256 L200 256 L185 302 Z" fill="#FFFFFF"/>
-  <path d="M170 256 L162 300 M200 256 L208 300" stroke="#1B2549" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <!-- ===== torso (3/4 view, leaning forward) ===== -->
+  <path d="M146 258 C164 242 214 238 234 254 C248 276 240 312 214 342 L150 346 C136 318 134 282 146 258 Z" fill="url(#blazer)"/>
+  <!-- white shirt collar peeking out -->
+  <path d="M196 250 L222 252 L210 280 Z" fill="#F4F7FB"/>
+  <!-- blazer lapel + soft shadow under the head -->
+  <path d="M196 252 L188 300" stroke="#16204A" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+  <ellipse cx="196" cy="262" rx="44" ry="12" fill="#0F172A" opacity="0.25" filter="url(#soft)"/>
 
-  <!-- hijab (fitted around the face, short drape) -->
-  <path d="M185 80
-           C236 80 252 118 250 158
-           C248 196 240 222 232 238
-           C222 252 206 260 185 262
-           C164 260 148 252 138 238
-           C130 222 122 196 120 158
-           C118 118 134 80 185 80 Z" fill="url(#hijab)"/>
-  <ellipse cx="146" cy="116" rx="24" ry="12" transform="rotate(-38 146 116)" fill="#FFFFFF" opacity="0.3"/>
-  <path d="M146 226 Q185 250 226 224" stroke="#C97D8B" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <!-- back arm resting on the lap -->
+  <path d="M152 266 C140 294 146 320 170 330 L196 334" stroke="url(#sleeve)" stroke-width="21" fill="none" stroke-linecap="round"/>
+  <ellipse cx="202" cy="334" rx="11" ry="9" fill="url(#skin)"/>
 
-  <!-- face frame (under-scarf) + face -->
-  <ellipse cx="185" cy="156" rx="56" ry="62" fill="#F9E3E6"/>
-  <ellipse cx="185" cy="160" rx="48" ry="54" fill="url(#skin)"/>
+  <!-- ===== front leg (closer to us) ===== -->
+  <path d="M158 322 L250 326 C268 327 270 354 252 356 L158 358 C146 356 146 324 158 322 Z" fill="url(#pants)"/>
+  <rect x="238" y="340" width="27" height="96" rx="12" fill="url(#pants)"/>
+  <path d="M232 438 C232 428 252 426 268 430 L292 438 C304 442 302 456 288 456 L240 456 C230 456 228 446 232 438 Z" fill="url(#shoe)"/>
+  <path d="M234 450 L296 450" stroke="#AEB8C6" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- ===== head ===== -->
+  <!-- modern wrap: small bun volume at the back of the head -->
+  <ellipse cx="160" cy="128" rx="30" ry="26" fill="url(#hijabDark)"/>
+  <!-- fitted wrap around the head and neck (short, stops at the shoulders) -->
+  <path d="M208 92
+           C252 90 272 124 268 164
+           C266 198 256 220 242 234
+           C230 246 212 252 196 252
+           C180 262 160 262 148 252
+           C138 238 142 220 150 208
+           C140 190 138 162 146 138
+           C156 108 180 92 208 92 Z" fill="url(#hijab)"/>
+  <!-- wrap folds -->
+  <path d="M150 150 C170 118 206 104 240 108" stroke="#FFFFFF" stroke-width="5" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <path d="M156 232 C176 246 206 246 232 236" stroke="#C47584" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+
+  <!-- face (3/4 view: turned a little to the right) -->
+  <ellipse cx="216" cy="166" rx="47" ry="54" fill="#F7E1E4"/>
+  <ellipse cx="218" cy="168" rx="41" ry="48" fill="url(#skin)"/>
+  <!-- soft shading on the far cheek -->
+  <ellipse cx="248" cy="178" rx="12" ry="26" fill="#C98460" opacity="0.18" filter="url(#soft)"/>
 
   <!-- cheeks -->
-  <ellipse cx="157" cy="182" rx="9" ry="6" fill="#F59E96" opacity="0.6"/>
-  <ellipse cx="213" cy="182" rx="9" ry="6" fill="#F59E96" opacity="0.6"/>
+  <ellipse cx="199" cy="190" rx="9" ry="6" fill="#F4978D" opacity="0.55"/>
+  <ellipse cx="246" cy="188" rx="6" ry="5" fill="#F4978D" opacity="0.5"/>
 
-  <!-- eyebrows (right one raised = thinking) -->
-  <path d="M152 137 Q163 131 174 135" stroke="#5B3A29" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-  <path d="M196 130 Q207 121 218 127" stroke="#5B3A29" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <!-- eyebrows (far one raised = thinking) -->
+  <path d="M190 144 Q201 138 212 142" stroke="#5B3A29" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <path d="M228 136 Q238 129 248 134" stroke="#5B3A29" stroke-width="3" fill="none" stroke-linecap="round"/>
 
-  <!-- eyes looking up-right -->
+  <!-- eyes looking up-right (glossy, toy-like) -->
   <g class="eye">
-    <ellipse cx="165" cy="157" rx="8" ry="10" fill="#1F2937"/>
-    <circle cx="168.5" cy="152" r="3.2" fill="#FFFFFF"/>
+    <ellipse cx="203" cy="164" rx="8.5" ry="10.5" fill="url(#iris)"/>
+    <circle cx="206.5" cy="159" r="3.4" fill="#FFFFFF"/>
+    <circle cx="200.5" cy="169" r="1.4" fill="#FFFFFF" opacity="0.8"/>
   </g>
   <g class="eye">
-    <ellipse cx="206" cy="156" rx="8" ry="10" fill="#1F2937"/>
-    <circle cx="209.5" cy="151" r="3.2" fill="#FFFFFF"/>
+    <ellipse cx="238" cy="162" rx="7" ry="9.5" fill="url(#iris)"/>
+    <circle cx="241" cy="157.5" r="3" fill="#FFFFFF"/>
   </g>
 
-  <!-- nose + thinking mouth ("hmm") -->
-  <path d="M183 170 Q185 174 189 172" stroke="#D39276" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M175 190 Q185 194 195 187" stroke="#9A3B2F" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- nose (pointing right) + "hmm" mouth -->
+  <path d="M226 176 Q231 182 225 185" stroke="#C98763" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="227" cy="176" rx="2" ry="1.4" fill="#FFFFFF" opacity="0.55"/>
+  <path d="M211 202 Q222 205 232 199" stroke="#99433A" stroke-width="3" fill="none" stroke-linecap="round"/>
 
-  <!-- left arm folded across the waist -->
-  <path d="M146 270 C134 292 140 308 160 309 L212 307" stroke="#2A3A73" stroke-width="22" fill="none" stroke-linecap="round"/>
-  <circle cx="216" cy="306" r="10" fill="url(#skin)"/>
+  <!-- ===== front arm: elbow on the knee, hand under the chin ===== -->
+  <path d="M228 262 C246 280 254 304 252 322" stroke="url(#sleeve)" stroke-width="23" fill="none" stroke-linecap="round"/>
+  <path d="M252 324 C250 290 244 254 236 228" stroke="url(#sleeve)" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <ellipse cx="234" cy="219" rx="12" ry="11" fill="url(#skin)"/>
+  <ellipse cx="243" cy="204" rx="4" ry="10" transform="rotate(14 243 204)" fill="url(#skin)"/>
 
-  <!-- right arm: elbow on the left hand, hand on the chin -->
-  <path d="M226 270 C242 288 240 304 230 308" stroke="#2A3A73" stroke-width="22" fill="none" stroke-linecap="round"/>
-  <path d="M230 308 C224 272 212 238 206 214" stroke="#2A3A73" stroke-width="19" fill="none" stroke-linecap="round"/>
-  <circle cx="204" cy="205" r="11" fill="url(#skin)"/>
-  <ellipse cx="210" cy="192" rx="4" ry="9" transform="rotate(18 210 192)" fill="url(#skin)"/>
-
-  <!-- thought bubble with "typing" dots -->
-  <circle cx="246" cy="114" r="5" fill="#FFFFFF" stroke="#D6E6F5" stroke-width="1.5"/>
-  <circle cx="261" cy="95" r="8" fill="#FFFFFF" stroke="#D6E6F5" stroke-width="1.5"/>
+  <!-- ===== thought bubble with "typing" dots ===== -->
+  <circle cx="270" cy="118" r="5" fill="#FFFFFF" stroke="#D6E6F5" stroke-width="1.5"/>
+  <circle cx="284" cy="98" r="8" fill="#FFFFFF" stroke="#D6E6F5" stroke-width="1.5"/>
   <g class="bob">
-    <rect x="262" y="30" width="96" height="48" rx="24" fill="#FFFFFF" stroke="#D6E6F5" stroke-width="1.5"/>
-    <circle class="dot" cx="290" cy="54" r="6" fill="#2F80ED"/>
-    <circle class="dot d2" cx="310" cy="54" r="6" fill="#2F80ED"/>
-    <circle class="dot d3" cx="330" cy="54" r="6" fill="#2F80ED"/>
+    <rect x="276" y="32" width="96" height="48" rx="24" fill="#FFFFFF" stroke="#D6E6F5" stroke-width="1.5"/>
+    <circle class="dot" cx="304" cy="56" r="6" fill="#2F80ED"/>
+    <circle class="dot d2" cx="324" cy="56" r="6" fill="#2F80ED"/>
+    <circle class="dot d3" cx="344" cy="56" r="6" fill="#2F80ED"/>
   </g>
 
   <!-- floating quiz card (top left) -->
@@ -117,6 +176,6 @@
   </g>
 
   <!-- sparkles -->
-  <path class="spark" d="M318 150 L322 162 L334 166 L322 170 L318 182 L314 170 L302 166 L314 162 Z" fill="#FFC857"/>
-  <path class="spark late" d="M70 190 L73 199 L82 202 L73 205 L70 214 L67 205 L58 202 L67 199 Z" fill="#7CC4FF"/>
+  <path class="spark" d="M330 160 L334 172 L346 176 L334 180 L330 192 L326 180 L314 176 L326 172 Z" fill="#FFC857"/>
+  <path class="spark late" d="M70 200 L73 209 L82 212 L73 215 L70 224 L67 215 L58 212 L67 209 Z" fill="#7CC4FF"/>
 </svg>
