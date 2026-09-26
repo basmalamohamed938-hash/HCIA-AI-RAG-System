@@ -359,6 +359,16 @@ def show_sources(chunks):
             st.caption(slide_text[:500])
 
 
+def question_title(number, q, mark=""):
+    # colored label: blue = single choice, purple = multiple choice
+    if q["type"] == "single":
+        badge = "<span class='qtype single'>Single choice · pick 1</span>"
+    else:
+        badge = "<span class='qtype multiple'>Multiple choice · select all that apply</span>"
+    st.markdown(f"<div class='qtitle'>{badge}<div>{mark} <b>Q{number}. {html.escape(q['question'])}</b></div></div>",
+                unsafe_allow_html=True)
+
+
 def option_row(letter, text, css_class, tag):
     # html.escape: option text from the LLM may contain "<" or ">" (e.g. "x < 0")
     tag_html = f"<span class='opt-tag'>{tag}</span>" if tag else ""
@@ -538,7 +548,7 @@ if st.session_state.question is not None:
                 st.markdown("#### 📝 Quiz")
                 for i, q in enumerate(st.session_state.quiz):
                     key = f"r{st.session_state.quiz_round}_q{i}"
-                    st.markdown(f"**Q{i + 1}. {q['question']}**")
+                    question_title(i + 1, q)
 
                     if q["type"] == "single":
                         st.radio(
@@ -547,9 +557,9 @@ if st.session_state.question is not None:
                             format_func=lambda letter, q=q: f"{letter}. {q['options'][letter]}",
                             index=None,
                             key=key,
+                            label_visibility="collapsed",
                         )
                     else:
-                        st.caption("Select all that apply")
                         for letter, option_text in q["options"].items():
                             st.checkbox(f"{letter}. {option_text}", key=f"{key}_{letter}")
 
@@ -589,7 +599,7 @@ if st.session_state.question is not None:
                 is_correct = grade_answer(chosen, q["answer"])
                 with st.container(border=True):
                     mark = "✅" if is_correct else "❌"
-                    st.markdown(f"{mark} **Q{i + 1}. {q['question']}**")
+                    question_title(i + 1, q, mark)
                     if not chosen:
                         st.caption("You did not answer this question.")
                     show_answer_review(q, chosen)
