@@ -11,6 +11,7 @@ Run from a terminal in this folder:
 import os
 import re
 import html
+import difflib
 import json
 import time
 import base64
@@ -211,7 +212,8 @@ def build_quiz_prompt(retrieved_chunks, style_examples, n_questions=N_QUIZ_QUEST
         for old_question in avoid_questions:
             avoid_lines.append(f"- {old_question}")
         avoid_text = ("The student already answered these questions. Write NEW questions that test "
-                      "different facts or ideas from the slides, not the same ones reworded:\n"
+                      "different facts or ideas from the slides, not the same ones reworded. "
+                      "This includes the multiple-choice question: build it from different facts too:\n"
                       + "\n".join(avoid_lines) + "\n")
 
     return f"""You write multiple-choice exam questions to help a student revise an AI / Machine Learning course.
@@ -290,6 +292,16 @@ def check_question(q, allowed_ids):
     return problems
 
 
+def is_repeat(question, old_questions):
+    # "almost the same text": 80%+ of the characters match (difflib = Python standard library).
+    # Tested: rewordings of one question score 0.89-0.97, different questions 0.31-0.50.
+    for old in old_questions:
+        ratio = difflib.SequenceMatcher(None, question.lower(), old.lower()).ratio()
+        if ratio > 0.8:
+            return True
+    return False
+
+
 def generate_quiz(query, retrieved_chunks, res, quiz_llm, avoid_questions=None):
     """Returns (valid_questions, reasons). reasons = why questions were dropped, shown in the app."""
     style_examples = get_style_examples(query, res)
@@ -314,6 +326,8 @@ def generate_quiz(query, retrieved_chunks, res, quiz_llm, avoid_questions=None):
         if isinstance(q, dict):
             q["source"] = clean_source(q.get("source"))
         problems = check_question(q, allowed_ids)
+        if not problems and avoid_questions and is_repeat(q["question"], avoid_questions):
+            problems = ["repeats a question from the last quiz"]
         if problems:
             reasons.append(f"Dropped question {i}: {problems}")
         else:
@@ -378,7 +392,7 @@ def question_title(number, q, mark=""):
     if q["type"] == "single":
         badge = "<span class='qtype single'>Single choice · pick 1</span>"
     else:
-        badge = "<span class='qtype multiple'>Multiple choice · select all that apply</span>"
+        badge = "<span class='qtype multiple'>Multi choice · select all that apply</span>"
     st.markdown(f"<div class='qtitle'>{badge}<div>{mark} <b>Q{number}. {html.escape(q['question'])}</b></div></div>",
                 unsafe_allow_html=True)
 
@@ -411,16 +425,23 @@ def make_new_quiz(res, quiz_llm):
     quiz = []
     all_reasons = []
     with st.spinner("Writing questions from these slides..."):
+        # Try 2 only runs if try 1 gave fewer than N valid questions; its new questions fill the gaps
         for attempt in [1, 2]:
+            avoid = list(st.session_state.previous_questions)
+            for q in quiz:
+                avoid.append(q["question"])
             try:
-                quiz, reasons = generate_quiz(st.session_state.question, st.session_state.chunks, res, quiz_llm,
-                                              avoid_questions=st.session_state.previous_questions)
+                new_questions, reasons = generate_quiz(st.session_state.question, st.session_state.chunks, res,
+                                                       quiz_llm, avoid_questions=avoid)
             except Exception as e:
-                quiz, reasons = [], [f"Quiz generation failed: {e}"]
+                new_questions, reasons = [], [f"Quiz generation failed: {e}"]
             for reason in reasons:
                 all_reasons.append(f"Try {attempt}: {reason}")
                 print(f"Try {attempt}: {reason}")      # also in the terminal
-            if quiz:
+            for q in new_questions:
+                if len(quiz) < N_QUIZ_QUESTIONS:
+                    quiz.append(q)
+            if len(quiz) >= N_QUIZ_QUESTIONS:
                 break
 
     if not quiz:
