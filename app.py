@@ -264,6 +264,7 @@ def check_question(q, allowed_ids):
 
 
 def generate_quiz(query, retrieved_chunks, res, quiz_llm):
+    """Returns (valid_questions, reasons). reasons = why questions were dropped, shown in the app."""
     style_examples = get_style_examples(query, res)
     prompt = build_quiz_prompt(retrieved_chunks, style_examples)
     response = quiz_llm.invoke(prompt)
@@ -271,25 +272,24 @@ def generate_quiz(query, retrieved_chunks, res, quiz_llm):
     try:
         data = json.loads(response.content)
     except json.JSONDecodeError:
-        print("The LLM did not return valid JSON")
-        return []
+        return [], ["The LLM did not return valid JSON"]
 
     if not isinstance(data, dict) or not isinstance(data.get("questions"), list):
-        print("The JSON does not contain a 'questions' list")
-        return []
+        return [], ["The JSON does not contain a 'questions' list"]
 
     allowed_ids = []
     for c in retrieved_chunks:
         allowed_ids.append(c["id"])
 
     valid_questions = []
+    reasons = []
     for i, q in enumerate(data["questions"], start=1):
         problems = check_question(q, allowed_ids)
         if problems:
-            print(f"Dropped question {i}: {problems}")     # shows in the terminal, not in the app
+            reasons.append(f"Dropped question {i}: {problems}")
         else:
             valid_questions.append(q)
-    return valid_questions
+    return valid_questions, reasons
 
 
 def grade_answer(chosen, answer):
@@ -465,12 +465,20 @@ if st.session_state.question is not None:
 
         if not st.session_state.quiz:
             if st.button("📝 Quiz me on this", type="primary"):
+                quiz = []
+                all_reasons = []
                 with st.spinner("Writing questions from these slides..."):
-                    try:
-                        quiz = generate_quiz(st.session_state.question, st.session_state.chunks, res, quiz_llm)
-                    except Exception as e:
-                        quiz = []
-                        print("Quiz generation failed:", e)
+                    # up to 2 tries: temperature 0.7 → the second try gives different questions
+                    for attempt in [1, 2]:
+                        try:
+                            quiz, reasons = generate_quiz(st.session_state.question, st.session_state.chunks, res, quiz_llm)
+                        except Exception as e:
+                            quiz, reasons = [], [f"Quiz generation failed: {e}"]
+                        for reason in reasons:
+                            all_reasons.append(f"Try {attempt}: {reason}")
+                            print(f"Try {attempt}: {reason}")      # also in the terminal
+                        if quiz:
+                            break
                 if quiz:
                     st.session_state.quiz = quiz
                     st.session_state.quiz_round += 1
@@ -479,6 +487,9 @@ if st.session_state.question is not None:
                     st.rerun()
                 else:
                     st.warning("Could not generate a quiz this time. Please click again.")
+                    with st.expander("Why? (details)"):
+                        for reason in all_reasons:
+                            st.caption(reason)
 
         # ---------------- Quiz ----------------
         if st.session_state.quiz and not st.session_state.submitted:
