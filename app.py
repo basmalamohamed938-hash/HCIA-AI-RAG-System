@@ -52,7 +52,12 @@ load_dotenv(BASE_DIR / ".env", override=True)
 # =====================================================================
 @st.cache_resource(show_spinner="Loading the lectures index...")
 def load_resources():
-    dense_model = SentenceTransformer(MODEL_NAME)
+    try:
+        # From the local cache (the notebook already downloaded it): no internet check → fast, works offline
+        dense_model = SentenceTransformer(MODEL_NAME, local_files_only=True)
+    except OSError:
+        # Not in the cache yet (first run on a new computer) → download it once
+        dense_model = SentenceTransformer(MODEL_NAME)
 
     client = chromadb.PersistentClient(path=str(DB_PATH))
     collection = client.get_collection(name=COLLECTION_NAME, embedding_function=None)
