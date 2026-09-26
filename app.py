@@ -138,6 +138,16 @@ def hybrid_search(query, res, alpha=ALPHA, top_k=TOP_K):
     return top_chunks
 
 
+NOT_FOUND_ANSWER = "I don't know based on the lectures."
+
+
+def is_not_in_lectures(answer):
+    # The prompt tells the LLM to reply with exactly NOT_FOUND_ANSWER when nothing in the slides is related.
+    # startswith (not "in"): a partial answer that only mentions the sentence at the end still gets a quiz.
+    text = answer.strip().lower().replace("’", "'")      # the LLM sometimes uses a curly apostrophe
+    return text.startswith(NOT_FOUND_ANSWER.lower().rstrip("."))
+
+
 def build_prompt(query, retrieved_chunks):
     context_parts = []
     for c in retrieved_chunks:
@@ -152,7 +162,7 @@ How to answer:
 2. Explain clearly using only those sentences. Do not add outside knowledge.
 3. If the slides cover the question only partly, explain what they cover,
    then add one line saying what they do not cover.
-4. Reply "I don't know based on the lectures." ONLY if nothing in the context is related.
+4. Reply "{NOT_FOUND_ANSWER}" ONLY if nothing in the context is related.
 5. Cite the slides you used, like [K-means p.12].
 
 Context:
@@ -576,19 +586,27 @@ if st.session_state.question is not None:
         for c in st.session_state.chunks:
             if c["lecture"] not in lecture_names:
                 lecture_names.append(c["lecture"])
-        if stage == "quiz":
+        not_found = is_not_in_lectures(st.session_state.answer)
+        if not_found:
+            task_card("Not in the lectures", ["Try a topic from the course", f"{len(lectures)} lectures indexed"])
+        elif stage == "quiz":
             task_card("Quiz", [f"{len(st.session_state.quiz)} questions", "From: " + ", ".join(lecture_names)])
         else:
             task_card("Explain", [f"{len(st.session_state.chunks)} slides found", "From: " + ", ".join(lecture_names)])
 
     with right:
-        st.markdown(f"<div class='question-bubble'>{st.session_state.question}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='question-bubble'>{html.escape(st.session_state.question)}</div>",
+                    unsafe_allow_html=True)
 
         with st.container(border=True):
             st.markdown(highlight_citations(st.session_state.answer))
-            show_sources(st.session_state.chunks)
+            if not not_found:
+                show_sources(st.session_state.chunks)       # the closest slides were not used → don't show them
 
-        if not st.session_state.quiz:
+        if not_found:
+            # No quiz: the quiz would come from slides that are not about this question
+            st.info("This topic is not in the lectures, so there is no quiz for it. Ask about a topic from the course.")
+        elif not st.session_state.quiz:
             if st.button("📝 Quiz me on this", type="primary"):
                 reasons = make_new_quiz(res, quiz_llm)
                 if reasons:
