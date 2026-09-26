@@ -213,10 +213,20 @@ Rules:
    At least 1 question must be "multiple".
 4. "answer" is always a list of letters, e.g. ["B"] or ["A", "C"].
 5. "explanation": 1-2 sentences explaining the correct answer using the slides.
-6. "source": the slide id the answer comes from, copied exactly from the list above.
+6. "source": the slide id the answer comes from, e.g. "K-means_p21" (only the id: no brackets, no "slide id:").
 
 Return ONLY a JSON object in this format:
 {QUIZ_JSON_FORMAT}"""
+
+
+def clean_source(source):
+    # The LLM sometimes copies the whole label: "[slide id: KNN_p14]" → "KNN_p14"
+    if not isinstance(source, str):
+        return source
+    source = source.strip()
+    source = source.strip("[]")
+    source = source.replace("slide id:", "")
+    return source.strip()
 
 
 def check_question(q, allowed_ids):
@@ -284,6 +294,8 @@ def generate_quiz(query, retrieved_chunks, res, quiz_llm):
     valid_questions = []
     reasons = []
     for i, q in enumerate(data["questions"], start=1):
+        if isinstance(q, dict):
+            q["source"] = clean_source(q.get("source"))
         problems = check_question(q, allowed_ids)
         if problems:
             reasons.append(f"Dropped question {i}: {problems}")
