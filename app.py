@@ -10,6 +10,7 @@ Run from a terminal in this folder:
 
 import os
 import re
+import html
 import json
 import time
 import base64
@@ -353,6 +354,29 @@ def show_sources(chunks):
             st.caption(slide_text[:500])
 
 
+def option_row(letter, text, css_class, tag):
+    # html.escape: option text from the LLM may contain "<" or ">" (e.g. "x < 0")
+    tag_html = f"<span class='opt-tag'>{tag}</span>" if tag else ""
+    return f"<div class='opt {css_class}'><b>{letter}.</b> {html.escape(text)}{tag_html}</div>"
+
+
+def show_answer_review(q, chosen):
+    """All 4 options: chosen + right = green, chosen + wrong = red, right but not chosen = green outline."""
+    rows = []
+    for letter, text in q["options"].items():
+        is_right = letter in q["answer"]
+        is_chosen = letter in chosen
+        if is_right and is_chosen:
+            rows.append(option_row(letter, text, "right", "✓ Your answer"))
+        elif is_chosen:
+            rows.append(option_row(letter, text, "wrong", "✗ Your answer"))
+        elif is_right:
+            rows.append(option_row(letter, text, "right missed", "✓ Correct answer"))
+        else:
+            rows.append(option_row(letter, text, "", ""))
+    st.markdown("".join(rows), unsafe_allow_html=True)
+
+
 def find_chunk(chunk_id):
     for c in st.session_state.chunks:
         if c["id"] == chunk_id:
@@ -561,8 +585,9 @@ if st.session_state.question is not None:
                 with st.container(border=True):
                     mark = "✅" if is_correct else "❌"
                     st.markdown(f"{mark} **Q{i + 1}. {q['question']}**")
-                    your_answer = ", ".join(chosen) if chosen else "no answer"
-                    st.markdown(f"Your answer: **{your_answer}** · Correct: **{', '.join(q['answer'])}**")
+                    if not chosen:
+                        st.caption("You did not answer this question.")
+                    show_answer_review(q, chosen)
                     st.caption(q["explanation"])
 
                     if not is_correct:
