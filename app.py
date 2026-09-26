@@ -1,15 +1,18 @@
 """
-RAG chat app for the Fine-Tuning LLMs PDF.
+HCIA-AI Study Assistant (Streamlit app).
 
-The notebook builds the index (chunks -> embeddings -> ChromaDB in ./rag_db).
-This app only answers questions:
-    user input -> query rewriting (LLM) -> embed (tokenize + vector) -> hybrid search -> LLM answer
+The notebook builds everything (rag_db/ and question_bank.json). This app only READS them.
+Flow:  question → hybrid search → grounded explanation → "Quiz me on this" → graded quiz
 
 Run from a terminal in this folder:
     python -m streamlit run app.py
 """
 
 import os
+import re
+import json
+import time
+import base64
 from pathlib import Path
 
 import numpy as np
@@ -20,135 +23,130 @@ from sentence_transformers import SentenceTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from langchain_openai import ChatOpenAI
 
-# ---------- Settings (must match the notebook) ----------
+# ---------- Paths + settings (must match the notebook) ----------
 BASE_DIR = Path(__file__).parent          # folder of app.py, not the terminal's folder
 DB_PATH = BASE_DIR / "rag_db"
-COLLECTION_NAME = "fine_tuning_docs"
+BANK_JSON = BASE_DIR / "question_bank.json"
+ASSETS_DIR = BASE_DIR / "assets"
+
+COLLECTION_NAME = "lectures"
 MODEL_NAME = "BAAI/bge-small-en-v1.5"
 LLM_NAME = "gpt-4o-mini"
+ALPHA = 0.5
+TOP_K = 3
+N_QUIZ_QUESTIONS = 3
 
-# bge models expect this prefix on short search queries (not on the stored chunks)
-QUERY_INSTRUCTION = "Represent this sentence for searching relevant passages: "
+EXAMPLE_QUESTIONS = [
+    "What is QLoRA?",
+    "How does K-means choose the centroids?",
+    "Why do we scale features before KNN?",
+]
 
-st.set_page_config(page_title="Fine-Tuning LLMs Q&A", page_icon="📘")
+st.set_page_config(page_title="HCIA-AI Study Assistant", page_icon="📘", layout="wide")
+load_dotenv(BASE_DIR / ".env", override=True)
 
 
-# ---------- Load everything once (cached across reruns) ----------
-@st.cache_resource(show_spinner="Loading embedding model and database...")
-def load_retriever():
+# =====================================================================
+# 1) Load everything ONCE (Streamlit re-runs this file on every click)
+# =====================================================================
+@st.cache_resource(show_spinner="Loading the lectures index...")
+def load_resources():
     dense_model = SentenceTransformer(MODEL_NAME)
 
     client = chromadb.PersistentClient(path=str(DB_PATH))
     collection = client.get_collection(name=COLLECTION_NAME, embedding_function=None)
+    stored = collection.get(include=["documents", "metadatas"])
 
-    stored = collection.get(include=["documents"])
-    stored_ids = stored["ids"]
-    stored_docs = stored["documents"]
-
-    # TF-IDF is fitted on the stored docs, same as the notebook
+    # TF-IDF is fit on the stored chunks only (the query is only transformed)
     tfidf = TfidfVectorizer(lowercase=True, stop_words="english")
-    sparse_vectors = tfidf.fit_transform(stored_docs)
+    sparse_vectors = tfidf.fit_transform(stored["documents"])
 
-    return dense_model, collection, tfidf, sparse_vectors, stored_ids, stored_docs
+    with open(BANK_JSON, encoding="utf-8") as f:
+        bank = json.load(f)
+    bank_texts = []
+    for q in bank:
+        bank_texts.append(q["question"])
+    bank_vectors = dense_model.encode(bank_texts, normalize_embeddings=True)
+
+    return {
+        "dense_model": dense_model,
+        "collection": collection,
+        "stored_ids": stored["ids"],
+        "stored_docs": stored["documents"],
+        "stored_metas": stored["metadatas"],
+        "tfidf": tfidf,
+        "sparse_vectors": sparse_vectors,
+        "bank": bank,
+        "bank_vectors": bank_vectors,
+    }
 
 
 @st.cache_resource
-def get_llm(api_key):
-    return ChatOpenAI(model=LLM_NAME, temperature=0, api_key=api_key)
+def load_llms():
+    explain_llm = ChatOpenAI(model=LLM_NAME, temperature=0)
+    quiz_llm = ChatOpenAI(model=LLM_NAME, temperature=0.7).bind(response_format={"type": "json_object"})
+    return explain_llm, quiz_llm
 
 
-# ---------- Retrieval (same logic as the notebook) ----------
+# =====================================================================
+# 2) Retrieval + explanation (same logic as notebook Sections 5 and 6)
+# =====================================================================
 def min_max(scores):
     if scores.max() == scores.min():
         return np.zeros_like(scores)
     return (scores - scores.min()) / (scores.max() - scores.min())
 
 
-def hybrid_search(query, retriever, alpha=0.5, top_k=3):
-    dense_model, collection, tfidf, sparse_vectors, stored_ids, stored_docs = retriever
+def hybrid_search(query, res, alpha=ALPHA, top_k=TOP_K):
+    query_dense = res["dense_model"].encode([query], normalize_embeddings=True)
+    query_sparse = res["tfidf"].transform([query])
 
-    # Dense: the model tokenizes the query internally, then embeds it
-    query_dense = dense_model.encode([QUERY_INSTRUCTION + query], normalize_embeddings=True)
-    # Sparse: transform only, never fit on the query
-    query_sparse = tfidf.transform([query])
-
-    results = collection.query(
+    # 1) Dense scores from ChromaDB (cosine distance → similarity)
+    results = res["collection"].query(
         query_embeddings=query_dense.tolist(),
-        n_results=collection.count(),
+        n_results=res["collection"].count(),
         include=["distances"],
     )
-    dense_by_id = {
-        chunk_id: 1 - distance
-        for chunk_id, distance in zip(results["ids"][0], results["distances"][0])
-    }
-    dense_scores = np.array([dense_by_id[chunk_id] for chunk_id in stored_ids])
+    dense_by_id = {}
+    for chunk_id, distance in zip(results["ids"][0], results["distances"][0]):
+        dense_by_id[chunk_id] = 1 - distance
+    dense_scores = np.array([dense_by_id[chunk_id] for chunk_id in res["stored_ids"]])
 
-    sparse_scores = (sparse_vectors @ query_sparse.T).toarray().ravel()
+    # 2) Sparse scores from TF-IDF
+    sparse_scores = (res["sparse_vectors"] @ query_sparse.T).toarray().ravel()
 
+    # 3) Normalize + combine, 4) top results
     hybrid_scores = alpha * min_max(dense_scores) + (1 - alpha) * min_max(sparse_scores)
     top_positions = np.argsort(hybrid_scores)[::-1][:top_k]
 
-    return [
-        {"id": stored_ids[pos], "text": stored_docs[pos], "score": float(hybrid_scores[pos])}
-        for pos in top_positions
-    ]
+    top_chunks = []
+    for pos in top_positions:
+        top_chunks.append({
+            "id": res["stored_ids"][pos],
+            "lecture": res["stored_metas"][pos]["lecture"],
+            "page": res["stored_metas"][pos]["page"],
+            "text": res["stored_docs"][pos],
+            "score": float(hybrid_scores[pos]),
+        })
+    return top_chunks
 
 
-# ---------- Document map ----------
-def extract_section_titles(docs, max_len=120):
-    """First two lines of each paragraph = slide title + subtitle."""
-    titles = []
-    for doc in docs:
-        for para in doc.split("\n\n"):
-            lines = [line.strip() for line in para.splitlines() if line.strip()]
-            if not lines:
-                continue
-            title = f"{lines[0]} — {lines[1]}" if len(lines) > 1 else lines[0]
-            title = title[:max_len]
-            if title not in titles:
-                titles.append(title)
-    return titles
-
-
-# ---------- Query rewriting ----------
-def rewrite_query(llm, user_input, section_titles):
-    titles_text = "\n".join(f"- {t}" for t in section_titles)
-
-    prompt = f"""You rewrite a user's input into one clear search question
-for a document about fine-tuning large language models.
-
-These are the section titles of the document:
-{titles_text}
-
-Rules:
-- Fix spelling mistakes.
-- The user may use an informal or slightly wrong name for a topic. If their words mean
-  the same thing as a term in the titles, use the document's term and its abbreviation.
-- If the input is just a topic, turn it into a question about that topic.
-- If the input is not related to any title, only clean it up. Do not force it onto a title.
-Return ONLY the question, nothing else.
-
-User input: {user_input}"""
-    return llm.invoke(prompt).content.strip()
-
-
-# ---------- Generation ----------
 def build_prompt(query, retrieved_chunks):
-    context = "\n\n---\n\n".join(f"[{c['id']}]\n{c['text']}" for c in retrieved_chunks)
+    context_parts = []
+    for c in retrieved_chunks:
+        context_parts.append(f"[{c['lecture']} p.{c['page']}]\n{c['text']}")
+    context = "\n\n---\n\n".join(context_parts)
 
-    return f"""You are a helpful tutor answering questions about a document on fine-tuning LLMs.
-The context below was retrieved by a search engine as the most relevant parts of the document.
+    return f"""You are a helpful tutor helping a student study an AI / Machine Learning course.
+The context below contains the lecture slides most relevant to the question.
 
 How to answer:
-1. Find every sentence in the context related to the question, even if it uses different words
-   (for example "assign", "choose", "set" and "pick" a value all mean the same thing).
-2. Answer using only those sentences. Do not add outside knowledge.
-3. If the document covers the question only partly, answer the covered part,
-   then add one line that starts with "Not covered in the document:".
-4. If no sentence in the context is related to the question at all, reply with exactly
-   this sentence and nothing else: "I don't know based on the document."
-   Never add this sentence after an answer.
-5. End your answer with the chunk ids you used, like [chunk_11].
+1. Find every sentence in the context related to the question, even if it uses different words.
+2. Explain clearly using only those sentences. Do not add outside knowledge.
+3. If the slides cover the question only partly, explain what they cover,
+   then add one line saying what they do not cover.
+4. Reply "I don't know based on the lectures." ONLY if nothing in the context is related.
+5. Cite the slides you used, like [K-means p.12].
 
 Context:
 {context}
@@ -157,116 +155,406 @@ Question: {query}
 
 Answer:"""
 
-def stream_answer(llm, prompt):
-    for chunk in llm.stream(prompt):
-        yield chunk.content
+
+# =====================================================================
+# 3) Quiz (same logic as notebook Section 7)
+# =====================================================================
+QUIZ_JSON_FORMAT = """{
+  "questions": [
+    {
+      "type": "single",
+      "question": "...",
+      "options": {"A": "...", "B": "...", "C": "...", "D": "..."},
+      "answer": ["B"],
+      "explanation": "...",
+      "source": "one of the slide ids above"
+    }
+  ]
+}"""
 
 
-def show_sources(sources):
-    with st.expander(f"Sources ({len(sources)} chunks)"):
-        for s in sources:
-            st.markdown(f"**{s['id']}** · score {s['score']:.2f}")
-            st.caption(s["text"][:300].replace("\n", " ") + "...")
+def get_style_examples(topic, res, n=3):
+    topic_vector = res["dense_model"].encode([topic], normalize_embeddings=True)[0]
+    similarities = res["bank_vectors"] @ topic_vector
+    top_positions = np.argsort(similarities)[::-1][:n]
+
+    examples = []
+    for pos in top_positions:
+        examples.append(res["bank"][pos])
+    return examples
 
 
-# ---------- Sidebar ----------
-load_dotenv(BASE_DIR / ".env")
-api_key = os.getenv("OPENAI_API_KEY")
+def build_quiz_prompt(retrieved_chunks, style_examples, n_questions=N_QUIZ_QUESTIONS):
+    slide_parts = []
+    for c in retrieved_chunks:
+        slide_parts.append(f"[slide id: {c['id']}]\n{c['text']}")
+    slides = "\n\n---\n\n".join(slide_parts)
 
-with st.sidebar:
-    st.header("Settings")
+    example_parts = []
+    for q in style_examples:
+        lines = [f"({q['type']}) {q['question']}"]
+        for letter, option_text in q["options"].items():
+            lines.append(f"{letter}. {option_text}")
+        example_parts.append("\n".join(lines))
+    examples = "\n\n".join(example_parts)
 
-    if not api_key:
-        api_key = st.text_input("OpenAI API key", type="password")
+    return f"""You write multiple-choice exam questions to help a student revise an AI / Machine Learning course.
 
-    top_k = st.slider("Chunks to retrieve (top_k)", 1, 5, 3)
-    alpha = st.slider(
-        "Search balance (alpha)", 0.0, 1.0, 0.5, 0.1,
-        help="0 = keywords only (TF-IDF), 1 = meaning only (embeddings)",
-    )
+Slides (the ONLY source of content you may use):
+{slides}
 
-    use_rewrite = st.toggle(
-        "Rewrite my question before searching", value=True,
-        help="An extra LLM call that fixes spelling and uses the document's technical terms",
-    )
+Style examples from the Huawei HCIA-AI exam (copy their STYLE only, NOT their content; they may be about other topics):
+{examples}
 
-    if st.button("Clear chat"):
-        st.session_state.messages = []
-        st.rerun()
+Rules:
+1. Write exactly {n_questions} questions. Every question and every correct answer must come from the slides above. No outside knowledge.
+2. Each question has exactly 4 options: A, B, C, D. Wrong options must be plausible but clearly wrong according to the slides.
+3. "type" is "single" (exactly 1 correct letter) or "multiple" (2 or 3 correct letters, "select all that apply").
+   At least 1 question must be "multiple".
+4. "answer" is always a list of letters, e.g. ["B"] or ["A", "C"].
+5. "explanation": 1-2 sentences explaining the correct answer using the slides.
+6. "source": the slide id the answer comes from, copied exactly from the list above.
+
+Return ONLY a JSON object in this format:
+{QUIZ_JSON_FORMAT}"""
 
 
-# ---------- Main ----------
-st.title("📘 Fine-Tuning LLMs Q&A")
-st.caption("Answers come only from the Fine_Tuning_LLMs.pdf document.")
+def check_question(q, allowed_ids):
+    """Returns a list of problems. Empty list = the question is valid."""
+    if not isinstance(q, dict):
+        return ["not a JSON object"]
 
-if not api_key:
-    st.info("Add your OpenAI API key in the sidebar, or put it in a .env file next to app.py.")
+    problems = []
+
+    q_type = q.get("type")
+    if q_type not in ["single", "multiple"]:
+        problems.append(f"bad type: {q_type}")
+
+    if not q.get("question"):
+        problems.append("empty question")
+
+    options = q.get("options")
+    if not isinstance(options, dict):
+        options = {}
+    if sorted(options.keys()) != ["A", "B", "C", "D"]:
+        problems.append("options must be exactly A, B, C, D")
+
+    answer = q.get("answer")
+    if not isinstance(answer, list) or len(answer) == 0:
+        problems.append("answer must be a non-empty list")
+        answer = []
+
+    seen_letters = []
+    for letter in answer:
+        if not isinstance(letter, str) or letter not in options:
+            problems.append(f"answer letter {letter} is not an option")
+        elif letter in seen_letters:
+            problems.append(f"answer letter {letter} is repeated")
+        seen_letters.append(letter)
+
+    if q_type == "single" and len(answer) != 1:
+        problems.append("single question must have exactly 1 answer")
+    if q_type == "multiple" and len(answer) < 2:
+        problems.append("multiple question must have 2+ answers")
+
+    if q.get("source") not in allowed_ids:
+        problems.append(f"unknown source: {q.get('source')}")
+
+    return problems
+
+
+def generate_quiz(query, retrieved_chunks, res, quiz_llm):
+    style_examples = get_style_examples(query, res)
+    prompt = build_quiz_prompt(retrieved_chunks, style_examples)
+    response = quiz_llm.invoke(prompt)
+
+    try:
+        data = json.loads(response.content)
+    except json.JSONDecodeError:
+        print("The LLM did not return valid JSON")
+        return []
+
+    if not isinstance(data, dict) or not isinstance(data.get("questions"), list):
+        print("The JSON does not contain a 'questions' list")
+        return []
+
+    allowed_ids = []
+    for c in retrieved_chunks:
+        allowed_ids.append(c["id"])
+
+    valid_questions = []
+    for i, q in enumerate(data["questions"], start=1):
+        problems = check_question(q, allowed_ids)
+        if problems:
+            print(f"Dropped question {i}: {problems}")     # shows in the terminal, not in the app
+        else:
+            valid_questions.append(q)
+    return valid_questions
+
+
+def grade_answer(chosen, answer):
+    return set(chosen) == set(answer)
+
+
+# =====================================================================
+# 4) Small UI helpers (HTML pieces styled by assets/style.css)
+# =====================================================================
+def svg_as_img(path, css_class):
+    # The SVG is embedded as base64 so its own animations (blink, float) keep working
+    svg_bytes = Path(path).read_bytes()
+    encoded = base64.b64encode(svg_bytes).decode()
+    return f'<img class="{css_class}" src="data:image/svg+xml;base64,{encoded}" alt="Study buddy">'
+
+
+def highlight_citations(answer):
+    # "[K-means p.21]" → "`K-means p.21`" so the CSS shows each citation as a small chip
+    return re.sub(r"\[([^\[\]]+? p\.\d+)\]", r"`\1`", answer)
+
+
+def top_bar(stage, n_lectures, n_slides):
+    explain_class = "seg active" if stage == "explain" else "seg"
+    quiz_class = "seg active" if stage == "quiz" else "seg"
+    st.markdown(f"""
+<div class="topbar">
+  <div class="brand"><span class="logo">AI</span><span>Study Assistant</span></div>
+  <div class="segments"><span class="{explain_class}">Explain</span><span class="{quiz_class}">Quiz</span></div>
+  <div class="chip">{n_lectures} lectures · {n_slides} slides</div>
+</div>""", unsafe_allow_html=True)
+
+
+def task_card(title, lines, floating=False):
+    body = "<br>".join(lines)
+    css_class = "task-card floating" if floating else "task-card"
+    st.markdown(f"""
+<div class="{css_class}">
+  <div class="task-title"><span>Task</span> {title}</div>
+  <div class="task-body">{body}</div>
+</div>""", unsafe_allow_html=True)
+
+
+def show_sources(chunks):
+    with st.expander(f"📄 Slides used ({len(chunks)})"):
+        for c in chunks:
+            st.markdown(f"**{c['lecture']} · p.{c['page']}**  <span class='score'>score {c['score']:.2f}</span>",
+                        unsafe_allow_html=True)
+            slide_text = c["text"].split("\n", 1)[-1]      # drop the "[Lecture]" line we added for retrieval
+            st.caption(slide_text[:500])
+
+
+def find_chunk(chunk_id):
+    for c in st.session_state.chunks:
+        if c["id"] == chunk_id:
+            return c
+    return None
+
+
+# =====================================================================
+# 5) Page
+# =====================================================================
+css = (ASSETS_DIR / "style.css").read_text(encoding="utf-8")
+st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+
+# ---------- Session state: what must survive the re-run after every click ----------
+if "question" not in st.session_state:
+    st.session_state.question = None       # the last question asked
+    st.session_state.answer = None         # the explanation
+    st.session_state.chunks = []           # retrieved slides → reused by the quiz
+    st.session_state.quiz = []             # generated questions
+    st.session_state.quiz_round = 0        # new number for every quiz → fresh widget keys
+    st.session_state.submitted = False
+    st.session_state.chosen = {}           # question index → chosen letters
+    st.session_state.timing = {}
+
+if not os.getenv("OPENAI_API_KEY"):
+    st.error("OPENAI_API_KEY was not found. Put it in a `.env` file next to app.py, then restart the app.")
     st.stop()
 
 try:
-    retriever = load_retriever()
+    res = load_resources()
 except Exception as e:
-    st.error(
-        f"Could not load the database from {DB_PATH}. "
-        f"Run the notebook first so it creates the '{COLLECTION_NAME}' collection.\n\n{e}"
-    )
+    st.error(f"Could not load `rag_db/` or `question_bank.json`. Run the notebook first.\n\n{e}")
     st.stop()
 
-llm = get_llm(api_key)
-section_titles = extract_section_titles(retriever[5])   # retriever[5] = stored_docs
+explain_llm, quiz_llm = load_llms()
 
-with st.sidebar:
-    with st.expander(f"Topics in the document ({len(section_titles)})"):
-        for t in section_titles:
-            st.caption(t)
+n_slides = len(res["stored_ids"])
+lectures = set()
+for meta in res["stored_metas"]:
+    lectures.add(meta["lecture"])
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+if st.session_state.quiz:
+    stage = "quiz"
+else:
+    stage = "explain"
+top_bar(stage, len(lectures), n_slides)
 
-# Show the chat history
-for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
-        if msg.get("searched_for"):
-            st.caption(f"Searched for: {msg['searched_for']}")
-        st.markdown(msg["content"])
-        if msg.get("sources"):
-            show_sources(msg["sources"])
+# ---------- Input: typed question or an example button ----------
+typed_question = st.chat_input("Ask about a lecture topic (in English)...")
+new_question = typed_question
 
-# New question
-if query := st.chat_input("Ask about the document..."):
-    st.session_state.messages.append({"role": "user", "content": query})
-    with st.chat_message("user"):
-        st.markdown(query)
+if st.session_state.question is None:
+    # ---------------- Home screen ----------------
+    st.markdown("""
+<div class="hero">
+  <div class="badge"><span class="dot"></span>Answers only from your NTI lecture slides</div>
+  <h1>Turn Your <span class="hl">Lectures</span> Into<br>Answers &amp; <span class="hl">Quizzes</span></h1>
+  <p>Explained from the slides, cited by page, then a quiz in the Huawei HCIA-AI exam style.</p>
+</div>""", unsafe_allow_html=True)
 
-    with st.chat_message("assistant"):
-        with st.spinner("Searching the document..."):
-            search_query = query
-            if use_rewrite:
-                try:
-                    search_query = rewrite_query(llm, query, section_titles)
-                except Exception:
-                    pass  # if rewriting fails, search with the original input
-            sources = hybrid_search(search_query, retriever, alpha=alpha, top_k=top_k)
+    background_ids = "  ·  ".join(res["stored_ids"][:60])
+    st.markdown(f"""
+<div class="stage">
+  <div class="code-rain">{background_ids}</div>
+  {svg_as_img(ASSETS_DIR / 'study_buddy.svg', 'buddy')}
+</div>""", unsafe_allow_html=True)
 
-        if search_query != query:
-            st.caption(f"Searched for: {search_query}")
+    st.markdown("<div class='try-label'>Try one:</div>", unsafe_allow_html=True)
+    # empty columns on both sides center the 3 example buttons
+    _, col1, col2, col3, _ = st.columns([0.6, 1, 1.7, 1.6, 0.4], gap="small")
+    for col, example in zip([col1, col2, col3], EXAMPLE_QUESTIONS):
+        if col.button(example):
+            new_question = example
 
-        prompt = build_prompt(search_query, sources)
+    task_card("Ready", [f"{len(lectures)} lectures indexed", "Ask in English for the best results"], floating=True)
 
+# ---------- A new question: search + explain, then reset the quiz ----------
+if new_question:
+    with st.spinner("Searching the slides and writing the explanation..."):
+        t0 = time.time()
+        chunks = hybrid_search(new_question, res)
+        t1 = time.time()
         try:
-            answer = st.write_stream(stream_answer(llm, prompt))
+            answer = explain_llm.invoke(build_prompt(new_question, chunks)).content
         except Exception as e:
-            answer = f"The model call failed: {e}"
-            st.error(answer)
+            answer = None
+            st.error(f"The LLM call failed: {e}")
+        t2 = time.time()
 
-        show_sources(sources)
+    if answer is not None:
+        st.session_state.question = new_question
+        st.session_state.answer = answer
+        st.session_state.chunks = chunks
+        st.session_state.quiz = []
+        st.session_state.submitted = False
+        st.session_state.chosen = {}
+        st.session_state.timing = {"search": t1 - t0, "answer": t2 - t1}
+        st.rerun()
 
-        with st.expander("Prompt sent to the LLM"):
-            st.code(prompt, language=None)
+if st.session_state.question is not None:
+    # ---------------- Answer screen ----------------
+    left, right = st.columns([1, 2.3], gap="large")
 
-    st.session_state.messages.append({
-        "role": "assistant",
-        "content": answer,
-        "sources": sources,
-        "searched_for": search_query if search_query != query else None,
-    })
+    with left:
+        st.markdown(f"<div class='stage small'>{svg_as_img(ASSETS_DIR / 'study_buddy.svg', 'buddy')}</div>",
+                    unsafe_allow_html=True)
+        lecture_names = []
+        for c in st.session_state.chunks:
+            if c["lecture"] not in lecture_names:
+                lecture_names.append(c["lecture"])
+        if stage == "quiz":
+            task_card("Quiz", [f"{len(st.session_state.quiz)} questions", "From: " + ", ".join(lecture_names)])
+        else:
+            task_card("Explain", [f"{len(st.session_state.chunks)} slides found", "From: " + ", ".join(lecture_names)])
+
+    with right:
+        st.markdown(f"<div class='question-bubble'>{st.session_state.question}</div>", unsafe_allow_html=True)
+
+        with st.container(border=True):
+            st.markdown(highlight_citations(st.session_state.answer))
+            show_sources(st.session_state.chunks)
+
+        if not st.session_state.quiz:
+            if st.button("📝 Quiz me on this", type="primary"):
+                with st.spinner("Writing questions from these slides..."):
+                    try:
+                        quiz = generate_quiz(st.session_state.question, st.session_state.chunks, res, quiz_llm)
+                    except Exception as e:
+                        quiz = []
+                        print("Quiz generation failed:", e)
+                if quiz:
+                    st.session_state.quiz = quiz
+                    st.session_state.quiz_round += 1
+                    st.session_state.submitted = False
+                    st.session_state.chosen = {}
+                    st.rerun()
+                else:
+                    st.warning("Could not generate a quiz this time. Please click again.")
+
+        # ---------------- Quiz ----------------
+        if st.session_state.quiz and not st.session_state.submitted:
+            with st.form(f"quiz_{st.session_state.quiz_round}"):
+                st.markdown("#### 📝 Quiz")
+                for i, q in enumerate(st.session_state.quiz):
+                    key = f"r{st.session_state.quiz_round}_q{i}"
+                    st.markdown(f"**Q{i + 1}. {q['question']}**")
+
+                    if q["type"] == "single":
+                        st.radio(
+                            "Choose one answer",
+                            options=list(q["options"].keys()),
+                            format_func=lambda letter, q=q: f"{letter}. {q['options'][letter]}",
+                            index=None,
+                            key=key,
+                        )
+                    else:
+                        st.caption("Select all that apply")
+                        for letter, option_text in q["options"].items():
+                            st.checkbox(f"{letter}. {option_text}", key=f"{key}_{letter}")
+
+                submitted = st.form_submit_button("Submit answers", type="primary")
+
+            if submitted:
+                chosen = {}
+                for i, q in enumerate(st.session_state.quiz):
+                    key = f"r{st.session_state.quiz_round}_q{i}"
+                    if q["type"] == "single":
+                        picked = st.session_state.get(key)
+                        if picked is None:
+                            chosen[i] = []
+                        else:
+                            chosen[i] = [picked]
+                    else:
+                        chosen[i] = []
+                        for letter in q["options"]:
+                            if st.session_state.get(f"{key}_{letter}"):
+                                chosen[i].append(letter)
+                st.session_state.chosen = chosen
+                st.session_state.submitted = True
+                st.rerun()
+
+        # ---------------- Results ----------------
+        if st.session_state.quiz and st.session_state.submitted:
+            quiz = st.session_state.quiz
+            score = 0
+            for i, q in enumerate(quiz):
+                if grade_answer(st.session_state.chosen[i], q["answer"]):
+                    score += 1
+
+            st.markdown(f"<div class='score-card'>Score <b>{score} / {len(quiz)}</b></div>", unsafe_allow_html=True)
+
+            for i, q in enumerate(quiz):
+                chosen = st.session_state.chosen[i]
+                is_correct = grade_answer(chosen, q["answer"])
+                with st.container(border=True):
+                    mark = "✅" if is_correct else "❌"
+                    st.markdown(f"{mark} **Q{i + 1}. {q['question']}**")
+                    your_answer = ", ".join(chosen) if chosen else "no answer"
+                    st.markdown(f"Your answer: **{your_answer}** · Correct: **{', '.join(q['answer'])}**")
+                    st.caption(q["explanation"])
+
+                    if not is_correct:
+                        slide = find_chunk(q["source"])
+                        if slide is not None:
+                            with st.expander(f"📖 Review this slide: {slide['lecture']} p.{slide['page']}"):
+                                st.caption(slide["text"].split("\n", 1)[-1])
+
+            if st.button("🔄 New quiz on this topic"):
+                st.session_state.quiz = []
+                st.session_state.submitted = False
+                st.rerun()
+
+    timing = st.session_state.timing
+    st.markdown(
+        f"<div class='stats'>Search {timing.get('search', 0):.2f}s · Answer {timing.get('answer', 0):.2f}s</div>",
+        unsafe_allow_html=True,
+    )

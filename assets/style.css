@@ -1,0 +1,161 @@
+/* ============ Theme (colors from the reference design) ============ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #0F172A;
+  --muted: #64748B;
+  --blue: #2F80ED;
+  --blue-light: #5AA6F6;
+  --highlight: #CFE3F7;
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.95);
+  --shadow: 0 10px 30px rgba(47, 128, 237, 0.10);
+}
+
+/* every element except Streamlit's icons (they need their own icon font) */
+html, body, .stApp, .stApp *:not([data-testid="stIconMaterial"]) {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.stApp {
+  background:
+    radial-gradient(900px 500px at 50% -5%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(180deg, #E4F0FA 0%, #D6E7F6 55%, #EAF3FB 100%);
+  color: var(--ink);
+}
+
+/* hide Streamlit's default header / footer */
+header[data-testid="stHeader"] { background: transparent; }
+#MainMenu, footer { visibility: hidden; }
+.block-container { padding-top: 1rem; padding-bottom: 1rem; max-width: 1180px; }
+
+/* ============ Top bar ============ */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-radius: 999px; padding: 10px 14px 10px 16px;
+  box-shadow: var(--shadow); margin-bottom: 8px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; }
+.logo {
+  width: 34px; height: 34px; border-radius: 10px; background: var(--ink); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;
+}
+.segments { display: flex; gap: 4px; background: rgba(15, 23, 42, 0.05); border-radius: 999px; padding: 4px; }
+.seg { padding: 6px 16px; border-radius: 999px; font-size: 14px; color: var(--muted); font-weight: 500; }
+.seg.active { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08); }
+.chip {
+  font-size: 13px; font-weight: 600; color: #fff; padding: 8px 16px; border-radius: 999px;
+  background: linear-gradient(180deg, var(--blue-light), var(--blue));
+  box-shadow: 0 6px 16px rgba(47, 128, 237, 0.30);
+}
+
+/* ============ Home screen ============ */
+.hero { text-align: center; margin-top: 14px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--ink); color: #fff; font-size: 12.5px; font-weight: 500;
+  padding: 7px 14px; border-radius: 999px;
+}
+.badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+.hero h1 {
+  font-size: clamp(28px, 3.6vw, 44px); line-height: 1.12; font-weight: 700; letter-spacing: -1px;
+  color: var(--ink); margin: 12px 0 6px; padding: 0;
+}
+.hl { background: var(--highlight); padding: 0 6px; }
+.hero p { color: var(--muted); max-width: 720px; margin: 0 auto; font-size: 15px; line-height: 1.6; }
+
+.stage { position: relative; display: flex; justify-content: center; margin: 6px 0 0; }
+.code-rain {
+  position: absolute; top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%);
+  width: min(680px, 100%); overflow: hidden; pointer-events: none;
+  -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 40%, transparent 100%);
+  font-family: ui-monospace, Consolas, monospace !important; font-size: 11px; line-height: 2.1;
+  color: rgba(15, 23, 42, 0.10); text-align: center; word-break: break-all;
+}
+.buddy { position: relative; width: min(200px, 50vw); animation: float 4s ease-in-out infinite; }
+.stage.small .buddy { width: min(220px, 60vw); }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+.try-label { text-align: center; color: var(--muted); font-size: 13px; margin: 0 0 4px; }
+
+/* ============ Task card (bottom-left in the reference) ============ */
+.task-card {
+  background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px;
+  padding: 12px 16px; box-shadow: var(--shadow); max-width: 320px; margin-top: 14px; font-size: 13px;
+}
+/* on the home screen the task card sits bottom-left, like the reference */
+.task-card.floating { position: fixed; left: 24px; bottom: 120px; width: 260px; z-index: 50; }
+.task-title { font-weight: 600; margin-bottom: 4px; }
+.task-title span { color: var(--muted); font-weight: 500; }
+.task-body { color: var(--muted); line-height: 1.6; }
+
+/* ============ Answer screen ============ */
+.question-bubble {
+  display: inline-block; background: var(--ink); color: #fff; border-radius: 18px 18px 4px 18px;
+  padding: 10px 16px; font-weight: 500; margin: 8px 0 12px; max-width: 100%;
+}
+.score { color: var(--muted); font-size: 12px; }
+.score-card {
+  background: linear-gradient(180deg, var(--blue-light), var(--blue)); color: #fff;
+  border-radius: 16px; padding: 14px 18px; font-size: 18px; margin: 10px 0; box-shadow: var(--shadow);
+}
+
+/* citation chips: `K-means p.21` */
+.stMarkdown code {
+  background: var(--highlight); color: #1B4F9C; border-radius: 6px; padding: 1px 7px;
+  font-size: 0.85em; font-weight: 600; white-space: nowrap;
+}
+
+/* glass cards = st.container(border=True) and st.form
+   (border-color only changes blocks that HAVE a border; the attribute below = bordered container in Streamlit 1.4x+) */
+[data-testid="stVerticalBlockBorderWrapper"], [data-testid="stVerticalBlock"] {
+  border-color: var(--glass-border) !important; border-radius: 20px !important;
+}
+[data-testid="stVerticalBlock"][data-test-scroll-behavior], [data-testid="stForm"] {
+  background: var(--glass) !important; border: 1px solid var(--glass-border) !important;
+  border-radius: 20px !important; box-shadow: var(--shadow); padding: 18px 20px !important;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+[data-testid="stExpander"] details { background: rgba(255, 255, 255, 0.6); border-radius: 14px; border-color: #DCE8F5; }
+
+/* ============ Buttons ============ */
+.stButton > button, .stFormSubmitButton > button {
+  border-radius: 999px; padding: 8px 20px; font-weight: 600; border: 1px solid #DCE8F5;
+  background: #fff; color: var(--ink); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+.stButton > button:hover { border-color: var(--blue); color: var(--blue); }
+.stButton > button[kind="primary"], .stFormSubmitButton > button[kind="primaryFormSubmit"],
+[data-testid="stBaseButton-primary"], [data-testid="stBaseButton-primaryFormSubmit"] {
+  background: linear-gradient(180deg, var(--blue-light), var(--blue)) !important;
+  color: #fff !important; border: none !important; box-shadow: 0 8px 20px rgba(47, 128, 237, 0.35) !important;
+}
+
+/* ============ Chat input (bottom, like the reference) ============ */
+[data-testid="stBottom"] > div, [data-testid="stBottomBlockContainer"] { background: transparent !important; }
+[data-testid="stChatInput"] {
+  background: #fff !important; border: 1px solid #E2E8F0 !important; border-radius: 18px !important;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.10) !important;
+}
+[data-testid="stChatInputSubmitButton"] {
+  background: var(--ink) !important; color: #fff !important; border-radius: 12px !important;
+}
+[data-testid="stChatInputSubmitButton"] svg { fill: #fff !important; color: #fff !important; }
+
+/* ============ Timing (bottom-right in the reference) ============ */
+.stats {
+  position: fixed; right: 18px; bottom: 16px; font-size: 11.5px; color: var(--muted);
+  font-family: ui-monospace, Consolas, monospace !important; z-index: 100;
+}
+
+/* ============ Phone width ============ */
+@media (max-width: 700px) {
+  .topbar { border-radius: 20px; flex-wrap: wrap; justify-content: center; }
+  .chip { display: none; }
+  .stats { display: none; }
+}
+@media (max-width: 1200px) {
+  .task-card.floating { display: none; }
+}

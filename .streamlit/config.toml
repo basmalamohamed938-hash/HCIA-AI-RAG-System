@@ -1,0 +1,15 @@
+[theme]
+base = "light"
+primaryColor = "#2F80ED"
+backgroundColor = "#E8F2FB"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#0F172A"
+font = "sans serif"
+
+[client]
+toolbarMode = "minimal"
+
+[server]
+# The file watcher scans the whole transformers library on every rerun and prints
+# hundreds of harmless "No module named torchvision" errors. We don't need it for the demo.
+fileWatcherType = "none"

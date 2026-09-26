@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 470" width="400" height="470">
+  <defs>
+    <radialGradient id="skin" cx="42%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#FFE6D3"/>
+      <stop offset="100%" stop-color="#F1C3A2"/>
+    </radialGradient>
+    <linearGradient id="hijab" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#6AADF8"/>
+      <stop offset="100%" stop-color="#1F63D6"/>
+    </linearGradient>
+    <linearGradient id="sweater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#DCE8F4"/>
+    </linearGradient>
+    <linearGradient id="book" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF9A6B"/>
+      <stop offset="100%" stop-color="#EE5A36"/>
+    </linearGradient>
+    <style>
+      .eye { transform-box: fill-box; transform-origin: center; animation: blink 5s infinite; }
+      @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+      .spark { transform-box: fill-box; transform-origin: center; animation: twinkle 2.6s ease-in-out infinite; }
+      .spark.late { animation-delay: 1.3s; }
+      @keyframes twinkle { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.6); opacity: 0.5; } }
+      .bob { animation: bob 3.2s ease-in-out infinite; }
+      .bob.late { animation-delay: 1.6s; }
+      @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    </style>
+  </defs>
+
+  <!-- ground shadow -->
+  <ellipse cx="200" cy="456" rx="118" ry="10" fill="#0F172A" opacity="0.10"/>
+
+  <!-- body (sweater) -->
+  <path d="M84 462 C84 392 128 352 200 352 C272 352 316 392 316 462 Z" fill="url(#sweater)"/>
+
+  <!-- hijab -->
+  <path d="M200 76
+           C268 76 306 126 304 190
+           C302 244 292 272 306 306
+           C318 336 300 358 280 366
+           C250 382 226 394 200 398
+           C174 394 150 382 120 366
+           C100 358 82 336 94 306
+           C108 272 98 244 96 190
+           C94 126 132 76 200 76 Z" fill="url(#hijab)"/>
+  <ellipse cx="148" cy="128" rx="34" ry="17" transform="rotate(-35 148 128)" fill="#FFFFFF" opacity="0.22"/>
+  <path d="M128 300 Q158 344 200 356" stroke="#1B54BC" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round"/>
+  <path d="M272 300 Q242 344 200 356" stroke="#1B54BC" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round"/>
+
+  <path d="M126 276 Q200 322 276 268" stroke="#9CCBFF" stroke-width="5" fill="none" opacity="0.55" stroke-linecap="round"/>
+
+  <!-- face frame (under-scarf) + face -->
+  <ellipse cx="200" cy="194" rx="71" ry="77" fill="#CFE3FB"/>
+  <ellipse cx="200" cy="198" rx="62" ry="68" fill="url(#skin)"/>
+
+  <!-- cheeks -->
+  <ellipse cx="163" cy="224" rx="11" ry="7" fill="#F59E96" opacity="0.65"/>
+  <ellipse cx="237" cy="224" rx="11" ry="7" fill="#F59E96" opacity="0.65"/>
+
+  <!-- eyebrows -->
+  <path d="M161 170 Q175 161 189 168" stroke="#5B3A29" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M211 168 Q225 161 239 170" stroke="#5B3A29" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+  <!-- eyes -->
+  <g class="eye">
+    <ellipse cx="176" cy="197" rx="9.5" ry="12" fill="#1F2937"/>
+    <circle cx="179.5" cy="192" r="3.6" fill="#FFFFFF"/>
+    <circle cx="173" cy="202" r="1.6" fill="#FFFFFF"/>
+  </g>
+  <g class="eye">
+    <ellipse cx="224" cy="197" rx="9.5" ry="12" fill="#1F2937"/>
+    <circle cx="227.5" cy="192" r="3.6" fill="#FFFFFF"/>
+    <circle cx="221" cy="202" r="1.6" fill="#FFFFFF"/>
+  </g>
+  <path d="M166.5 190 L161 186" stroke="#1F2937" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M233.5 190 L239 186" stroke="#1F2937" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- nose + smile -->
+  <path d="M197 213 Q200 217 204 214" stroke="#D39276" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M185 228 Q200 246 215 228 Q200 235 185 228 Z" fill="#9A3B2F"/>
+  <path d="M193 237.5 Q200 242 207 237.5 Q200 235 193 237.5 Z" fill="#F28B82"/>
+
+  <!-- arms -->
+  <path d="M106 378 C96 402 108 424 136 420" stroke="#E4EDF6" stroke-width="28" fill="none" stroke-linecap="round"/>
+  <path d="M294 376 C304 398 292 414 264 408" stroke="#E4EDF6" stroke-width="28" fill="none" stroke-linecap="round"/>
+
+  <!-- book held in both hands -->
+  <g transform="translate(200 412) rotate(-6)">
+    <rect x="-60" y="-38" width="120" height="78" rx="9" fill="url(#book)"/>
+    <rect x="-54" y="34" width="108" height="7" rx="3" fill="#FFF3EA"/>
+    <rect x="-60" y="-38" width="10" height="78" rx="4" fill="#D94A28" opacity="0.55"/>
+    <text x="4" y="4" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="800" font-size="30" fill="#FFFFFF">AI</text>
+    <text x="4" y="22" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="600" font-size="10" letter-spacing="2" fill="#FFFFFF" opacity="0.9">HCIA</text>
+    <circle cx="-60" cy="4" r="13" fill="url(#skin)"/>
+    <circle cx="60" cy="4" r="13" fill="url(#skin)"/>
+  </g>
+
+  <!-- floating quiz card (top left) -->
+  <g transform="translate(40 70) rotate(-8)">
+    <g class="bob">
+      <rect width="70" height="50" rx="11" fill="#FFFFFF" stroke="#D6E6F5" stroke-width="1.5"/>
+      <circle cx="14" cy="16" r="4.5" fill="#2F80ED"/>
+      <rect x="24" y="13" width="34" height="6" rx="3" fill="#BFD7F2"/>
+      <circle cx="14" cy="34" r="4.5" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+      <rect x="24" y="31" width="26" height="6" rx="3" fill="#E2E8F0"/>
+    </g>
+  </g>
+
+  <!-- floating citation bubble (top right) -->
+  <g transform="translate(292 44)">
+    <g class="bob late">
+      <rect width="76" height="38" rx="15" fill="#0F172A"/>
+      <path d="M18 36 L14 48 L28 37 Z" fill="#0F172A"/>
+      <text x="38" y="25" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="600" font-size="14" fill="#FFFFFF">p.21</text>
+    </g>
+  </g>
+
+  <!-- sparkles -->
+  <path class="spark" d="M330 128 L334 140 L346 144 L334 148 L330 160 L326 148 L314 144 L326 140 Z" fill="#FFC857"/>
+  <path class="spark late" d="M72 170 L75 179 L84 182 L75 185 L72 194 L69 185 L60 182 L69 179 Z" fill="#7CC4FF"/>
+</svg>
