@@ -132,71 +132,69 @@ All paths are **relative** (`BASE_DIR = Path.cwd()` in the notebook, `Path(__fil
 
 ---
 
-## 7. Current status
+## 7. Current status (last update: Saturday 26-09-2026, evening)
 
-- ✅ Notebook `Study_Assistant_Pipeline.ipynb` organized: Setup → EDA (table + chart + decisions) → Bank parser → Page chunks + dedup → Embeddings + Chroma → Hybrid search → Generation → Appendix (agentic).
-- ✅ Tested end-to-end on synthetic PDFs + the real bank file (bank parsing verified: 130 / 100-30 / all 4 options).
-- ✅ Real run on the actual lectures (commit `eab7a83`): 22 indexed / 2 excluded, **887 chunks**, 0 truncated (largest 370 tokens).
-  - Big decision tree file shows **22** `skipped_duplicate` (not 32): 10 of the 32 shared pages are < `MIN_CHARS` after cleaning, so they are counted as `skipped_empty` first.
-  - K-means and Hierarchical Clustering each have 1 duplicate page → 887 instead of 889.
-  - Retrieval: K-means question → K-means p.21 / p.11 / p.13. Generation cites `[K-means p.21]`; World Cup question → "I don't know based on the lectures." (grounding works even though retrieval always returns top 3).
-- ✅ `rag_db/` rebuilt from scratch (commit `a65697c`): one collection (`lectures`), one HNSW folder.
-- ✅ Step A done in the notebook (Section 7: `get_style_examples` → `build_quiz_prompt` (JSON mode, temperature 0.7) → `check_question` → `generate_quiz` → `grade_answer`).
-  Real run on the K-means slides: 3/3 valid questions (2 single, 1 multiple), all grounded in K-means p.13 / p.21, checked by hand.
-- ✅ Step B done: `app.py` rewritten for the new DB (same functions as the notebook, no query rewriting, no bge query prefix).
-  UI: theme in `assets/style.css` (light blue glass, pill buttons), layout like an agent page (top bar, character in the center, task card, chat input at the bottom),
-  character = `assets/study_buddy.webp` (3D cartoon, transparent background, supplied by the student) + a CSS "thinking" bubble. `.streamlit/config.toml` forces the light theme and turns off the file watcher.
-  Quiz in the app (differs from the notebook): up to 2 tries, reasons shown in a "Why?" expander, `clean_source()` for "[slide id: X]",
-  "New quiz on this topic" generates directly and sends the previous questions of this topic so the LLM writes different ones.
-  Tested with Streamlit 1.64 + a fake OpenAI server: explain → sources → quiz → submit → score/review, empty submit, new question resets the quiz, dropped questions → warning.
+### Where we stopped
+- **Steps A + B are done and tested. Next: Step C (evaluation), then Step D (README + requirements.txt).**
+- All work is pushed to branch **`claude/hopeful-edison-1f799y`**. `main` on GitHub is behind (last: `8eec129`).
+  The student pulls with `git pull origin claude/hopeful-edison-1f799y`, then pushes to `main` when ready.
+- Before the demo: Restart & Run All the notebook once, save, commit (execution counts were out of order).
+
+### Data + index (notebook Sections 1–6)
+- 22 PDFs indexed / 2 excluded, **887 chunks**, 0 truncated (largest 370 tokens). `rag_db/` rebuilt clean (one collection, one HNSW folder).
+- Big decision tree file shows **22** `skipped_duplicate` (not 32): 10 of the 32 shared pages are < `MIN_CHARS` after cleaning → counted as `skipped_empty` first.
+  K-means and Hierarchical Clustering each have 1 duplicate page → 887 instead of 889.
+- Retrieval: K-means question → K-means p.21 / p.11 / p.13. Generation cites `[K-means p.21]`; World Cup → "I don't know based on the lectures."
+  (retrieval always returns top 3 even for unrelated questions; the grounding prompt is what refuses).
+
+### Quiz (notebook Section 7 + app)
+- `get_style_examples` (3 closest bank questions, style only) → `build_quiz_prompt` (JSON mode, temperature 0.7) → `check_question` → `generate_quiz` → `grade_answer` (all-or-nothing).
+- `clean_source()`: the LLM sometimes returns `"[slide id: X]"` instead of `"X"` → strip the label before validation (this was the real cause of "Could not generate a quiz"). In app + notebook.
+- `check_question` also rejects non-string / repeated answer letters (no crash).
+- Real run on the K-means slides: 3/3 valid questions, grounded in p.13 / p.21, checked by hand.
+
+### App (`app.py`) — extra behaviour beyond the notebook
+- Same retrieval / prompts as the notebook (no query rewriting, no bge query prefix, fixed `alpha=0.5`, `top_k=3`, no sliders).
+- Embedding model loaded with `local_files_only=True` first (skips the HF Hub check: 2.4s → 0.1s, starts offline), falls back to download.
+  Cold start is still ~10s+ because of the PyTorch import (slower on Windows) — start the app a few minutes before the demo.
+- Explain: answer card with citation chips, "Slides used" expander.
+- **Out-of-lectures answers** (`is_not_in_lectures()`: answer starts with `NOT_FOUND_ANSWER`): no "Quiz me" button, no "Slides used", info note + task card "Not in the lectures". Partial answers still get a quiz.
+- Quiz: colored label per question (blue "Single choice · pick 1", purple "Multi choice · select all that apply"), `st.form` + `quiz_round` widget keys.
+- `make_new_quiz()` (used by "Quiz me" and "New quiz on this topic"): up to 2 tries; sends the questions already asked on this topic (`previous_questions`) so the LLM writes new ones;
+  `is_repeat()` drops a question whose text is > 0.8 similar (difflib) to an old one; try 2 fills missing questions. Reasons shown in a "Why? (details)" expander.
+  After many quizzes on the same 3 slides only 1 question may come back — accepted by the student (facts run out).
+- Results: every option shown; chosen+right = green, chosen+wrong = red, right-not-chosen = dashed green; explanation + "Review this slide" for wrong answers.
+- UI: `assets/style.css` (light blue glass theme, pill buttons, fits 1366×768 without scroll), `assets/study_buddy.webp` (3D cartoon picture supplied by the student, transparent, 380×720)
+  + CSS "thinking" bubble; example-question buttons on the home screen (demo-safe); `.streamlit/config.toml` = light theme + file watcher off (it printed 1000+ harmless torchvision tracebacks).
+- Tested here with Streamlit 1.64 + a fake OpenAI server (Playwright): explain, sources, quiz, answers kept exactly as clicked (including changing your mind),
+  new quiz without old answers, empty submit, out-of-lectures question, HTML in the question is escaped.
 
 ---
 
 ## 8. Next steps (in order)
 
-### Step A — Quiz generation (notebook first, then app)
-- Input: the `retrieved_chunks` from `rag_answer` (or random slides of one lecture via metadata filter).
-- Few-shot style: embed bank questions with the same `dense_model`, pick the **3 closest** bank questions to the topic, put them in the prompt as **style examples only**.
-- Ask the LLM for **JSON only**, e.g.:
-  ```json
-  {"questions": [
-    {"type": "single", "question": "...", "options": {"A": "...", "B": "...", "C": "...", "D": "..."},
-     "answer": ["B"], "explanation": "...", "source": "K-means_p12"}
-  ]}
-  ```
-  - `answer` is always a list (1 item for single, 2+ for multiple).
-  - `source` must be one of the given chunk ids.
-- Validate in Python: parse with `json.loads` (handle failure gracefully), check 4 options, answer letters exist in options, source is in the given ids. Drop invalid questions instead of crashing.
-- Grading: single → chosen letter == answer; multiple → `set(chosen) == set(answer)` (all-or-nothing, like the Huawei exam).
-- Explain to me why JSON (code needs the correct answer to grade) and why grounding (no questions from outside the syllabus).
-
-### Step B — Update `app.py`
-- Load once with `@st.cache_resource`: dense model, Chroma collection, TF-IDF fit on stored docs, bank JSON.
-- Chat/explain box → shows answer + expandable sources (lecture + page + slide text).
-- Save `retrieved_chunks` in `st.session_state` → **"📝 Quiz me on this"** button → quiz with radio (single) / checkboxes (multiple) → submit → score + explanation + "review this slide" for wrong answers.
-- Explain `st.session_state` to me (Streamlit re-runs the whole script on every click).
-- Keep the UI simple and demo-safe.
-
-### Step C — Evaluation (important for the 20-point criterion)
-- Build ~15–20 test questions by hand with the **correct chunk id(s)**.
-- Metric **Hit@3**: was a correct chunk in the top 3?
-- Compare `alpha = 0` (TF-IDF only), `0.5` (hybrid), `1` (dense only) → table + simple bar chart for slides.
-- Explain the result honestly, even if hybrid is not the best.
+### Step C — Evaluation (important for the 20-point criterion) ← START HERE
+- New notebook section. Build ~15–20 test questions by hand with the **correct chunk id(s)** (read the slides in `pages.json` to pick them).
+  Mix: easy keyword questions, paraphrased questions (different words than the slide), questions across different lectures.
+- Metric **Hit@3**: was a correct chunk in the top 3? Use the notebook's `hybrid_search` (same code as the app).
+- Compare `alpha = 0` (TF-IDF only), `0.5` (hybrid), `1` (dense only) → table + simple bar chart for the slides.
+- Explain the result honestly, even if hybrid is not the best. If another alpha clearly wins, update `ALPHA` in `app.py` too.
 
 ### Step D — README + slides content
-- README: problem, data + EDA decisions, pipeline diagram, setup (`pip install -r requirements.txt`, `.env`, run notebook, run app), usage, evaluation results, limitations, future work.
-- `requirements.txt`.
+- `requirements.txt` (tested here: streamlit 1.64, chromadb 1.5.9, langchain-openai 1.6.6; check the student's versions with `pip freeze` before pinning chromadb, the DB was built with their version).
+- README: problem, data + EDA decisions, pipeline diagram, setup (`pip install -r requirements.txt`, `.env`, run notebook, run app), usage, evaluation results, limitations, future work, screenshots.
+- Slides content + LinkedIn post text.
 
 ### Optional (only if time remains)
 - Vision LLM to transcribe screenshot pages (Hierarchical, K-means, NLP, Word Embedding), cached to JSON.
 - Bank coverage chart: % of bank questions per section that the RAG can answer from the lectures.
 - "Practice from bank" mode.
 
----
-
 ## 9. Known limitations (for the presentation)
 - Screenshot-only content in some lectures is not extracted (vision LLM = future fix).
 - `bge-small-en` is English-only → questions should be in English (multilingual embedding model = future work).
 - Question bank has no answer key; bank answers come from our RAG with a cited slide.
 - Bank is HCIA-based; some sections (e.g. Parallel Training) are not covered by the lectures.
+- Many quizzes on the same topic eventually repeat facts (only 3 slides) → fewer questions come back.
+- Out-of-lectures questions get no quiz (by design): retrieval always returns 3 slides, the refusal comes from the prompt.
 - Not a tool-calling agent (by design); intent detection, spaced-repetition flashcards, and uploading files inside the app = future work.
