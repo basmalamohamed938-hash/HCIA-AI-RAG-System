@@ -317,11 +317,14 @@ def grade_answer(chosen, answer):
 # =====================================================================
 # 4) Small UI helpers (HTML pieces styled by assets/style.css)
 # =====================================================================
-def svg_as_img(path, css_class):
-    # The SVG is embedded as base64 so its own animations (blink, float) keep working
-    svg_bytes = Path(path).read_bytes()
-    encoded = base64.b64encode(svg_bytes).decode()
-    return f'<img class="{css_class}" src="data:image/svg+xml;base64,{encoded}" alt="Study buddy">'
+def buddy_html():
+    # The picture is embedded as base64 (no file server needed); the "..." thinking bubble is HTML + CSS
+    image_bytes = (ASSETS_DIR / "study_buddy.webp").read_bytes()
+    encoded = base64.b64encode(image_bytes).decode()
+    return f"""<div class="buddy">
+<img src="data:image/webp;base64,{encoded}" alt="Study buddy">
+<div class="thinking"><span></span><span></span><span></span></div>
+</div>"""
 
 
 def highlight_citations(answer):
@@ -456,7 +459,7 @@ if st.session_state.question is None:
     st.markdown(f"""
 <div class="stage">
   <div class="code-rain">{background_ids}</div>
-  {svg_as_img(ASSETS_DIR / 'study_buddy.svg', 'buddy')}
+  {buddy_html()}
 </div>""", unsafe_allow_html=True)
 
     st.markdown("<div class='try-label'>Try one:</div>", unsafe_allow_html=True)
@@ -496,7 +499,7 @@ if st.session_state.question is not None:
     left, right = st.columns([1, 2.3], gap="large")
 
     with left:
-        st.markdown(f"<div class='stage small'>{svg_as_img(ASSETS_DIR / 'study_buddy.svg', 'buddy')}</div>",
+        st.markdown(f"<div class='stage small'>{buddy_html()}</div>",
                     unsafe_allow_html=True)
         lecture_names = []
         for c in st.session_state.chunks:
