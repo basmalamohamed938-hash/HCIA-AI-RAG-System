@@ -1,0 +1,1562 @@
+[
+  {
+    "id": "bank_1",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "In a typical AI technology stack (data, compute/infrastructure, algorithms, applications), which layer is primarily responsible for providing hardware resources such as AI accelerator chips?",
+    "options": {
+      "A": "Application layer",
+      "B": "Compute/infrastructure layer",
+      "C": "Algorithm layer",
+      "D": "Presentation layer"
+    }
+  },
+  {
+    "id": "bank_2",
+    "section": "AI Fundamentals & Applications",
+    "type": "multiple",
+    "question": "Which of the following are typical AI application scenarios in industrial settings?",
+    "options": {
+      "A": "Predictive maintenance of equipment",
+      "B": "Automated visual quality inspection",
+      "C": "Manual paperwork filing with no automation",
+      "D": "Demand forecasting"
+    }
+  },
+  {
+    "id": "bank_3",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which term completes the set of three essential elements for AI development: data, compute, and ____?",
+    "options": {
+      "A": "Storage",
+      "B": "Bandwidth",
+      "C": "Algorithms",
+      "D": "Marketing"
+    }
+  },
+  {
+    "id": "bank_4",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following is an example of an AI “expert system”?",
+    "options": {
+      "A": "A system that generates random numbers",
+      "B": "A rule-based system that mimics the decision-making of a human expert in a specific domain",
+      "C": "A system that requires no domain knowledge whatsoever",
+      "D": "A purely statistical regression model"
+    }
+  },
+  {
+    "id": "bank_5",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following is a common ethical concern associated with AI deployment?",
+    "options": {
+      "A": "Algorithmic bias leading to unfair outcomes",
+      "B": "AI models running too fast",
+      "C": "Excessive use of open-source licenses",
+      "D": "Overuse of validation sets"
+    }
+  },
+  {
+    "id": "bank_6",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following is a typical computer vision task rather than an NLP task?",
+    "options": {
+      "A": "Machine translation",
+      "B": "Named entity recognition",
+      "C": "Object detection in images",
+      "D": "Sentiment analysis of text"
+    }
+  },
+  {
+    "id": "bank_7",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "What best distinguishes machine learning from traditional rule-based programming?",
+    "options": {
+      "A": "Machine learning requires no data at all",
+      "B": "Machine learning systems learn patterns from data rather than following manually coded rules",
+      "C": "Rule-based programming always outperforms machine learning",
+      "D": "Machine learning cannot be used for classification tasks"
+    }
+  },
+  {
+    "id": "bank_8",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following best describes the “Turing Test”?",
+    "options": {
+      "A": "A test to measure GPU processing speed",
+      "B": "A test proposed to evaluate whether a machine can exhibit intelligent behavior indistinguishable from a human",
+      "C": "A method for encrypting AI model weights",
+      "D": "A benchmark for image resolution"
+    }
+  },
+  {
+    "id": "bank_9",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following best defines “weak AI” (narrow AI)?",
+    "options": {
+      "A": "AI that can outperform humans at any intellectual task equally well",
+      "B": "AI designed and trained for a particular task or narrow set of tasks",
+      "C": "AI that has become self-aware",
+      "D": "AI that requires no training data at all"
+    }
+  },
+  {
+    "id": "bank_10",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which term describes an AI system capable of performing any intellectual task a human can, across domains?",
+    "options": {
+      "A": "Narrow AI",
+      "B": "General AI (AGI)",
+      "C": "Expert system",
+      "D": "Rule-based system"
+    }
+  },
+  {
+    "id": "bank_11",
+    "section": "AI Fundamentals & Applications",
+    "type": "multiple",
+    "question": "Which of the following are among the main schools of thought in AI?",
+    "options": {
+      "A": "Illusionism",
+      "B": "Connectionism",
+      "C": "Symbolism",
+      "D": "Actionism"
+    }
+  },
+  {
+    "id": "bank_12",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following is typically considered an advanced AI application?",
+    "options": {
+      "A": "Intelligent driving",
+      "B": "SDN (software-defined networking)",
+      "C": "Knowledge graph",
+      "D": "Quantum computing"
+    }
+  },
+  {
+    "id": "bank_13",
+    "section": "AI Fundamentals & Applications",
+    "type": "multiple",
+    "question": "Which of the following are considered core capabilities enabled by modern AI systems?",
+    "options": {
+      "A": "Perception (e.g., vision, speech)",
+      "B": "Cognition and reasoning",
+      "C": "Physical strength enhancement",
+      "D": "Decision-making support"
+    }
+  },
+  {
+    "id": "bank_14",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "Which kernel function is commonly used in SVMs to handle non-linearly separable data by implicitly mapping it to a higher-dimensional space?",
+    "options": {
+      "A": "Linear kernel only",
+      "B": "Radial Basis Function (RBF) kernel",
+      "C": "Identity kernel",
+      "D": "Softmax kernel"
+    }
+  },
+  {
+    "id": "bank_15",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "What is the main difference between classification and regression tasks?",
+    "options": {
+      "A": "Classification predicts continuous values; regression predicts discrete labels",
+      "B": "Classification predicts discrete class labels; regression predicts continuous values",
+      "C": "There is no difference; the terms are interchangeable",
+      "D": "Classification cannot use decision trees"
+    }
+  },
+  {
+    "id": "bank_16",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "In supervised learning, what term describes the input variables used to predict an output?",
+    "options": {
+      "A": "Labels",
+      "B": "Features",
+      "C": "Weights",
+      "D": "Residuals"
+    }
+  },
+  {
+    "id": "bank_17",
+    "section": "Machine Learning Basics",
+    "type": "multiple",
+    "question": "Which of the following are common ensemble learning methods?",
+    "options": {
+      "A": "Random Forest",
+      "B": "Gradient Boosting",
+      "C": "A single, unmodified decision tree",
+      "D": "AdaBoost"
+    }
+  },
+  {
+    "id": "bank_18",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "In machine learning, what does “underfitting” typically indicate?",
+    "options": {
+      "A": "The model is too complex and captures noise in the training data",
+      "B": "The model is too simple to capture the underlying pattern in the data",
+      "C": "The model has perfectly memorized the training data",
+      "D": "The dataset has too many samples"
+    }
+  },
+  {
+    "id": "bank_19",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "What does the “bias-variance tradeoff” refer to in machine learning?",
+    "options": {
+      "A": "The tradeoff between how fast a model trains and how accurate it is",
+      "B": "The balance between error from overly simplistic assumptions (bias) and sensitivity to small fluctuations in training data (variance)",
+      "C": "The tradeoff between using GPUs and CPUs",
+      "D": "The tradeoff between supervised and unsupervised learning"
+    }
+  },
+  {
+    "id": "bank_20",
+    "section": "Machine Learning Basics",
+    "type": "multiple",
+    "question": "Which of the following are examples of unsupervised learning tasks?",
+    "options": {
+      "A": "Clustering customers into segments",
+      "B": "Predicting house prices from features",
+      "C": "Reducing dimensionality with PCA",
+      "D": "Classifying emails as spam or not spam"
+    }
+  },
+  {
+    "id": "bank_21",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "Which of the following is an example of a distance-based clustering algorithm?",
+    "options": {
+      "A": "K-means",
+      "B": "Logistic regression",
+      "C": "Linear regression",
+      "D": "Decision tree classification"
+    }
+  },
+  {
+    "id": "bank_22",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "Which of the following best describes overfitting?",
+    "options": {
+      "A": "The model performs well on training data but poorly on unseen data",
+      "B": "The model performs poorly on both training and test data",
+      "C": "The model has too few parameters to capture patterns",
+      "D": "The model's training loss keeps increasing throughout training"
+    }
+  },
+  {
+    "id": "bank_23",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "Which term names a binary classification model that is based on a linear classifier defined in the feature space?",
+    "options": {
+      "A": "KNN",
+      "B": "SVM",
+      "C": "CNN",
+      "D": "GAN"
+    }
+  },
+  {
+    "id": "bank_24",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "What is the purpose of cross-validation in model evaluation?",
+    "options": {
+      "A": "To increase the size of the training set artificially",
+      "B": "To get a more reliable estimate of model performance by testing on multiple different data splits",
+      "C": "To eliminate the need for a test set entirely",
+      "D": "To speed up model training"
+    }
+  },
+  {
+    "id": "bank_25",
+    "section": "Machine Learning Basics",
+    "type": "multiple",
+    "question": "Which of the following statements about datasets are true?",
+    "options": {
+      "A": "Learning (or training) is the process of building a model from data",
+      "B": "Events or attributes that reflect the particular performance or nature of a sample are called features",
+      "C": "A dataset is a collection of data used in machine learning tasks, and each piece of data is called a sample",
+      "D": "A training set is a dataset used in the training process, where each sample is referred to as a training sample"
+    }
+  },
+  {
+    "id": "bank_26",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What is the primary role of weights in a neural network?",
+    "options": {
+      "A": "To store training labels",
+      "B": "To determine the strength of the connection between neurons, learned during training",
+      "C": "To define the number of layers",
+      "D": "To normalize the output"
+    }
+  },
+  {
+    "id": "bank_27",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following best describes the softmax function's typical use?",
+    "options": {
+      "A": "Converting raw output scores (logits) into a probability distribution over multiple classes",
+      "B": "Reducing the size of an image",
+      "C": "Computing gradients during backpropagation",
+      "D": "Initializing network weights"
+    }
+  },
+  {
+    "id": "bank_28",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What is the “vanishing gradient problem” most closely associated with?",
+    "options": {
+      "A": "Gradients becoming so small during backpropagation in deep networks that early layers barely update",
+      "B": "Gradients growing uncontrollably large",
+      "C": "The loss function becoming undefined",
+      "D": "The learning rate being set to zero"
+    }
+  },
+  {
+    "id": "bank_29",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "In a feedforward neural network, what is the term for computing the output from the input by passing data through the layers?",
+    "options": {
+      "A": "Backpropagation",
+      "B": "Forward propagation",
+      "C": "Gradient descent",
+      "D": "Regularization"
+    }
+  },
+  {
+    "id": "bank_30",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What does “depth” refer to in the context of a deep neural network?",
+    "options": {
+      "A": "The number of training samples",
+      "B": "The number of layers stacked in the network",
+      "C": "The size of the input image",
+      "D": "The learning rate value"
+    }
+  },
+  {
+    "id": "bank_31",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which statement about training a very deep network with the softsign activation function is correct?",
+    "options": {
+      "A": "Softsign guarantees gradients remain large regardless of network depth",
+      "B": "Softsign eliminates the vanishing gradient problem entirely",
+      "C": "As the network gets deeper, an increasing number of back-propagated gradients fall into the saturation area, shrinking the gradient magnitude toward 0, so weights stop updating",
+      "D": "Softsign only affects the output layer, not the hidden layers"
+    }
+  },
+  {
+    "id": "bank_32",
+    "section": "Neural Networks & Activation Functions",
+    "type": "multiple",
+    "question": "Which of the following are components typically found in a single artificial neuron (perceptron-style unit)?",
+    "options": {
+      "A": "Weighted sum of inputs",
+      "B": "Bias term",
+      "C": "Activation function",
+      "D": "Convolution kernel"
+    }
+  },
+  {
+    "id": "bank_33",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which activation function outputs 0 for negative inputs and the input itself for positive inputs?",
+    "options": {
+      "A": "Sigmoid",
+      "B": "Tanh",
+      "C": "ReLU",
+      "D": "Softmax"
+    }
+  },
+  {
+    "id": "bank_34",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What is a key drawback of the standard ReLU activation function?",
+    "options": {
+      "A": "It saturates for both positive and negative inputs",
+      "B": "It can cause “dying ReLU,” where neurons stop updating because their output is always 0 for negative inputs",
+      "C": "Its output is unbounded, causing instant divergence",
+      "D": "It cannot be used together with backpropagation"
+    }
+  },
+  {
+    "id": "bank_35",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following statements about the tanh activation function is correct?",
+    "options": {
+      "A": "tanh completely eliminates the vanishing gradient problem in deep networks",
+      "B": "tanh outputs values only between 0 and 1",
+      "C": "tanh has no saturation region",
+      "D": "tanh can still suffer from vanishing gradients in deep networks because its output saturates at extreme input values"
+    }
+  },
+  {
+    "id": "bank_36",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following statements about the sigmoid activation function is correct?",
+    "options": {
+      "A": "Sigmoid keeps gradients stable no matter how many layers are stacked",
+      "B": "In a network that uses sigmoid, the gradient typically decreases to 0 within about five layers, making the network difficult to train",
+      "C": "Sigmoid's output ranges from -1 to 1, which avoids vanishing gradients",
+      "D": "Sigmoid gradients grow exponentially in deep networks, causing exploding gradients"
+    }
+  },
+  {
+    "id": "bank_37",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following is NOT a recurrent neural network?",
+    "options": {
+      "A": "GRU",
+      "B": "RNN",
+      "C": "CNN",
+      "D": "LSTM"
+    }
+  },
+  {
+    "id": "bank_38",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What is the primary purpose of backpropagation in neural network training?",
+    "options": {
+      "A": "To initialize the weights randomly",
+      "B": "To compute gradients of the loss with respect to the weights so they can be updated",
+      "C": "To normalize the input data",
+      "D": "To automatically select the best hyperparameters"
+    }
+  },
+  {
+    "id": "bank_39",
+    "section": "Neural Networks & Activation Functions",
+    "type": "multiple",
+    "question": "Which of the following are purposes of an activation function in a neural network?",
+    "options": {
+      "A": "Introduce non-linearity into the model",
+      "B": "Allow the network to approximate complex functions",
+      "C": "Guarantee the model will not overfit",
+      "D": "Enable stacking of multiple layers meaningfully"
+    }
+  },
+  {
+    "id": "bank_40",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following functions can be used to alleviate the vanishing gradient problem?",
+    "options": {
+      "A": "Tanh",
+      "B": "ReLU",
+      "C": "Sigmoid",
+      "D": "Softsign"
+    }
+  },
+  {
+    "id": "bank_41",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which of the following statements about different optimizers is false?",
+    "options": {
+      "A": "Adam requires bias correction for initial iterations",
+      "B": "Compared with RMSprop, Adagrad is more sensitive to gradient changes",
+      "C": "RMSprop solves the problem of the Adagrad optimizer ending too early",
+      "D": "Both Adagrad and RMSprop can set an adaptive learning rate for parameters"
+    }
+  },
+  {
+    "id": "bank_42",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which of the following best describes “momentum” in optimization algorithms?",
+    "options": {
+      "A": "A technique that accelerates gradient descent by accumulating a moving average of past gradients to smooth updates",
+      "B": "A method for reducing the number of layers",
+      "C": "A way to increase the batch size automatically",
+      "D": "A regularization method that removes neurons randomly"
+    }
+  },
+  {
+    "id": "bank_43",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What does “gradient clipping” help prevent during training?",
+    "options": {
+      "A": "Overfitting on the training set",
+      "B": "Exploding gradients, by capping their magnitude",
+      "C": "Underfitting on the validation set",
+      "D": "Data leakage"
+    }
+  },
+  {
+    "id": "bank_44",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which term describes a subset of data held out from training and used to tune hyperparameters and monitor generalization during development?",
+    "options": {
+      "A": "Test set",
+      "B": "Validation set",
+      "C": "Training set",
+      "D": "Holdout label set"
+    }
+  },
+  {
+    "id": "bank_45",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What does “batch size” refer to in neural network training?",
+    "options": {
+      "A": "The total number of layers in the network",
+      "B": "The number of training samples processed before the model's parameters are updated once",
+      "C": "The number of epochs used in training",
+      "D": "The size of the validation set"
+    }
+  },
+  {
+    "id": "bank_46",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What does the “learning rate” hyperparameter control in gradient descent?",
+    "options": {
+      "A": "The number of training epochs",
+      "B": "The size of the steps taken toward minimizing the loss function",
+      "C": "The number of layers in the network",
+      "D": "The batch size used per iteration"
+    }
+  },
+  {
+    "id": "bank_47",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What is an “epoch” in the context of model training?",
+    "options": {
+      "A": "One forward pass through a single training example",
+      "B": "One complete pass through the entire training dataset",
+      "C": "One update of a single weight",
+      "D": "The final evaluation on the test set"
+    }
+  },
+  {
+    "id": "bank_48",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which statement about random search is correct?",
+    "options": {
+      "A": "Random search evaluates every possible combination exhaustively",
+      "B": "In random search, each setting item is sampled from the possible parameter values to find the optimal parameter subset",
+      "C": "Random search only works with categorical hyperparameters",
+      "D": "Random search requires the search space to be convex"
+    }
+  },
+  {
+    "id": "bank_49",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What problem is most likely to occur if the learning rate is set too high?",
+    "options": {
+      "A": "Training converges very slowly but steadily",
+      "B": "Training may overshoot the minimum and fail to converge, or diverge",
+      "C": "The model becomes immune to overfitting",
+      "D": "Memory usage increases significantly"
+    }
+  },
+  {
+    "id": "bank_50",
+    "section": "Training, Optimization & Regularization",
+    "type": "multiple",
+    "question": "Which of the following are common causes of slow or unstable training convergence?",
+    "options": {
+      "A": "A learning rate that is far too high or too low",
+      "B": "Poor weight initialization",
+      "C": "Well-normalized input data",
+      "D": "Vanishing or exploding gradients"
+    }
+  },
+  {
+    "id": "bank_51",
+    "section": "Training, Optimization & Regularization",
+    "type": "multiple",
+    "question": "Which of the following are common regularization techniques used to reduce overfitting?",
+    "options": {
+      "A": "Dropout",
+      "B": "L2 regularization (weight decay)",
+      "C": "Increasing the learning rate arbitrarily",
+      "D": "Early stopping"
+    }
+  },
+  {
+    "id": "bank_52",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which of the following statements about batch normalization is correct?",
+    "options": {
+      "A": "It increases sensitivity to weight initialization",
+      "B": "It can only be applied to the input layer",
+      "C": "It reduces the dependence on initial weights and learning rates, resulting in improved model performance",
+      "D": "It removes the need for an activation function"
+    }
+  },
+  {
+    "id": "bank_53",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What is “dropout” in the context of neural network training?",
+    "options": {
+      "A": "Removing a percentage of training samples at random",
+      "B": "Randomly deactivating a fraction of neurons during each training step to prevent co-adaptation",
+      "C": "Reducing the learning rate over time",
+      "D": "Permanently deleting layers from the model"
+    }
+  },
+  {
+    "id": "bank_54",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "What is the primary purpose of a pooling layer in a CNN?",
+    "options": {
+      "A": "To increase the number of channels",
+      "B": "To reduce the spatial dimensions of feature maps and the amount of computation",
+      "C": "To introduce non-linearity",
+      "D": "To normalize pixel values"
+    }
+  },
+  {
+    "id": "bank_55",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "What is “transfer learning” commonly used for in computer vision?",
+    "options": {
+      "A": "Training a model completely from scratch on a new dataset every time",
+      "B": "Reusing a model pre-trained on a large dataset and fine-tuning it for a new, related task",
+      "C": "Transferring images between file formats",
+      "D": "Compressing image files for storage"
+    }
+  },
+  {
+    "id": "bank_56",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "What is the main purpose of using multiple convolutional filters (channels) in a CNN layer?",
+    "options": {
+      "A": "To reduce the number of parameters to zero",
+      "B": "To allow the network to detect different features (e.g., edges, textures) at the same spatial location",
+      "C": "To eliminate the need for an activation function",
+      "D": "To directly output classification probabilities"
+    }
+  },
+  {
+    "id": "bank_57",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "On a convolutional layer with 64 3×3 kernels and an input feature map of size 28×28×32, what is the depth of each convolution kernel?",
+    "options": {
+      "A": "3",
+      "B": "28",
+      "C": "32",
+      "D": "64"
+    }
+  },
+  {
+    "id": "bank_58",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "Which computer vision task involves both localizing and classifying multiple objects within a single image?",
+    "options": {
+      "A": "Image classification",
+      "B": "Object detection",
+      "C": "Image captioning",
+      "D": "Image super-resolution"
+    }
+  },
+  {
+    "id": "bank_59",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "If a 64×64 image is input and a 3×3 kernel is used for convolution with a stride of 1, what is the size of the output image?",
+    "options": {
+      "A": "63×63",
+      "B": "62×62",
+      "C": "64×64",
+      "D": "65×65"
+    }
+  },
+  {
+    "id": "bank_60",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "In image classification, what does the term “top-1 accuracy” typically measure?",
+    "options": {
+      "A": "The percentage of images for which the model's single highest-confidence prediction matches the true label",
+      "B": "The accuracy of the first image in the dataset only",
+      "C": "The average confidence score across all classes",
+      "D": "The number of layers in the top of the network"
+    }
+  },
+  {
+    "id": "bank_61",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "In a CNN, what does “stride” refer to?",
+    "options": {
+      "A": "The number of pixels the convolution kernel moves at each step",
+      "B": "The size of the convolution kernel",
+      "C": "The number of output channels",
+      "D": "The depth of the input image"
+    }
+  },
+  {
+    "id": "bank_62",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "What is the effect of adding “padding” around the input before a convolution operation?",
+    "options": {
+      "A": "It reduces the output feature map size further",
+      "B": "It helps preserve the spatial dimensions of the output feature map and retains border information",
+      "C": "It always doubles the number of channels",
+      "D": "It replaces the need for a pooling layer"
+    }
+  },
+  {
+    "id": "bank_63",
+    "section": "CNNs & Computer Vision",
+    "type": "multiple",
+    "question": "Which of the following are common data augmentation techniques used specifically for image data?",
+    "options": {
+      "A": "Random rotation",
+      "B": "Horizontal flipping",
+      "C": "Word tokenization",
+      "D": "Color jittering"
+    }
+  },
+  {
+    "id": "bank_64",
+    "section": "CNNs & Computer Vision",
+    "type": "multiple",
+    "question": "Which of the following are well-known CNN architectures used for image classification?",
+    "options": {
+      "A": "ResNet",
+      "B": "VGG",
+      "C": "BERT",
+      "D": "GPT"
+    }
+  },
+  {
+    "id": "bank_65",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "Which computer vision task assigns a class label to every pixel in an image?",
+    "options": {
+      "A": "Image classification",
+      "B": "Object detection",
+      "C": "Semantic segmentation",
+      "D": "Image captioning"
+    }
+  },
+  {
+    "id": "bank_66",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "Which of the following best describes “next-token prediction,” the typical pretraining objective of GPT-style models?",
+    "options": {
+      "A": "Predicting the next word/token in a sequence given the preceding tokens",
+      "B": "Predicting a missing word in the middle of a sentence",
+      "C": "Classifying the sentiment of a sentence",
+      "D": "Translating a sentence into another language"
+    }
+  },
+  {
+    "id": "bank_67",
+    "section": "NLP, Transformer & Attention",
+    "type": "multiple",
+    "question": "Which of the following layers are used in Transformer to capture time dependencies within a sequence?",
+    "options": {
+      "A": "Feed-forward network layer",
+      "B": "Residual layer",
+      "C": "Location code (positional encoding)",
+      "D": "Self-attention layer"
+    }
+  },
+  {
+    "id": "bank_68",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "Which of the following best describes “multi-head attention” in the Transformer architecture?",
+    "options": {
+      "A": "Running the attention mechanism multiple times in parallel with different learned projections, then combining the results",
+      "B": "Using multiple separate models to vote on the final answer",
+      "C": "Running the model on multiple GPUs simultaneously",
+      "D": "A technique to increase vocabulary size"
+    }
+  },
+  {
+    "id": "bank_69",
+    "section": "NLP, Transformer & Attention",
+    "type": "multiple",
+    "question": "Which of the following are common applications of NLP?",
+    "options": {
+      "A": "Chatbots and virtual assistants",
+      "B": "Machine translation",
+      "C": "Text summarization",
+      "D": "Image super-resolution"
+    }
+  },
+  {
+    "id": "bank_70",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "What does “masked language modeling” (as used to pretrain BERT) involve?",
+    "options": {
+      "A": "Predicting randomly masked/hidden words in a sentence using their surrounding context",
+      "B": "Removing all punctuation from text before training",
+      "C": "Encrypting the training data for privacy",
+      "D": "Translating text into multiple languages simultaneously"
+    }
+  },
+  {
+    "id": "bank_71",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "What is the main advantage of the Transformer architecture over traditional RNNs for sequence modeling?",
+    "options": {
+      "A": "Transformers must process tokens strictly one at a time, like RNNs",
+      "B": "Transformers can process all tokens in a sequence in parallel using self-attention",
+      "C": "Transformers cannot handle long sequences at all",
+      "D": "Transformers do not require any training data"
+    }
+  },
+  {
+    "id": "bank_72",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "In an encoder-decoder Transformer used for machine translation, what is the role of the encoder?",
+    "options": {
+      "A": "Generate the final output sequence token by token",
+      "B": "Process the input sequence and produce a contextual representation for the decoder to use",
+      "C": "Apply pooling to reduce dimensionality",
+      "D": "Perform data augmentation on the input text"
+    }
+  },
+  {
+    "id": "bank_73",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "What is a “word embedding” in NLP?",
+    "options": {
+      "A": "A dense vector representation of a word that captures semantic meaning",
+      "B": "A binary flag indicating whether a word is a stopword",
+      "C": "A method for compressing text files",
+      "D": "A rule for capitalizing proper nouns"
+    }
+  },
+  {
+    "id": "bank_74",
+    "section": "NLP, Transformer & Attention",
+    "type": "multiple",
+    "question": "Which of the following are typical NLP text-preprocessing steps?",
+    "options": {
+      "A": "Tokenization",
+      "B": "Stopword removal",
+      "C": "Convolution",
+      "D": "Stemming or lemmatization"
+    }
+  },
+  {
+    "id": "bank_75",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "Which underlying Transformer architecture does BERT primarily use?",
+    "options": {
+      "A": "Encoder-only Transformer",
+      "B": "Decoder-only Transformer",
+      "C": "Convolutional layers",
+      "D": "Recurrent layers"
+    }
+  },
+  {
+    "id": "bank_76",
+    "section": "NLP, Transformer & Attention",
+    "type": "multiple",
+    "question": "During the calculation of the attention mechanism, which of the following are required for the similarity calculation used to obtain the attention score?",
+    "options": {
+      "A": "Value",
+      "B": "Query",
+      "C": "Weight",
+      "D": "Key"
+    }
+  },
+  {
+    "id": "bank_77",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "What is “positional encoding” used for in the Transformer architecture?",
+    "options": {
+      "A": "To reduce the vocabulary size",
+      "B": "To inject information about token order into the model, since self-attention has no inherent sense of sequence position",
+      "C": "To normalize the attention scores",
+      "D": "To compress the overall model size"
+    }
+  },
+  {
+    "id": "bank_78",
+    "section": "Frameworks & Tools",
+    "type": "multiple",
+    "question": "Which of the following are commonly used Python libraries for data manipulation and numerical computation in ML workflows?",
+    "options": {
+      "A": "NumPy",
+      "B": "Pandas",
+      "C": "Matplotlib",
+      "D": "React"
+    }
+  },
+  {
+    "id": "bank_79",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "Which of the following is NOT an AI deep learning framework?",
+    "options": {
+      "A": "Caffe",
+      "B": "TensorFlow",
+      "C": "Scikit-learn",
+      "D": "PyTorch"
+    }
+  },
+  {
+    "id": "bank_80",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is the purpose of a “requirements.txt” (or similar dependency file) in a Python ML project?",
+    "options": {
+      "A": "To list the hyperparameters used for training",
+      "B": "To specify the exact package versions needed to reproduce the project's environment",
+      "C": "To store the trained model weights",
+      "D": "To document the dataset license"
+    }
+  },
+  {
+    "id": "bank_81",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is Jupyter Notebook primarily used for?",
+    "options": {
+      "A": "Deploying production models to mobile devices",
+      "B": "Interactive coding that combines code, output, and documentation in one document",
+      "C": "Managing container orchestration",
+      "D": "Compiling C++ code"
+    }
+  },
+  {
+    "id": "bank_82",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is ONNX primarily used for?",
+    "options": {
+      "A": "Training neural networks from scratch",
+      "B": "Providing an open format to represent and exchange models between different deep learning frameworks",
+      "C": "Visualizing training loss curves",
+      "D": "Managing GPU memory allocation"
+    }
+  },
+  {
+    "id": "bank_83",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is the primary difference between a static computation graph and a dynamic computation graph?",
+    "options": {
+      "A": "Static graphs are built and fixed before execution; dynamic graphs are built on the fly during execution",
+      "B": "Static graphs can only run on CPUs",
+      "C": "Dynamic graphs cannot use GPUs",
+      "D": "There is no meaningful difference between them"
+    }
+  },
+  {
+    "id": "bank_84",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is the primary purpose of a GPU in deep learning workloads?",
+    "options": {
+      "A": "To store large datasets permanently",
+      "B": "To perform many parallel matrix/tensor computations efficiently, speeding up training and inference",
+      "C": "To manage network security",
+      "D": "To compile Python code into machine code"
+    }
+  },
+  {
+    "id": "bank_85",
+    "section": "Frameworks & Tools",
+    "type": "multiple",
+    "question": "Which of the following are characteristics of eager execution in TensorFlow 2.x?",
+    "options": {
+      "A": "Deployability",
+      "B": "High performance",
+      "C": "Flexibility",
+      "D": "Intuitiveness"
+    }
+  },
+  {
+    "id": "bank_86",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "Which of the following is NOT a characteristic of PyTorch?",
+    "options": {
+      "A": "Extensive ecosystem",
+      "B": "Python first",
+      "C": "Default use of static computation graphs",
+      "D": "Easy to debug"
+    }
+  },
+  {
+    "id": "bank_87",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "Which of the following is used in TensorFlow to describe the computation process?",
+    "options": {
+      "A": "Tensor",
+      "B": "Session",
+      "C": "Data flow",
+      "D": "Parameter"
+    }
+  },
+  {
+    "id": "bank_88",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is version control (e.g., Git) primarily used for in an ML project?",
+    "options": {
+      "A": "Tracking and managing changes to code (and sometimes configs) over time, enabling collaboration and rollback",
+      "B": "Automatically improving model accuracy",
+      "C": "Managing GPU memory allocation",
+      "D": "Compressing trained models for deployment"
+    }
+  },
+  {
+    "id": "bank_89",
+    "section": "Frameworks & Tools",
+    "type": "multiple",
+    "question": "Which of the following are typical reasons to use a cloud-based AI development platform (such as ModelArts)?",
+    "options": {
+      "A": "Access to scalable compute resources on demand",
+      "B": "Managed environments for training and deploying models",
+      "C": "Guaranteed elimination of all bugs in user code",
+      "D": "Collaboration tools for teams"
+    }
+  },
+  {
+    "id": "bank_90",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "Which of the following best describes MindSpore?",
+    "options": {
+      "A": "A cloud storage service",
+      "B": "Huawei's open-source deep learning framework",
+      "C": "A programming language for web development",
+      "D": "A database management system"
+    }
+  },
+  {
+    "id": "bank_91",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What does “model checkpointing” refer to during training?",
+    "options": {
+      "A": "Deleting the model after training completes",
+      "B": "Periodically saving the model's parameters during training so progress isn't lost and the best version can be restored",
+      "C": "Validating the model's license",
+      "D": "Checking the model's file size only"
+    }
+  },
+  {
+    "id": "bank_92",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What is “instruction tuning” in the context of large language models?",
+    "options": {
+      "A": "Fine-tuning a pre-trained model on a dataset of instruction-response pairs so it better follows natural-language instructions",
+      "B": "Adjusting the physical instructions of the training hardware",
+      "C": "A method to compress model weights",
+      "D": "Removing the need for any pretraining"
+    }
+  },
+  {
+    "id": "bank_93",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "The development of large models requires not only training and fine-tuning, but also evaluation. Which of the following are reasons for evaluating large models?",
+    "options": {
+      "A": "Improving the accuracy of model outputs",
+      "B": "Aligning large models with human values",
+      "C": "Evaluating the capabilities of large models",
+      "D": "Providing reference for enterprises to select models"
+    }
+  },
+  {
+    "id": "bank_94",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What is “catastrophic forgetting” in the context of fine-tuning a pre-trained model?",
+    "options": {
+      "A": "The model forgets its previously learned knowledge or capabilities when fine-tuned heavily on new, narrow data",
+      "B": "A hardware failure that occurs during training",
+      "C": "The permanent loss of the training dataset",
+      "D": "A type of overfitting that occurs only on the validation set"
+    }
+  },
+  {
+    "id": "bank_95",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "Which of the following are considered parameter-efficient fine-tuning (PEFT) methods?",
+    "options": {
+      "A": "LoRA",
+      "B": "Full fine-tuning of all parameters",
+      "C": "Prefix tuning",
+      "D": "Adapter tuning"
+    }
+  },
+  {
+    "id": "bank_96",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "Which of the following statements about adapter tuning is correct?",
+    "options": {
+      "A": "Adapter tuning retrains every parameter of the original pre-trained model",
+      "B": "Adapter tuning removes layers from the pre-trained model rather than adding modules",
+      "C": "Adapter tuning adds small adapter modules to specific layers of a pre-trained model, typically consisting of a dimensionality-reduction sub-network and an augmentation sub-network",
+      "D": "Adapter tuning is identical to full fine-tuning"
+    }
+  },
+  {
+    "id": "bank_97",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What best describes RLHF (Reinforcement Learning from Human Feedback)?",
+    "options": {
+      "A": "A method to compress model size using human-labeled pruning",
+      "B": "A technique that fine-tunes a model's behavior using a reward model trained on human preference data",
+      "C": "A purely unsupervised pretraining method",
+      "D": "A hardware acceleration technique for large models"
+    }
+  },
+  {
+    "id": "bank_98",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "Which of the following may be included in the training dataset of GPT-3?",
+    "options": {
+      "A": "COCO2017",
+      "B": "Books1",
+      "C": "Common Crawl",
+      "D": "Wikipedia"
+    }
+  },
+  {
+    "id": "bank_99",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What does “zero-shot learning” mean for a large language model?",
+    "options": {
+      "A": "The model has been trained on zero data",
+      "B": "The model can perform a task it was not explicitly fine-tuned on, using only a natural-language description or instruction",
+      "C": "The model requires zero compute to run",
+      "D": "The model always outputs zero as its answer"
+    }
+  },
+  {
+    "id": "bank_100",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What does “context window” refer to in a large language model?",
+    "options": {
+      "A": "The physical screen size used to display the model's output",
+      "B": "The maximum number of tokens the model can consider (as input plus generated output) at one time",
+      "C": "The number of GPUs used during training",
+      "D": "The number of layers in the model"
+    }
+  },
+  {
+    "id": "bank_101",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What is “model distillation” primarily used for?",
+    "options": {
+      "A": "Increasing the size of a model to improve accuracy",
+      "B": "Training a smaller “student” model to mimic the behavior of a larger “teacher” model, reducing size/cost while retaining much of its performance",
+      "C": "Removing bias from training data",
+      "D": "Converting a model into a different programming language"
+    }
+  },
+  {
+    "id": "bank_102",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "Which of the following fine-tuning methods do NOT change the Transformer block structure of a large model?",
+    "options": {
+      "A": "LoRA",
+      "B": "Adapter tuning",
+      "C": "Prompt tuning",
+      "D": "Prefix tuning"
+    }
+  },
+  {
+    "id": "bank_103",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "Which of the following statements about foundation models is correct?",
+    "options": {
+      "A": "The emergence of foundation models represents a completed shift from weak AI to fully general AI",
+      "B": "Foundation models are a form of narrow, task-specific systems only",
+      "C": "Foundation models broaden AI's applicability but do not by themselves constitute general (human-level) AI",
+      "D": "Foundation models eliminate the need for any further model training"
+    }
+  },
+  {
+    "id": "bank_104",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "Which of the following are common risks or limitations associated with large language models?",
+    "options": {
+      "A": "Hallucination (generating plausible but incorrect information)",
+      "B": "Bias inherited from training data",
+      "C": "Guaranteed factual accuracy in all outputs",
+      "D": "High computational cost for training and inference"
+    }
+  },
+  {
+    "id": "bank_105",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What is “prompt engineering” in the context of large language models?",
+    "options": {
+      "A": "Physically engineering GPU hardware",
+      "B": "The practice of designing effective input prompts to elicit desired outputs from a model",
+      "C": "Retraining the entire model from scratch",
+      "D": "A method for compressing model weights"
+    }
+  },
+  {
+    "id": "bank_106",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What does “few-shot learning” mean in the context of large language models?",
+    "options": {
+      "A": "The model is given a small number of examples within the prompt to guide it toward the desired task, without updating its weights",
+      "B": "The model is trained on a tiny dataset from scratch",
+      "C": "The model can only answer a few types of questions",
+      "D": "The model requires very little compute to train"
+    }
+  },
+  {
+    "id": "bank_107",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "Which of the following statements about data parallelism is correct?",
+    "options": {
+      "A": "Each batch's data is split into N parts, and only the loss values are aggregated on the master node, with no gradient computation",
+      "B": "Data parallelism requires every computing unit to hold a different, disjoint subset of the model",
+      "C": "Each batch's data is split into N parts, forward and backward propagation run on each computing unit, and the resulting gradients are aggregated to update the shared model",
+      "D": "Data parallelism does not use a master node at all"
+    }
+  },
+  {
+    "id": "bank_108",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "In tensor (model) parallelism, what is typically split across devices?",
+    "options": {
+      "A": "The number of training epochs",
+      "B": "The parameters/computation within a single layer or set of layers",
+      "C": "Only the input data batches",
+      "D": "The optimizer's random seed"
+    }
+  },
+  {
+    "id": "bank_109",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "What is the primary motivation for using parallel training strategies (data, model, or pipeline parallelism) for large models?",
+    "options": {
+      "A": "To reduce the number of training epochs needed",
+      "B": "To fit and train models that are too large or too slow to train on a single device",
+      "C": "To eliminate the need for a loss function",
+      "D": "To avoid using GPUs altogether"
+    }
+  },
+  {
+    "id": "bank_110",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "What is a common technique to reduce communication overhead when synchronizing gradients across many devices in data-parallel training?",
+    "options": {
+      "A": "Gradient checkpointing only",
+      "B": "All-reduce communication algorithms that efficiently aggregate gradients across devices",
+      "C": "Increasing the batch size to infinity",
+      "D": "Disabling backpropagation"
+    }
+  },
+  {
+    "id": "bank_111",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "What is “mixed precision training” primarily used for?",
+    "options": {
+      "A": "Mixing different datasets together during training",
+      "B": "Using lower-precision numeric formats (e.g., FP16) alongside FP32 to speed up training and reduce memory usage while maintaining accuracy",
+      "C": "Randomly mixing model architectures during training",
+      "D": "Combining supervised and unsupervised losses"
+    }
+  },
+  {
+    "id": "bank_112",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "What is the “master node” typically responsible for in a distributed training setup?",
+    "options": {
+      "A": "Only storing log files",
+      "B": "Coordinating tasks such as aggregating gradients, broadcasting updated parameters, or orchestrating the training job across workers",
+      "C": "Running validation exclusively",
+      "D": "Nothing; it is a legacy term with no function"
+    }
+  },
+  {
+    "id": "bank_113",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "Which of the following statements about pipeline parallelism is correct?",
+    "options": {
+      "A": "Pipeline parallelism requires all layers to reside on every computing unit simultaneously",
+      "B": "Pipeline parallelism splits a model's layers (stages) across computing units, and different micro-batches flow through the stages in an overlapping, pipelined fashion",
+      "C": "Pipeline parallelism splits the parameters of each layer into multiple parts, distributed across computing units, with gradients merged on a master unit",
+      "D": "Pipeline parallelism eliminates the need for backward propagation"
+    }
+  },
+  {
+    "id": "bank_114",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "Which parallelism strategy is most associated with dividing a model's layers into sequential stages placed on different devices, with micro-batches flowing through the stages?",
+    "options": {
+      "A": "Data parallelism",
+      "B": "Pipeline parallelism",
+      "C": "Tensor parallelism",
+      "D": "Ensemble parallelism"
+    }
+  },
+  {
+    "id": "bank_115",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "Tensor parallelism is a common method for parallel training of large models. Which type of model data is split across different devices?",
+    "options": {
+      "A": "Optimizer",
+      "B": "Input data",
+      "C": "Model parameters",
+      "D": "Gradient"
+    }
+  },
+  {
+    "id": "bank_116",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "In data parallelism, what does each computing device (worker) typically hold a copy of?",
+    "options": {
+      "A": "A different subset of the model's layers only",
+      "B": "The full model, while processing a different subset (shard) of the training data",
+      "C": "Only the optimizer state, with no model parameters",
+      "D": "A different loss function entirely"
+    }
+  },
+  {
+    "id": "bank_117",
+    "section": "Parallel Training",
+    "type": "multiple",
+    "question": "Which of the following are strategies used to reduce memory usage when training very large models?",
+    "options": {
+      "A": "Gradient checkpointing (activation recomputation)",
+      "B": "Mixed precision training",
+      "C": "Storing every intermediate activation for the entire model at full precision indefinitely",
+      "D": "Optimizer state sharding (e.g., as in ZeRO)"
+    }
+  },
+  {
+    "id": "bank_118",
+    "section": "Parallel Training",
+    "type": "multiple",
+    "question": "Which of the following are common challenges associated with distributed/parallel training of large models?",
+    "options": {
+      "A": "Communication overhead between devices",
+      "B": "Load balancing across devices",
+      "C": "Guaranteed zero latency regardless of network conditions",
+      "D": "Synchronization of gradients or parameters"
+    }
+  },
+  {
+    "id": "bank_119",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "multiple",
+    "question": "Data augmentation can improve model robustness and avoid overfitting. Which of the following are data augmentation methods?",
+    "options": {
+      "A": "Batch normalization",
+      "B": "Random crop",
+      "C": "Image contrast change",
+      "D": "Image noise adding"
+    }
+  },
+  {
+    "id": "bank_120",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "What is “class imbalance” in a classification dataset?",
+    "options": {
+      "A": "When all classes have exactly the same number of samples",
+      "B": "When one or more classes have significantly fewer samples than others, which can bias the model toward the majority class",
+      "C": "A technique for balancing computational load across GPUs",
+      "D": "A method for normalizing feature values"
+    }
+  },
+  {
+    "id": "bank_121",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "What is “feature engineering”?",
+    "options": {
+      "A": "The process of designing and transforming raw data into features that better represent the underlying problem to a model",
+      "B": "The process of installing GPUs onto a server",
+      "C": "The process of writing the model's architecture code",
+      "D": "The process of labeling a dataset manually"
+    }
+  },
+  {
+    "id": "bank_122",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "multiple",
+    "question": "Which of the following are valid reasons to use the F1 score instead of accuracy alone?",
+    "options": {
+      "A": "When classes are imbalanced, accuracy can be misleading",
+      "B": "F1 score balances precision and recall in a single metric",
+      "C": "F1 score is always higher than accuracy",
+      "D": "F1 score is useful when both false positives and false negatives matter"
+    }
+  },
+  {
+    "id": "bank_123",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "multiple",
+    "question": "Which of the following statements about data preprocessing are true?",
+    "options": {
+      "A": "Machine learning tasks generate results in the form of model outputs, so model training is more important than data preprocessing",
+      "B": "Data standardization aims to reduce noise data and improve model accuracy",
+      "C": "Data cleansing is the process of filling in missing values and detecting/eliminating noise and exceptions",
+      "D": "Data dimension reduction aims to simplify data attributes and avoid the curse of dimensionality"
+    }
+  },
+  {
+    "id": "bank_124",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "Which of the following best describes “precision” in classification evaluation?",
+    "options": {
+      "A": "The proportion of actual positive instances that were correctly identified",
+      "B": "The proportion of instances predicted as positive that are actually positive",
+      "C": "The overall proportion of correct predictions across all classes",
+      "D": "The average error between predicted and actual continuous values"
+    }
+  },
+  {
+    "id": "bank_125",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "multiple",
+    "question": "Which of the following can cause a machine learning model to perform poorly on real-world data despite good training accuracy?",
+    "options": {
+      "A": "Overfitting to the training set",
+      "B": "Data leakage between training and test sets",
+      "C": "Using cross-validation properly during development",
+      "D": "A shift between the training data distribution and the real-world data distribution"
+    }
+  },
+  {
+    "id": "bank_126",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "What is the purpose of splitting a dataset into training, validation, and test sets?",
+    "options": {
+      "A": "To increase the total amount of data available",
+      "B": "To estimate how well a model generalizes to unseen data, while keeping tuning decisions separate from final evaluation",
+      "C": "To make the model train faster",
+      "D": "To eliminate the need for labels"
+    }
+  },
+  {
+    "id": "bank_127",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "Which metric is most appropriate for evaluating a regression model's prediction error?",
+    "options": {
+      "A": "Accuracy",
+      "B": "F1 score",
+      "C": "Mean Squared Error (MSE)",
+      "D": "Precision"
+    }
+  },
+  {
+    "id": "bank_128",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "In a confusion matrix for binary classification, what does a “false positive” represent?",
+    "options": {
+      "A": "A negative instance correctly predicted as negative",
+      "B": "A positive instance correctly predicted as positive",
+      "C": "A negative instance incorrectly predicted as positive",
+      "D": "A positive instance incorrectly predicted as negative"
+    }
+  },
+  {
+    "id": "bank_129",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "Why is data normalization/standardization often applied before training a model?",
+    "options": {
+      "A": "To increase the number of features",
+      "B": "To bring different features onto comparable scales, helping optimization converge more reliably",
+      "C": "To remove all correlation between features",
+      "D": "To convert categorical data into images"
+    }
+  },
+  {
+    "id": "bank_130",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "Which of the following best describes “recall” in classification evaluation?",
+    "options": {
+      "A": "The proportion of instances predicted as positive that are actually positive",
+      "B": "The proportion of actual positive instances that were correctly identified by the model",
+      "C": "The total number of predictions made",
+      "D": "The ratio of true negatives to false positives"
+    }
+  }
+]
