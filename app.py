@@ -252,6 +252,8 @@ def clean_source(source):
     # The LLM sometimes copies the whole label: "[slide id: KNN_p14]" → "KNN_p14"
     if not isinstance(source, str):
         return source
+    # It may also cite two slides: "K-means_p13, K-means_p21" → keep the first one
+    source = source.split(",")[0]
     source = source.strip()
     source = source.strip("[]")
     source = source.replace("slide id:", "")
