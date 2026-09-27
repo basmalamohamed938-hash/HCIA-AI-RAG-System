@@ -1,0 +1,2454 @@
+[
+  {
+    "id": "bank_1",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "In a typical AI technology stack (data, compute/infrastructure, algorithms, applications), which layer is primarily responsible for providing hardware resources such as AI accelerator chips?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p22",
+      "intro to CV & CNN_p31",
+      "DeepLearning_p16"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_2",
+    "section": "AI Fundamentals & Applications",
+    "type": "multiple",
+    "question": "Which of the following are typical AI application scenarios in industrial settings?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "D"
+    ],
+    "source": "AI Introduction_p38",
+    "retrieved": [
+      "AI Introduction_p38",
+      "AI Introduction_p40",
+      "AI Introduction_p3"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_3",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which term completes the set of three essential elements for AI development: data, compute, and ____?",
+    "key": [
+      "C"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "AI Introduction_p3",
+      "Hierarchical Clustering_p10",
+      "Hierarchical Clustering_p11"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_4",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following is an example of an AI “expert system”?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "AI Introduction_p9",
+    "retrieved": [
+      "AI Introduction_p15",
+      "AI Introduction_p9",
+      "AI Introduction_p11"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_5",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following is a common ethical concern associated with AI deployment?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "AI Introduction_p39",
+    "retrieved": [
+      "AI Introduction_p3",
+      "AI Introduction_p39",
+      "AI Introduction_p41"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_6",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following is a typical computer vision task rather than an NLP task?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "intro to CV & CNN_p3",
+    "retrieved": [
+      "intro to CV & CNN_p4",
+      "intro to CV & CNN_p3",
+      "NLP - Text preprocessing_p60"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_7",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "What best distinguishes machine learning from traditional rule-based programming?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "AI Introduction_p19",
+    "retrieved": [
+      "Feature Selection in Machine Learning_p1",
+      "AI Introduction_p19",
+      "linear regression_p4"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_8",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following best describes the “Turing Test”?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "AI Introduction_p8",
+    "retrieved": [
+      "AI Introduction_p8",
+      "AI Introduction_p15",
+      "AI Introduction_p14"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_9",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which of the following best defines “weak AI” (narrow AI)?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "AI Introduction_p11",
+    "retrieved": [
+      "AI Introduction_p10",
+      "AI Introduction_p11",
+      "AI Introduction_p14"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_10",
+    "section": "AI Fundamentals & Applications",
+    "type": "single",
+    "question": "Which term describes an AI system capable of performing any intellectual task a human can, across domains?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "AI Introduction_p10",
+    "retrieved": [
+      "AI Introduction_p10",
+      "AI Introduction_p15",
+      "AI Introduction_p11"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_11",
+    "section": "AI Fundamentals & Applications",
+    "type": "multiple",
+    "question": "Which of the following are among the main schools of thought in AI?",
+    "key": [
+      "B",
+      "C",
+      "D"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "AI Introduction_p10",
+      "AI Introduction_p15",
+      "AI Introduction_p17"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_13",
+    "section": "AI Fundamentals & Applications",
+    "type": "multiple",
+    "question": "Which of the following are considered core capabilities enabled by modern AI systems?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "D"
+    ],
+    "source": "AI Introduction_p5",
+    "retrieved": [
+      "AI Introduction_p4",
+      "AI Introduction_p13",
+      "AI Introduction_p5"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_14",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "Which kernel function is commonly used in SVMs to handle non-linearly separable data by implicitly mapping it to a higher-dimensional space?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "intro to CV & CNN_p42",
+      "intro to CV & CNN_p34",
+      "intro to CV & CNN_p41"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_15",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "What is the main difference between classification and regression tasks?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "linear regression_p5",
+    "retrieved": [
+      "linear regression_p5",
+      "K-means_p2",
+      "Logistic Regression_p2"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_16",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "In supervised learning, what term describes the input variables used to predict an output?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "linear regression_p6",
+    "retrieved": [
+      "Attention & transformers_p45",
+      "linear regression_p4",
+      "linear regression_p6"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_17",
+    "section": "Machine Learning Basics",
+    "type": "multiple",
+    "question": "Which of the following are common ensemble learning methods?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "B",
+      "D"
+    ],
+    "source": "decision tree & ensemble learning_p95",
+    "retrieved": [
+      "decision tree & ensemble learning_p74",
+      "decision tree & ensemble learning_p67",
+      "decision tree & ensemble learning_p95"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_18",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "In machine learning, what does “underfitting” typically indicate?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p82",
+    "retrieved": [
+      "linear regression_p48",
+      "DeepLearning_p82",
+      "DeepLearning_p81"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_19",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "What does the “bias-variance tradeoff” refer to in machine learning?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Imbalanced Data_p16",
+      "linear regression_p4",
+      "DeepLearning_p7"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_20",
+    "section": "Machine Learning Basics",
+    "type": "multiple",
+    "question": "Which of the following are examples of unsupervised learning tasks?",
+    "key": [
+      "A",
+      "C"
+    ],
+    "predicted": [
+      "A",
+      "C"
+    ],
+    "source": "AI Introduction_p30",
+    "retrieved": [
+      "AI Introduction_p30",
+      "AI Introduction_p19",
+      "linear regression_p4"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_21",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "Which of the following is an example of a distance-based clustering algorithm?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "K-means_p2",
+    "retrieved": [
+      "Feature Scaling_p4",
+      "Logistic Regression_p1",
+      "K-means_p2"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_22",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "Which of the following best describes overfitting?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "DeepLearning_p81",
+    "retrieved": [
+      "DeepLearning_p81",
+      "linear regression_p48",
+      "DeepLearning_p71"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_23",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "Which term names a binary classification model that is based on a linear classifier defined in the feature space?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Feature Scaling_p4",
+    "retrieved": [
+      "Feature Scaling_p4",
+      "intro to CV & CNN_p56",
+      "KNN_p3"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_24",
+    "section": "Machine Learning Basics",
+    "type": "single",
+    "question": "What is the purpose of cross-validation in model evaluation?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "decision tree & ensemble learning & random forest_p51",
+      "decision tree & ensemble learning & random forest_p54",
+      "decision tree & ensemble learning & random forest_p53"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_25",
+    "section": "Machine Learning Basics",
+    "type": "multiple",
+    "question": "Which of the following statements about datasets are true?",
+    "key": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "decision tree & ensemble learning_p62",
+      "decision tree & ensemble learning_p57",
+      "decision tree & ensemble learning_p68"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_26",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What is the primary role of weights in a neural network?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p26",
+      "DeepLearning_p15",
+      "DeepLearning_p22"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_27",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following best describes the softmax function's typical use?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "DeepLearning_p35",
+    "retrieved": [
+      "DeepLearning_p35",
+      "Logistic Regression_p32",
+      "intro to CV & CNN_p56"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_28",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What is the “vanishing gradient problem” most closely associated with?",
+    "key": [
+      "A"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p47",
+      "linear regression_p30",
+      "DeepLearning_p17"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_29",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "In a feedforward neural network, what is the term for computing the output from the input by passing data through the layers?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p27",
+    "retrieved": [
+      "DeepLearning_p19",
+      "DeepLearning_p27",
+      "DeepLearning_p17"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_30",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What does “depth” refer to in the context of a deep neural network?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p19",
+    "retrieved": [
+      "DeepLearning_p37",
+      "DeepLearning_p18",
+      "DeepLearning_p19"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_31",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which statement about training a very deep network with the softsign activation function is correct?",
+    "key": [
+      "C"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p36",
+      "DeepLearning_p19",
+      "DeepLearning_p37"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_32",
+    "section": "Neural Networks & Activation Functions",
+    "type": "multiple",
+    "question": "Which of the following are components typically found in a single artificial neuron (perceptron-style unit)?",
+    "key": [
+      "A",
+      "B",
+      "C"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "C"
+    ],
+    "source": "DeepLearning_p9",
+    "retrieved": [
+      "DeepLearning_p11",
+      "DeepLearning_p9",
+      "DeepLearning_p64"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_33",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which activation function outputs 0 for negative inputs and the input itself for positive inputs?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "DeepLearning_p33",
+    "retrieved": [
+      "DeepLearning_p36",
+      "intro to CV & CNN_p47",
+      "DeepLearning_p33"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_34",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What is a key drawback of the standard ReLU activation function?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p34",
+    "retrieved": [
+      "DeepLearning_p34",
+      "DeepLearning_p36",
+      "DeepLearning_p33"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_35",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following statements about the tanh activation function is correct?",
+    "key": [
+      "D"
+    ],
+    "predicted": [
+      "D"
+    ],
+    "source": "DeepLearning_p32",
+    "retrieved": [
+      "DeepLearning_p32",
+      "DeepLearning_p36",
+      "DeepLearning_p79"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_36",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following statements about the sigmoid activation function is correct?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p36",
+    "retrieved": [
+      "DeepLearning_p31",
+      "DeepLearning_p36",
+      "DeepLearning_p64"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_37",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following is NOT a recurrent neural network?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "intro to CV & CNN_p40",
+    "retrieved": [
+      "Attention & transformers_p20",
+      "intro to CV & CNN_p40",
+      "Attention & transformers_p36"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_38",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "What is the primary purpose of backpropagation in neural network training?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p47",
+    "retrieved": [
+      "DeepLearning_p17",
+      "DeepLearning_p37",
+      "DeepLearning_p47"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_39",
+    "section": "Neural Networks & Activation Functions",
+    "type": "multiple",
+    "question": "Which of the following are purposes of an activation function in a neural network?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "D"
+    ],
+    "source": "DeepLearning_p10",
+    "retrieved": [
+      "DeepLearning_p10",
+      "DeepLearning_p18",
+      "intro to CV & CNN_p47"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_40",
+    "section": "Neural Networks & Activation Functions",
+    "type": "single",
+    "question": "Which of the following functions can be used to alleviate the vanishing gradient problem?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p33",
+    "retrieved": [
+      "DeepLearning_p36",
+      "DeepLearning_p32",
+      "DeepLearning_p33"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_41",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which of the following statements about different optimizers is false?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p56",
+    "retrieved": [
+      "DeepLearning_p57",
+      "DeepLearning_p56",
+      "DeepLearning_p61"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_42",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which of the following best describes “momentum” in optimization algorithms?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "DeepLearning_p55",
+    "retrieved": [
+      "DeepLearning_p55",
+      "DeepLearning_p58",
+      "DeepLearning_p61"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_43",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What does “gradient clipping” help prevent during training?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p81",
+      "DeepLearning_p82",
+      "decision tree & ensemble learning & random forest_p51"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_44",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which term describes a subset of data held out from training and used to tune hyperparameters and monitor generalization during development?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "decision tree & ensemble learning & random forest_p51",
+      "decision tree & ensemble learning & random forest_p53",
+      "DeepLearning_p81"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_45",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What does “batch size” refer to in neural network training?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Fine Tuning LLMs_p32",
+    "retrieved": [
+      "Fine Tuning LLMs_p32",
+      "DeepLearning_p74",
+      "DeepLearning_p71"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_46",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What does the “learning rate” hyperparameter control in gradient descent?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "linear regression_p30",
+    "retrieved": [
+      "DeepLearning_p74",
+      "Fine Tuning LLMs_p32",
+      "linear regression_p30"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_47",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What is an “epoch” in the context of model training?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Fine Tuning LLMs_p32",
+    "retrieved": [
+      "DeepLearning_p73",
+      "Fine Tuning LLMs_p37",
+      "Fine Tuning LLMs_p32"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_48",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which statement about random search is correct?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "decision tree & ensemble learning & random forest_p37",
+      "RAG_p21",
+      "decision tree & ensemble learning & random forest_p43"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_49",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What problem is most likely to occur if the learning rate is set too high?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "linear regression_p36",
+    "retrieved": [
+      "gradient boosting regression_p10",
+      "linear regression_p36",
+      "DeepLearning_p71"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_50",
+    "section": "Training, Optimization & Regularization",
+    "type": "multiple",
+    "question": "Which of the following are common causes of slow or unstable training convergence?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "D"
+    ],
+    "source": "DeepLearning_p87",
+    "retrieved": [
+      "linear regression_p30",
+      "DeepLearning_p78",
+      "DeepLearning_p87"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_51",
+    "section": "Training, Optimization & Regularization",
+    "type": "multiple",
+    "question": "Which of the following are common regularization techniques used to reduce overfitting?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "D"
+    ],
+    "source": "Fine Tuning LLMs_p42",
+    "retrieved": [
+      "DeepLearning_p87",
+      "Fine Tuning LLMs_p42",
+      "DeepLearning_p83"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_52",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "Which of the following statements about batch normalization is correct?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "DeepLearning_p80",
+    "retrieved": [
+      "DeepLearning_p80",
+      "DeepLearning_p87",
+      "decision tree & ensemble learning_p54"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_53",
+    "section": "Training, Optimization & Regularization",
+    "type": "single",
+    "question": "What is “dropout” in the context of neural network training?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "DeepLearning_p84",
+    "retrieved": [
+      "DeepLearning_p84",
+      "DeepLearning_p71",
+      "DeepLearning_p19"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_54",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "What is the primary purpose of a pooling layer in a CNN?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "intro to CV & CNN_p48",
+    "retrieved": [
+      "intro to CV & CNN_p48",
+      "intro to CV & CNN_p49",
+      "intro to CV & CNN_p51"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_55",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "What is “transfer learning” commonly used for in computer vision?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "intro to CV & CNN_p60",
+    "retrieved": [
+      "Fine Tuning LLMs_p2",
+      "intro to CV & CNN_p60",
+      "intro to CV & CNN_p61"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_56",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "What is the main purpose of using multiple convolutional filters (channels) in a CNN layer?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "intro to CV & CNN_p39",
+    "retrieved": [
+      "intro to CV & CNN_p52",
+      "intro to CV & CNN_p33",
+      "intro to CV & CNN_p39"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_57",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "On a convolutional layer with 64 3×3 kernels and an input feature map of size 28×28×32, what is the depth of each convolution kernel?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "intro to CV & CNN_p36",
+    "retrieved": [
+      "intro to CV & CNN_p46",
+      "intro to CV & CNN_p36",
+      "intro to CV & CNN_p42"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_58",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "Which computer vision task involves both localizing and classifying multiple objects within a single image?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "intro to CV & CNN_p3",
+    "retrieved": [
+      "intro to CV & CNN_p3",
+      "intro to CV & CNN_p1",
+      "intro to CV & CNN_p5"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_59",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "If a 64×64 image is input and a 3×3 kernel is used for convolution with a stride of 1, what is the size of the output image?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "intro to CV & CNN_p43",
+    "retrieved": [
+      "Generative AI & Diffusion models_p42",
+      "Generative AI & Diffusion models_p43",
+      "intro to CV & CNN_p43"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_60",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "In image classification, what does the term “top-1 accuracy” typically measure?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "intro to CV & CNN_p5",
+    "retrieved": [
+      "intro to CV & CNN_p5",
+      "intro to CV & CNN_p57",
+      "Generative AI & Diffusion models_p28"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_61",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "In a CNN, what does “stride” refer to?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "intro to CV & CNN_p41",
+    "retrieved": [
+      "intro to CV & CNN_p41",
+      "intro to CV & CNN_p34",
+      "intro to CV & CNN_p42"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_62",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "What is the effect of adding “padding” around the input before a convolution operation?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "intro to CV & CNN_p44",
+    "retrieved": [
+      "intro to CV & CNN_p52",
+      "intro to CV & CNN_p44",
+      "intro to CV & CNN_p41"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_63",
+    "section": "CNNs & Computer Vision",
+    "type": "multiple",
+    "question": "Which of the following are common data augmentation techniques used specifically for image data?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B"
+    ],
+    "source": "intro to CV & CNN_p26",
+    "retrieved": [
+      "intro to CV & CNN_p26",
+      "intro to CV & CNN_p25",
+      "Word Embedding_p15"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_64",
+    "section": "CNNs & Computer Vision",
+    "type": "multiple",
+    "question": "Which of the following are well-known CNN architectures used for image classification?",
+    "key": [
+      "A",
+      "B"
+    ],
+    "predicted": [
+      "A",
+      "B"
+    ],
+    "source": "intro to CV & CNN_p60",
+    "retrieved": [
+      "Attention & transformers_p47",
+      "intro to CV & CNN_p60",
+      "Attention & transformers_p38"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_65",
+    "section": "CNNs & Computer Vision",
+    "type": "single",
+    "question": "Which computer vision task assigns a class label to every pixel in an image?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "intro to CV & CNN_p10",
+    "retrieved": [
+      "intro to CV & CNN_p13",
+      "intro to CV & CNN_p3",
+      "intro to CV & CNN_p10"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_66",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "Which of the following best describes “next-token prediction,” the typical pretraining objective of GPT-style models?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "Generative AI & Diffusion models_p7",
+    "retrieved": [
+      "Attention & transformers_p40",
+      "Generative AI & Diffusion models_p7",
+      "Attention & transformers_p45"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_67",
+    "section": "NLP, Transformer & Attention",
+    "type": "multiple",
+    "question": "Which of the following layers are used in Transformer to capture time dependencies within a sequence?",
+    "key": [
+      "C",
+      "D"
+    ],
+    "predicted": [
+      "C",
+      "D"
+    ],
+    "source": "Attention & transformers_p27",
+    "retrieved": [
+      "Attention & transformers_p9",
+      "DeepLearning_p19",
+      "Attention & transformers_p27"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_68",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "Which of the following best describes “multi-head attention” in the Transformer architecture?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "Attention & transformers_p29",
+    "retrieved": [
+      "Attention & transformers_p29",
+      "Attention & transformers_p12",
+      "Attention & transformers_p36"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_69",
+    "section": "NLP, Transformer & Attention",
+    "type": "multiple",
+    "question": "Which of the following are common applications of NLP?",
+    "key": [
+      "A",
+      "B",
+      "C"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "C"
+    ],
+    "source": "Attention & transformers_p35",
+    "retrieved": [
+      "Attention & transformers_p35",
+      "NLP - Text preprocessing_p16",
+      "NLP - Text preprocessing_p9"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_70",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "What does “masked language modeling” (as used to pretrain BERT) involve?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "Attention & transformers_p41",
+    "retrieved": [
+      "Attention & transformers_p41",
+      "Attention & transformers_p44",
+      "Attention & transformers_p47"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_71",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "What is the main advantage of the Transformer architecture over traditional RNNs for sequence modeling?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Attention & transformers_p22",
+    "retrieved": [
+      "Attention & transformers_p21",
+      "Attention & transformers_p36",
+      "Attention & transformers_p22"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_72",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "In an encoder-decoder Transformer used for machine translation, what is the role of the encoder?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Attention & transformers_p32",
+    "retrieved": [
+      "Attention & transformers_p24",
+      "Attention & transformers_p32",
+      "Attention & transformers_p38"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_73",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "What is a “word embedding” in NLP?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "Word Embedding_p20",
+    "retrieved": [
+      "Word Embedding_p20",
+      "Word Embedding_p15",
+      "Word Embedding_p2"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_74",
+    "section": "NLP, Transformer & Attention",
+    "type": "multiple",
+    "question": "Which of the following are typical NLP text-preprocessing steps?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "D"
+    ],
+    "source": "NLP - Text preprocessing_p45, NLP - Text preprocessing_p58, NLP - Text preprocessing_p57",
+    "retrieved": [
+      "NLP - Text preprocessing_p57",
+      "NLP - Text preprocessing_p58",
+      "NLP - Text preprocessing_p45"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_75",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "Which underlying Transformer architecture does BERT primarily use?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "Attention & transformers_p38",
+    "retrieved": [
+      "Attention & transformers_p38",
+      "Attention & transformers_p37",
+      "Attention & transformers_p32"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_76",
+    "section": "NLP, Transformer & Attention",
+    "type": "multiple",
+    "question": "During the calculation of the attention mechanism, which of the following are required for the similarity calculation used to obtain the attention score?",
+    "key": [
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "B",
+      "D"
+    ],
+    "source": "Attention & transformers_p6",
+    "retrieved": [
+      "Attention & transformers_p6",
+      "Attention & transformers_p1",
+      "Attention & transformers_p9"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_77",
+    "section": "NLP, Transformer & Attention",
+    "type": "single",
+    "question": "What is “positional encoding” used for in the Transformer architecture?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Attention & transformers_p26",
+    "retrieved": [
+      "Attention & transformers_p13",
+      "Attention & transformers_p26",
+      "Attention & transformers_p17"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_78",
+    "section": "Frameworks & Tools",
+    "type": "multiple",
+    "question": "Which of the following are commonly used Python libraries for data manipulation and numerical computation in ML workflows?",
+    "key": [
+      "A",
+      "B",
+      "C"
+    ],
+    "predicted": [
+      "A",
+      "B"
+    ],
+    "source": "Imbalanced Data_p1",
+    "retrieved": [
+      "Exploratory Data Analysis_p18",
+      "Imbalanced Data_p1",
+      "AI Introduction_p44"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_79",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "Which of the following is NOT an AI deep learning framework?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "AI Introduction_p22",
+    "retrieved": [
+      "intro to CV & CNN_p17",
+      "AI Introduction_p16",
+      "AI Introduction_p22"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_80",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is the purpose of a “requirements.txt” (or similar dependency file) in a Python ML project?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Feature Selection in Machine Learning_p8",
+      "KNN_p21",
+      "Fine Tuning LLMs_p24"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_81",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is Jupyter Notebook primarily used for?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Fine Tuning LLMs_p45",
+      "RAG_p30",
+      "Fine Tuning LLMs_p58"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_82",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is ONNX primarily used for?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p1",
+      "DeepLearning_p37",
+      "AI Introduction_p20"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_83",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is the primary difference between a static computation graph and a dynamic computation graph?",
+    "key": [
+      "A"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Exploratory Data Analysis_p17",
+      "RAG_p18",
+      "Generative AI & Diffusion models_p39"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_84",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is the primary purpose of a GPU in deep learning workloads?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "intro to CV & CNN_p29",
+      "intro to CV & CNN_p24",
+      "Fine Tuning LLMs_p51"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_85",
+    "section": "Frameworks & Tools",
+    "type": "multiple",
+    "question": "Which of the following are characteristics of eager execution in TensorFlow 2.x?",
+    "key": [
+      "C",
+      "D"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "intro to CV & CNN_p17",
+      "decision tree & ensemble learning_p97",
+      "Generative AI & Diffusion models_p9"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_86",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "Which of the following is NOT a characteristic of PyTorch?",
+    "key": [
+      "C"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Generative AI & Diffusion models_p39",
+      "Exploratory Data Analysis_p17",
+      "NLP - Text preprocessing_p51"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_87",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "Which of the following is used in TensorFlow to describe the computation process?",
+    "key": [
+      "C"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "intro to CV & CNN_p17",
+      "intro to CV & CNN_p24",
+      "intro to CV & CNN_p29"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_88",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What is version control (e.g., Git) primarily used for in an ML project?",
+    "key": [
+      "A"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Fine Tuning LLMs_p43",
+      "AI Introduction_p2",
+      "Fine Tuning LLMs_p45"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_89",
+    "section": "Frameworks & Tools",
+    "type": "multiple",
+    "question": "Which of the following are typical reasons to use a cloud-based AI development platform (such as ModelArts)?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "RAG_p26",
+      "RAG_p23",
+      "AI Introduction_p41"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_90",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "Which of the following best describes MindSpore?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "RAG_p26",
+      "RAG_p25",
+      "RAG_p24"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_91",
+    "section": "Frameworks & Tools",
+    "type": "single",
+    "question": "What does “model checkpointing” refer to during training?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Fine Tuning LLMs_p35",
+    "retrieved": [
+      "Fine Tuning LLMs_p35",
+      "DeepLearning_p71",
+      "Fine Tuning LLMs_p50"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_92",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What is “instruction tuning” in the context of large language models?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "Fine Tuning LLMs_p20",
+    "retrieved": [
+      "Fine Tuning LLMs_p1",
+      "Fine Tuning LLMs_p20",
+      "Fine Tuning LLMs_p2"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_93",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "The development of large models requires not only training and fine-tuning, but also evaluation. Which of the following are reasons for evaluating large models?",
+    "key": [
+      "C",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "source": "Fine Tuning LLMs_p39",
+    "retrieved": [
+      "Fine Tuning LLMs_p1",
+      "Fine Tuning LLMs_p39",
+      "Generative AI & Diffusion models_p10"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_94",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What is “catastrophic forgetting” in the context of fine-tuning a pre-trained model?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "Fine Tuning LLMs_p56",
+    "retrieved": [
+      "Fine Tuning LLMs_p2",
+      "DeepLearning_p81",
+      "Fine Tuning LLMs_p56"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_95",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "Which of the following are considered parameter-efficient fine-tuning (PEFT) methods?",
+    "key": [
+      "A",
+      "C",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "C"
+    ],
+    "source": "Fine Tuning LLMs_p16",
+    "retrieved": [
+      "Fine Tuning LLMs_p12",
+      "Fine Tuning LLMs_p16",
+      "Fine Tuning LLMs_p17"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_96",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "Which of the following statements about adapter tuning is correct?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "Fine Tuning LLMs_p44",
+    "retrieved": [
+      "Fine Tuning LLMs_p44",
+      "Fine Tuning LLMs_p2",
+      "Fine Tuning LLMs_p50"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_97",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What best describes RLHF (Reinforcement Learning from Human Feedback)?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "AI Introduction_p31",
+    "retrieved": [
+      "Fine Tuning LLMs_p43",
+      "AI Introduction_p31",
+      "AI Introduction_p21"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_98",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "Which of the following may be included in the training dataset of GPT-3?",
+    "key": [
+      "B",
+      "C",
+      "D"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Word Embedding_p32",
+      "Attention & transformers_p44",
+      "Attention & transformers_p47"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_99",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What does “zero-shot learning” mean for a large language model?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Fine Tuning LLMs_p3",
+      "linear regression_p51",
+      "AI Introduction_p36"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_100",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What does “context window” refer to in a large language model?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Attention & transformers_p31",
+      "Attention & transformers_p24",
+      "intro to CV & CNN_p41"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_101",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What is “model distillation” primarily used for?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "linear regression_p48",
+      "AI Introduction_p36",
+      "DeepLearning_p71"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_102",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "Which of the following fine-tuning methods do NOT change the Transformer block structure of a large model?",
+    "key": [
+      "C",
+      "D"
+    ],
+    "predicted": [
+      "C",
+      "D"
+    ],
+    "source": "Fine Tuning LLMs_p16",
+    "retrieved": [
+      "Fine Tuning LLMs_p16",
+      "Fine Tuning LLMs_p17",
+      "Fine Tuning LLMs_p1"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_103",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "Which of the following statements about foundation models is correct?",
+    "key": [
+      "C"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "AI Introduction_p14",
+      "AI Introduction_p10",
+      "AI Introduction_p15"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_104",
+    "section": "Large Models & Fine-Tuning",
+    "type": "multiple",
+    "question": "Which of the following are common risks or limitations associated with large language models?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Fine Tuning LLMs_p4",
+      "decision tree & ensemble learning & random forest_p54",
+      "Generative AI & Diffusion models_p9"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_105",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What is “prompt engineering” in the context of large language models?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Fine Tuning LLMs_p7",
+    "retrieved": [
+      "Fine Tuning LLMs_p7",
+      "Fine Tuning LLMs_p1",
+      "Fine Tuning LLMs_p10"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_106",
+    "section": "Large Models & Fine-Tuning",
+    "type": "single",
+    "question": "What does “few-shot learning” mean in the context of large language models?",
+    "key": [
+      "A"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Fine Tuning LLMs_p28",
+      "Fine Tuning LLMs_p7",
+      "Fine Tuning LLMs_p2"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_107",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "Which of the following statements about data parallelism is correct?",
+    "key": [
+      "C"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p72",
+      "DeepLearning_p73",
+      "decision tree & ensemble learning & random forest_p6"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_108",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "In tensor (model) parallelism, what is typically split across devices?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Fine Tuning LLMs_p32",
+      "intro to CV & CNN_p24",
+      "Fine Tuning LLMs_p30"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_109",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "What is the primary motivation for using parallel training strategies (data, model, or pipeline parallelism) for large models?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Generative AI & Diffusion models_p10",
+      "DeepLearning_p71",
+      "DeepLearning_p39"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_110",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "What is a common technique to reduce communication overhead when synchronizing gradients across many devices in data-parallel training?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p74",
+      "DeepLearning_p17",
+      "DeepLearning_p47"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_111",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "What is “mixed precision training” primarily used for?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Fine Tuning LLMs_p15",
+    "retrieved": [
+      "Fine Tuning LLMs_p15",
+      "DeepLearning_p81",
+      "KNN_p9"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_112",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "What is the “master node” typically responsible for in a distributed training setup?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "KNN_p9",
+      "DeepLearning_p17",
+      "Fine Tuning LLMs_p25"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_113",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "Which of the following statements about pipeline parallelism is correct?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Fine Tuning LLMs_p25",
+      "KNN_p57",
+      "Logistic Regression_p10"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_114",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "Which parallelism strategy is most associated with dividing a model's layers into sequential stages placed on different devices, with micro-batches flowing through the stages?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Fine Tuning LLMs_p25",
+      "intro to CV & CNN_p24",
+      "Fine Tuning LLMs_p27"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_115",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "Tensor parallelism is a common method for parallel training of large models. Which type of model data is split across different devices?",
+    "key": [
+      "C"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "intro to CV & CNN_p24",
+      "Fine Tuning LLMs_p30",
+      "intro to CV & CNN_p29"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_116",
+    "section": "Parallel Training",
+    "type": "single",
+    "question": "In data parallelism, what does each computing device (worker) typically hold a copy of?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "AI Introduction_p17",
+      "decision tree & ensemble learning_p75",
+      "Fine Tuning LLMs_p25"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_117",
+    "section": "Parallel Training",
+    "type": "multiple",
+    "question": "Which of the following are strategies used to reduce memory usage when training very large models?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "KNN_p9",
+      "Fine Tuning LLMs_p56",
+      "DeepLearning_p43"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_118",
+    "section": "Parallel Training",
+    "type": "multiple",
+    "question": "Which of the following are common challenges associated with distributed/parallel training of large models?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "DeepLearning_p17",
+      "DeepLearning_p71",
+      "Generative AI & Diffusion models_p11"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_119",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "multiple",
+    "question": "Data augmentation can improve model robustness and avoid overfitting. Which of the following are data augmentation methods?",
+    "key": [
+      "B",
+      "C",
+      "D"
+    ],
+    "predicted": [
+      "B",
+      "C"
+    ],
+    "source": "intro to CV & CNN_p26",
+    "retrieved": [
+      "intro to CV & CNN_p25",
+      "intro to CV & CNN_p26",
+      "intro to CV & CNN_p29"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_120",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "What is “class imbalance” in a classification dataset?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Imbalanced Data_p3",
+    "retrieved": [
+      "Imbalanced Data_p7",
+      "Imbalanced Data_p11",
+      "Imbalanced Data_p3"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_121",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "What is “feature engineering”?",
+    "key": [
+      "A"
+    ],
+    "predicted": [
+      "A"
+    ],
+    "source": "Word Embedding_p1",
+    "retrieved": [
+      "Word Embedding_p1",
+      "Feature Selection in Machine Learning_p28",
+      "AI Introduction_p35"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_122",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "multiple",
+    "question": "Which of the following are valid reasons to use the F1 score instead of accuracy alone?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "B",
+      "D"
+    ],
+    "source": "Logistic Regression_p20",
+    "retrieved": [
+      "Logistic Regression_p20",
+      "Logistic Regression_p23",
+      "Fine Tuning LLMs_p40"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_123",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "multiple",
+    "question": "Which of the following statements about data preprocessing are true?",
+    "key": [
+      "B",
+      "C",
+      "D"
+    ],
+    "predicted": [
+      "C",
+      "D"
+    ],
+    "source": "Exploratory Data Analysis_p4",
+    "retrieved": [
+      "Exploratory Data Analysis_p4",
+      "Exploratory Data Analysis_p2",
+      "AI Introduction_p34"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_124",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "Which of the following best describes “precision” in classification evaluation?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Fine Tuning LLMs_p40",
+    "retrieved": [
+      "Logistic Regression_p19",
+      "Imbalanced Data_p6",
+      "Fine Tuning LLMs_p40"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_125",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "multiple",
+    "question": "Which of the following can cause a machine learning model to perform poorly on real-world data despite good training accuracy?",
+    "key": [
+      "A",
+      "B",
+      "D"
+    ],
+    "predicted": [
+      "A",
+      "D"
+    ],
+    "source": "DeepLearning_p81",
+    "retrieved": [
+      "DeepLearning_p81",
+      "Imbalanced Data_p1",
+      "DeepLearning_p82"
+    ],
+    "status": "wrong"
+  },
+  {
+    "id": "bank_126",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "What is the purpose of splitting a dataset into training, validation, and test sets?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Fine Tuning LLMs_p19",
+    "retrieved": [
+      "decision tree & ensemble learning & random forest_p53",
+      "Fine Tuning LLMs_p19",
+      "linear regression_p48"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_127",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "Which metric is most appropriate for evaluating a regression model's prediction error?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "linear regression_p21",
+    "retrieved": [
+      "linear regression_p21",
+      "linear regression_p18",
+      "linear regression_p20"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_128",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "In a confusion matrix for binary classification, what does a “false positive” represent?",
+    "key": [
+      "C"
+    ],
+    "predicted": [
+      "C"
+    ],
+    "source": "Imbalanced Data_p6",
+    "retrieved": [
+      "Logistic Regression_p19",
+      "Imbalanced Data_p6",
+      "Logistic Regression_p22"
+    ],
+    "status": "correct"
+  },
+  {
+    "id": "bank_129",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "Why is data normalization/standardization often applied before training a model?",
+    "key": [
+      "B"
+    ],
+    "predicted": [],
+    "source": null,
+    "retrieved": [
+      "Feature Selection in Machine Learning_p4",
+      "Feature Selection in Machine Learning_p26",
+      "Feature Selection in Machine Learning_p10"
+    ],
+    "status": "not in lectures"
+  },
+  {
+    "id": "bank_130",
+    "section": "Data Preprocessing & Evaluation",
+    "type": "single",
+    "question": "Which of the following best describes “recall” in classification evaluation?",
+    "key": [
+      "B"
+    ],
+    "predicted": [
+      "B"
+    ],
+    "source": "Imbalanced Data_p6",
+    "retrieved": [
+      "Logistic Regression_p19",
+      "Logistic Regression_p24",
+      "Imbalanced Data_p6"
+    ],
+    "status": "correct"
+  }
+]
